@@ -58,7 +58,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_jpyng")
 
-[node name="EnemyContainer" parent="." instance=ExtResource("2_vy6mq")]
+[node name="Enemy" parent="." instance=ExtResource("2_vy6mq")]
 layout_mode = 0
 anchors_preset = 0
 anchor_left = 0.0
@@ -71,6 +71,7 @@ offset_right = 864.0
 offset_bottom = 1171.0
 grow_horizontal = 1
 grow_vertical = 1
+scale = Vector2(0.5, 0.5)
 
 [node name="PlayerPanel" type="Panel" parent="."]
 layout_mode = 1

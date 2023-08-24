@@ -23,8 +23,9 @@ base_font = ExtResource("1_47lac")
 spacing_top = -1
 spacing_bottom = 2
 
-[node name="EnemyContainer" type="VBoxContainer"]
+[node name="EnemyContainer" type="Control"]
 layout_direction = 1
+layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -41,6 +42,8 @@ grow_vertical = 2
 custom_minimum_size = Vector2(0, 16)
 layout_direction = 1
 layout_mode = 2
+offset_right = 857.0
+offset_bottom = 16.0
 theme_override_styles/background = SubResource("StyleBoxFlat_m2jo0")
 theme_override_styles/fill = SubResource("StyleBoxFlat_2ybu8")
 step = 1.0
@@ -63,5 +66,8 @@ vertical_alignment = 1
 
 [node name="Enemy" type="TextureRect" parent="."]
 layout_mode = 2
+offset_top = 20.0
+offset_right = 857.0
+offset_bottom = 1100.0
 texture = ExtResource("2_7h7ea")
 flip_h = true
