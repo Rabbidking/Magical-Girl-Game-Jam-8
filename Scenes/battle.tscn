@@ -1,8 +1,27 @@
-[gd_scene load_steps=11 format=3 uid="uid://dts42exsgao3l"]
+[gd_scene load_steps=23 format=3 uid="uid://dts42exsgao3l"]
 
+[ext_resource type="Script" path="res://Scripts/battle.gd" id="1_7vh5k"]
 [ext_resource type="Texture2D" uid="uid://dl5tt8v0y2b7v" path="res://BG/battleback1.png" id="1_jpyng"]
+[ext_resource type="Resource" uid="uid://ccjscgc06xbup" path="res://Scripts/Lizardwoman.tres" id="2_i6uxs"]
 [ext_resource type="FontFile" uid="uid://bhnyl4v1ydf0o" path="res://NESCyrillic.ttf" id="2_ittsq"]
-[ext_resource type="PackedScene" uid="uid://cr7ovkavtj4te" path="res://Scenes/Enemy.tscn" id="2_vy6mq"]
+[ext_resource type="FontVariation" uid="uid://cehwtw2yg7pdc" path="res://NES.tres" id="4_ig3rg"]
+[ext_resource type="FontFile" uid="uid://cw8ksqql47ayn" path="res://Adventurer.ttf" id="4_npueg"]
+[ext_resource type="Texture2D" uid="uid://cy61d0ahcwq6b" path="res://Assets/Sprites/Enemy/Lizardwoman.png" id="5_pr5gj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1gc8j"]
+bg_color = Color(1, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d7neg"]
+bg_color = Color(0, 0.744571, 3.85046e-07, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ew0dr"]
 bg_color = Color(0, 0, 0, 0.509804)
@@ -22,11 +41,6 @@ expand_margin_bottom = 1.0
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ybu8"]
 bg_color = Color(0, 0.721569, 0.282353, 1)
 
-[sub_resource type="FontVariation" id="FontVariation_acqim"]
-base_font = ExtResource("2_ittsq")
-spacing_top = -1
-spacing_bottom = 2
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vpa5y"]
 bg_color = Color(0, 0, 0, 1)
 border_width_left = 1
@@ -41,6 +55,125 @@ bg_color = Color(1, 1, 1, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_okp46"]
 bg_color = Color(1, 1, 1, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u1n8a"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Animation" id="Animation_gyoea"]
+resource_name = "enemy_damaged"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EnemyContainer/Enemy:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ajha8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EnemyContainer/Enemy:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("EnemyContainer:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_gwd2r"]
+resource_name = "shake"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(16, 16), Vector2(-10, 12), Vector2(10, -8), Vector2(-14, -10), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_v8lbn"]
+resource_name = "mini_shake"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(2, 2), Vector2(-2, 2), Vector2(-1, -2), Vector2(1, -2), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_uhl5n"]
+resource_name = "enemy_die"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EnemyContainer:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 1), Color(1, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mtei2"]
+_data = {
+"RESET": SubResource("Animation_ajha8"),
+"enemy_damaged": SubResource("Animation_gyoea"),
+"enemy_die": SubResource("Animation_uhl5n"),
+"mini_shake": SubResource("Animation_v8lbn"),
+"shake": SubResource("Animation_gwd2r")
+}
+
 [node name="Battle" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -48,8 +181,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_7vh5k")
+enemy = ExtResource("2_i6uxs")
 
 [node name="Background" type="TextureRect" parent="."]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -57,23 +193,47 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_jpyng")
+expand_mode = 1
 
-[node name="Enemy" parent="." instance=ExtResource("2_vy6mq")]
+[node name="EnemyContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
-anchors_preset = 0
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 7.0
-offset_top = 71.0
-offset_right = 864.0
-offset_bottom = 1171.0
-grow_horizontal = 1
-grow_vertical = 1
-scale = Vector2(0.5, 0.5)
+offset_left = 799.0
+offset_top = 96.0
+offset_right = 1656.0
+offset_bottom = 1207.0
+scale = Vector2(0.4, 0.4)
+
+[node name="ProgressBar" type="ProgressBar" parent="EnemyContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_1gc8j")
+theme_override_styles/fill = SubResource("StyleBoxFlat_d7neg")
+step = 1.0
+value = 50.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="EnemyContainer/ProgressBar"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_ig3rg")
+theme_override_font_sizes/font_size = 32
+text = "HP: 25/50"
+horizontal_alignment = 1
+
+[node name="Enemy" type="TextureRect" parent="EnemyContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("5_pr5gj")
+stretch_mode = 3
 
 [node name="PlayerPanel" type="Panel" parent="."]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -92,15 +252,17 @@ scale = Vector2(1.5, 1.5)
 alignment = 1
 
 [node name="Label" type="Label" parent="PlayerPanel/PlayerData"]
+texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("2_ittsq")
+theme_override_fonts/font = ExtResource("4_ig3rg")
 theme_override_font_sizes/font_size = 32
 text = "PLAYER"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ProgressBar" type="ProgressBar" parent="PlayerPanel/PlayerData"]
+texture_filter = 1
 custom_minimum_size = Vector2(0, 16)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -112,6 +274,7 @@ value = 50.0
 show_percentage = false
 
 [node name="Label" type="Label" parent="PlayerPanel/PlayerData/ProgressBar"]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -119,8 +282,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("FontVariation_acqim")
-theme_override_font_sizes/font_size = 16
+theme_override_fonts/font = ExtResource("4_ig3rg")
 text = "HP: 25/50"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -134,12 +296,16 @@ grow_horizontal = 2
 
 [node name="Actions" type="HBoxContainer" parent="ActionsPanel"]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = 12.0
+offset_right = -12.0
+offset_bottom = -12.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 6
+theme_override_constants/separation = 12
 alignment = 1
 
 [node name="Attack" type="Button" parent="ActionsPanel/Actions"]
@@ -186,3 +352,60 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_vpa5y")
 theme_override_styles/hover = SubResource("StyleBoxFlat_sojgh")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_okp46")
 text = "RUN"
+
+[node name="Text" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = 128.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_u1n8a")
+
+[node name="Label" type="Label" parent="Text"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_npueg")
+theme_override_font_sizes/font_size = 32
+text = "Text goes here!"
+
+[node name="Tick" type="Label" parent="Text"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -28.0
+offset_top = -43.0
+offset_right = -14.0
+offset_bottom = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("4_npueg")
+theme_override_font_sizes/font_size = 32
+text = ">"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_mtei2")
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[connection signal="pressed" from="ActionsPanel/Actions/Attack" to="." method="_on_attack_pressed"]
+[connection signal="pressed" from="ActionsPanel/Actions/Defend" to="." method="_on_defend_pressed"]
+[connection signal="pressed" from="ActionsPanel/Actions/Run" to="." method="_on_run_pressed"]
