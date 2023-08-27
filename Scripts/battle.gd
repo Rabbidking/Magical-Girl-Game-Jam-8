@@ -75,7 +75,7 @@ func _process(delta):
 func _on_run_pressed():
 	display_text("Got away safely!")
 	await textbox_closed
-	await get_tree().create_timer(0.25)
+	await get_tree().create_timer(0.25).timeout
 	get_tree().quit()
 
 
@@ -100,7 +100,7 @@ func _on_attack_pressed():
 		
 		$AnimationPlayer.play("enemy_die")
 		await $AnimationPlayer.animation_finished
-		await get_tree().create_timer(0.25)
+		await get_tree().create_timer(0.25).timeout
 		get_tree().quit()
 	
 	enemy_turn()
@@ -111,6 +111,6 @@ func _on_defend_pressed():
 	is_defending = true
 	display_text("You prepare defensively!")
 	await textbox_closed
-	await get_tree().create_timer(0.25)
+	await get_tree().create_timer(0.25).timeout
 	enemy_turn()
 	
