@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://mpmu52v5pq6b"]
+
+[ext_resource type="Script" path="res://Scripts/base_enemy.gd" id="1_dlo82"]
+[ext_resource type="Texture2D" uid="uid://xdkc0wo0gh72" path="res://Assets/Sprites/Enemy/Lamia.png" id="2_awju8"]
+
+[resource]
+script = ExtResource("1_dlo82")
+name = "Lamia"
+texture = ExtResource("2_awju8")
+health = 100
+damage = 40

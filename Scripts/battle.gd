@@ -9,6 +9,7 @@ var cur_enemy_health = 0
 var is_defending = false
 
 func _ready():
+	randomize()
 	set_health($PlayerPanel/PlayerData/ProgressBar, State.cur_health, State.max_health)
 	set_health($EnemyContainer/ProgressBar, enemy.health, enemy.health)
 	$EnemyContainer/Enemy.texture = enemy.texture
@@ -42,28 +43,127 @@ func display_text(text):
 	
 func enemy_turn():
 	#display some text
-	display_text("%s launches at you fiercely!" % enemy.name)
-	await textbox_closed
+	var enemy_attack = randi() % 4
 	
-	if is_defending:
-		is_defending = false
-		
-		$AnimationPlayer.play("mini_shake")
-		await $AnimationPlayer.animation_finished
-		
-		display_text("You defended successfully!")
-		await textbox_closed
-		
-	else:
-		#player health decreases
-		cur_player_health = max(0, cur_player_health - enemy.damage)
-		set_health($PlayerPanel/PlayerData/ProgressBar, cur_player_health, State.max_health)
-		
-		$AnimationPlayer.play("shake")
-		await $AnimationPlayer.animation_finished
+	match enemy_attack:
+		0:
+			display_text("%s launches at you fiercely!" % enemy.name)
+			await textbox_closed
+			
+			if is_defending:
+				is_defending = false
+				
+				$AnimationPlayer.play("mini_shake")
+				await $AnimationPlayer.animation_finished
+				
+				display_text("You defended successfully!")
+				await textbox_closed
+				
+			else:
+				#player health decreases
+				cur_player_health = max(0, cur_player_health - enemy.damage1)
+				set_health($PlayerPanel/PlayerData/ProgressBar, cur_player_health, State.max_health)
+				
+				$AnimationPlayer.play("shake")
+				await $AnimationPlayer.animation_finished
+			
+				display_text("%s dealt %d damage!" % [enemy.name.to_upper(), enemy.damage1])
+				await textbox_closed
+				
+		1:
+			display_text("%s lunges quickly!" % enemy.name)
+			await textbox_closed
+			
+			if is_defending:
+				is_defending = false
+				
+				$AnimationPlayer.play("mini_shake")
+				await $AnimationPlayer.animation_finished
+				
+				display_text("You defended successfully!")
+				await textbox_closed
+				
+			else:
+				#player health decreases
+				cur_player_health = max(0, cur_player_health - enemy.damage2)
+				set_health($PlayerPanel/PlayerData/ProgressBar, cur_player_health, State.max_health)
+				
+				$AnimationPlayer.play("shake")
+				await $AnimationPlayer.animation_finished
+			
+				display_text("%s dealt %d damage!" % [enemy.name.to_upper(), enemy.damage2])
+				await textbox_closed
+				
+		2:
+			display_text("%s lets out a battle cry!" % enemy.name)
+			await textbox_closed
+			
+			if is_defending:
+				is_defending = false
+				
+				$AnimationPlayer.play("mini_shake")
+				await $AnimationPlayer.animation_finished
+				
+				display_text("You defended successfully!")
+				await textbox_closed
+				
+			else:
+				#player health decreases
+				cur_player_health = max(0, cur_player_health - enemy.damage3)
+				set_health($PlayerPanel/PlayerData/ProgressBar, cur_player_health, State.max_health)
+				
+				$AnimationPlayer.play("shake")
+				await $AnimationPlayer.animation_finished
+			
+				display_text("%s dealt %d damage!" % [enemy.name.to_upper(), enemy.damage3])
+				await textbox_closed
+				
+		3:
+			display_text("%s swings its tail!" % enemy.name)
+			await textbox_closed
+			
+			if is_defending:
+				is_defending = false
+				
+				$AnimationPlayer.play("mini_shake")
+				await $AnimationPlayer.animation_finished
+				
+				display_text("You defended successfully!")
+				await textbox_closed
+				
+			else:
+				#player health decreases
+				cur_player_health = max(0, cur_player_health - enemy.damage4)
+				set_health($PlayerPanel/PlayerData/ProgressBar, cur_player_health, State.max_health)
+				
+				$AnimationPlayer.play("shake")
+				await $AnimationPlayer.animation_finished
+			
+				display_text("%s dealt %d damage!" % [enemy.name.to_upper(), enemy.damage4])
+				await textbox_closed
 	
-		display_text("%s dealt %d damage!" % [enemy.name.to_upper(), enemy.damage])
-		await textbox_closed
+	#display_text("%s launches at you fiercely!" % enemy.name)
+	#await textbox_closed
+	
+#	if is_defending:
+#		is_defending = false
+#
+#		$AnimationPlayer.play("mini_shake")
+#		await $AnimationPlayer.animation_finished
+#
+#		display_text("You defended successfully!")
+#		await textbox_closed
+#
+#	else:
+#		#player health decreases
+#		cur_player_health = max(0, cur_player_health - enemy.damage)
+#		set_health($PlayerPanel/PlayerData/ProgressBar, cur_player_health, State.max_health)
+#
+#		$AnimationPlayer.play("shake")
+#		await $AnimationPlayer.animation_finished
+#
+#		display_text("%s dealt %d damage!" % [enemy.name.to_upper(), enemy.damage])
+#		await textbox_closed
 		
 	$ActionsPanel.show()
 

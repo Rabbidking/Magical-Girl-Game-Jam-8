@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://bk1vamtcwga6j"]
+
+[ext_resource type="Script" path="res://Scripts/base_enemy.gd" id="1_u4qxq"]
+[ext_resource type="Texture2D" uid="uid://b7r3662yxbwve" path="res://Assets/Sprites/Enemy/Cockatrice.png" id="2_wetr0"]
+
+[resource]
+script = ExtResource("1_u4qxq")
+name = "Cockatrice"
+texture = ExtResource("2_wetr0")
+health = 30
+damage = 10

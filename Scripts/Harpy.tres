@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://3plebjvth4f"]
+
+[ext_resource type="Script" path="res://Scripts/base_enemy.gd" id="1_utw50"]
+[ext_resource type="Texture2D" uid="uid://obmhh3soovdp" path="res://Assets/Sprites/Enemy/Harpy.png" id="2_gv2iw"]
+
+[resource]
+script = ExtResource("1_utw50")
+name = "Harpy"
+texture = ExtResource("2_gv2iw")
+health = 50
+damage1 = 20
+damage2 = 20
+damage3 = 20
+damage4 = 20
