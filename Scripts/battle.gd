@@ -202,7 +202,7 @@ func _on_attack_pressed():
 		await $AnimationPlayer.animation_finished
 		await get_tree().create_timer(0.25).timeout
 		get_tree().quit()
-	
+		
 	enemy_turn()
 	
 
