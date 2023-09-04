@@ -60,18 +60,30 @@ layout_mode = 2
 
 [node name="Cursor" parent="." instance=ExtResource("4_h0o8q")]
 layout_mode = 0
+offset_left = 38.0
+offset_top = 36.0
+offset_right = 102.0
+offset_bottom = 100.0
 menu_parent_path = NodePath("../NinePatchRect/GridContainer")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.1
 one_shot = true
 
+[connection signal="button_pressed" from="NinePatchRect/GridContainer/Shop_Slot" to="." method="_on_shop_slot_button_pressed"]
 [connection signal="cursor_selected" from="NinePatchRect/GridContainer/Shop_Slot" to="." method="_on_shop_slot_cursor_selected"]
+[connection signal="button_pressed" from="NinePatchRect/GridContainer/Shop_Slot2" to="." method="_on_shop_slot_2_button_pressed"]
 [connection signal="cursor_selected" from="NinePatchRect/GridContainer/Shop_Slot2" to="." method="_on_shop_slot_2_cursor_selected"]
+[connection signal="button_pressed" from="NinePatchRect/GridContainer/Shop_Slot3" to="." method="_on_shop_slot_3_button_pressed"]
 [connection signal="cursor_selected" from="NinePatchRect/GridContainer/Shop_Slot3" to="." method="_on_shop_slot_3_cursor_selected"]
+[connection signal="button_pressed" from="NinePatchRect/GridContainer/Shop_Slot4" to="." method="_on_shop_slot_4_button_pressed"]
 [connection signal="cursor_selected" from="NinePatchRect/GridContainer/Shop_Slot4" to="." method="_on_shop_slot_4_cursor_selected"]
+[connection signal="button_pressed" from="NinePatchRect/GridContainer/Shop_Slot5" to="." method="_on_shop_slot_5_button_pressed"]
 [connection signal="cursor_selected" from="NinePatchRect/GridContainer/Shop_Slot5" to="." method="_on_shop_slot_5_cursor_selected"]
+[connection signal="button_pressed" from="NinePatchRect/GridContainer/Shop_Slot6" to="." method="_on_shop_slot_6_button_pressed"]
 [connection signal="cursor_selected" from="NinePatchRect/GridContainer/Shop_Slot6" to="." method="_on_shop_slot_6_cursor_selected"]
+[connection signal="button_pressed" from="NinePatchRect/GridContainer/Shop_Slot7" to="." method="_on_shop_slot_7_button_pressed"]
 [connection signal="cursor_selected" from="NinePatchRect/GridContainer/Shop_Slot7" to="." method="_on_shop_slot_7_cursor_selected"]
+[connection signal="button_pressed" from="NinePatchRect/GridContainer/Shop_Slot8" to="." method="_on_shop_slot_8_button_pressed"]
 [connection signal="cursor_selected" from="NinePatchRect/GridContainer/Shop_Slot8" to="." method="_on_shop_slot_8_cursor_selected"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,12 +1,14 @@
-[gd_scene load_steps=26 format=3 uid="uid://dts42exsgao3l"]
+[gd_scene load_steps=28 format=3 uid="uid://dts42exsgao3l"]
 
 [ext_resource type="Script" path="res://Scripts/battle.gd" id="1_7vh5k"]
 [ext_resource type="Texture2D" uid="uid://dl5tt8v0y2b7v" path="res://BG/battleback1.png" id="1_jpyng"]
 [ext_resource type="Resource" uid="uid://ccjscgc06xbup" path="res://Scripts/Lizardwoman.tres" id="2_i6uxs"]
-[ext_resource type="FontFile" uid="uid://bhnyl4v1ydf0o" path="res://NESCyrillic.ttf" id="2_ittsq"]
-[ext_resource type="FontVariation" uid="uid://cehwtw2yg7pdc" path="res://NES.tres" id="4_ig3rg"]
-[ext_resource type="FontFile" uid="uid://cw8ksqql47ayn" path="res://Adventurer.ttf" id="4_npueg"]
+[ext_resource type="FontFile" uid="uid://ydbxqvda7gfr" path="res://NESCyrillic.ttf" id="2_ittsq"]
+[ext_resource type="FontVariation" path="res://NES.tres" id="4_ig3rg"]
+[ext_resource type="FontFile" uid="uid://3bsqb7c7o45l" path="res://Adventurer.ttf" id="4_npueg"]
 [ext_resource type="Texture2D" uid="uid://cy61d0ahcwq6b" path="res://Assets/Sprites/Enemy/Lizardwoman.png" id="5_pr5gj"]
+[ext_resource type="Script" path="res://Scripts/Actions.gd" id="7_lg8tm"]
+[ext_resource type="PackedScene" uid="uid://7pbpaipl6xhg" path="res://Scenes/cursor.tscn" id="7_oqjqt"]
 [ext_resource type="PackedScene" uid="uid://cs2k4tas2m42" path="res://Scenes/inventory_gui.tscn" id="8_aygqv"]
 [ext_resource type="Script" path="res://Scripts/Render.gd" id="8_hn75r"]
 [ext_resource type="PackedScene" uid="uid://bv2l2sim1wevf" path="res://Scenes/shop_gui.tscn" id="10_nvjgh"]
@@ -325,6 +327,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_vpa5y")
 theme_override_styles/hover = SubResource("StyleBoxFlat_sojgh")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_okp46")
 text = "ATTACK"
+script = ExtResource("7_lg8tm")
 
 [node name="Item" type="Button" parent="ActionsPanel/Actions"]
 layout_mode = 2
@@ -340,6 +343,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_vpa5y")
 theme_override_styles/hover = SubResource("StyleBoxFlat_sojgh")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_okp46")
 text = "Item"
+script = ExtResource("7_lg8tm")
 
 [node name="Shop" type="Button" parent="ActionsPanel/Actions"]
 layout_mode = 2
@@ -355,6 +359,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_vpa5y")
 theme_override_styles/hover = SubResource("StyleBoxFlat_sojgh")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_okp46")
 text = "SHOP"
+script = ExtResource("7_lg8tm")
 
 [node name="Run" type="Button" parent="ActionsPanel/Actions"]
 layout_mode = 2
@@ -370,6 +375,15 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_vpa5y")
 theme_override_styles/hover = SubResource("StyleBoxFlat_sojgh")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_okp46")
 text = "RUN"
+script = ExtResource("7_lg8tm")
+
+[node name="Cursor" parent="ActionsPanel" instance=ExtResource("7_oqjqt")]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 12.0
+offset_right = 75.0
+offset_bottom = 76.0
+menu_parent_path = NodePath("../Actions")
 
 [node name="Text" type="Panel" parent="."]
 visible = false
@@ -451,12 +465,24 @@ libraries = {
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
 
+[node name="CursorBuffer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="cursor_selected" from="ActionsPanel/Actions/Attack" to="." method="_on_attack_cursor_selected"]
 [connection signal="pressed" from="ActionsPanel/Actions/Attack" to="." method="_on_attack_pressed"]
+[connection signal="cursor_selected" from="ActionsPanel/Actions/Item" to="." method="_on_item_cursor_selected"]
+[connection signal="cursor_selected" from="ActionsPanel/Actions/Item" to="ItemsPanel/CanvasLayer" method="_on_item_cursor_selected"]
+[connection signal="cursor_selected" from="ActionsPanel/Actions/Item" to="ItemsPanel/Inventory_GUI" method="_on_item_cursor_selected"]
 [connection signal="pressed" from="ActionsPanel/Actions/Item" to="." method="_on_item_pressed"]
 [connection signal="pressed" from="ActionsPanel/Actions/Item" to="ItemsPanel/CanvasLayer" method="_on_item_pressed"]
 [connection signal="pressed" from="ActionsPanel/Actions/Item" to="ItemsPanel/Inventory_GUI" method="_on_item_pressed"]
+[connection signal="cursor_selected" from="ActionsPanel/Actions/Shop" to="." method="_on_shop_cursor_selected"]
+[connection signal="cursor_selected" from="ActionsPanel/Actions/Shop" to="ItemsPanel/CanvasLayer" method="_on_shop_cursor_selected"]
+[connection signal="cursor_selected" from="ActionsPanel/Actions/Shop" to="ItemsPanel/Shop_GUI" method="_on_shop_cursor_selected"]
 [connection signal="pressed" from="ActionsPanel/Actions/Shop" to="ItemsPanel/CanvasLayer" method="_on_shop_pressed"]
 [connection signal="pressed" from="ActionsPanel/Actions/Shop" to="ItemsPanel/Shop_GUI" method="_on_shop_pressed"]
+[connection signal="cursor_selected" from="ActionsPanel/Actions/Run" to="." method="_on_run_cursor_selected"]
 [connection signal="pressed" from="ActionsPanel/Actions/Run" to="." method="_on_run_pressed"]
 [connection signal="closed" from="ItemsPanel/Inventory_GUI" to="." method="_on_inventory_gui_closed"]
 [connection signal="item_used" from="ItemsPanel/Inventory_GUI" to="." method="_on_inventory_gui_item_used"]
@@ -471,3 +497,4 @@ anchor_mode = 0
 [connection signal="add_toaster" from="ItemsPanel/Shop_GUI" to="ItemsPanel/Inventory_GUI" method="_on_shop_gui_add_toaster"]
 [connection signal="closed" from="ItemsPanel/Shop_GUI" to="." method="_on_shop_gui_closed"]
 [connection signal="opened" from="ItemsPanel/Shop_GUI" to="." method="_on_shop_gui_opened"]
+[connection signal="timeout" from="CursorBuffer" to="." method="_on_cursor_buffer_timeout"]
