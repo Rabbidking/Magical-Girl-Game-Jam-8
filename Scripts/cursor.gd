@@ -1,12 +1,13 @@
 extends TextureRect
 
 @export var menu_parent_path : NodePath
-@export var cursor_offset : Vector2
+#@export var cursor_offset : Vector2
 
 @onready var menu_parent := get_node(menu_parent_path)
 
 var cursor_index : int = 0
 var enabled = false
+var cursor_offset : Vector2
 
 func _process(_delta):
 	if enabled == true:
@@ -67,7 +68,11 @@ func cursor_enabled():
 	enabled = true
 	cursor_index = 0
 	
-	
 func cursor_disabled():
 	enabled = false
 	
+func shop_and_inventory_offset():
+	cursor_offset.x = -30
+	
+func battle_offset():
+	cursor_offset.x = -135

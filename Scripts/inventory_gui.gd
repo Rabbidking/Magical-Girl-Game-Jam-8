@@ -55,6 +55,7 @@ func _on_canvas_layer_add_item():
 	update()
 	
 	
+#Key Cursor Button Input
 func _on_slot_cursor_selected():
 	if inventory.items[0] != empty:
 		if inventory.items[0] == cupcake:
@@ -265,14 +266,17 @@ func _on_slot_8_cursor_selected():
 		
 	else:
 		print("nothing")
-
-	
-	
+		
+		
 func _on_battle_gui_open_inventory():
+	open()
+	
+func _on_item_cursor_selected():
 	open()
 	
 func _on_timer_timeout():
 	cursor.cursor_enabled()
+	cursor.shop_and_inventory_offset()
 	
 	
 func _on_shop_gui_add_cupcake():
@@ -410,7 +414,34 @@ func _on_shop_gui_add_apron():
 		else:
 			num += 1
 			print(num)
-
-
+			
+			
 func _on_item_pressed():
 	open()
+
+#Mouse Button Input
+func _on_slot_button_pressed():
+	_on_slot_cursor_selected()
+
+func _on_slot_2_button_pressed():
+	_on_slot_2_cursor_selected()
+
+func _on_slot_3_button_pressed():
+	_on_slot_3_cursor_selected()
+
+func _on_slot_4_button_pressed():
+	_on_slot_4_cursor_selected()
+
+func _on_slot_5_button_pressed():
+	_on_slot_5_cursor_selected()
+
+func _on_slot_6_button_pressed():
+	_on_slot_6_cursor_selected()
+
+func _on_slot_7_button_pressed():
+	_on_slot_7_cursor_selected()
+
+func _on_slot_8_button_pressed():
+	_on_slot_8_cursor_selected()
+
+

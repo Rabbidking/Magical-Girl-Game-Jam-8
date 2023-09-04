@@ -13,7 +13,12 @@ func update(item: Shop_Inventory):
 		itemSprite.texture = item.texture
 
 signal cursor_selected()
+signal button_pressed
 
 func cursor_select() -> void:
 	print(name)
 	emit_signal("cursor_selected")
+
+func _on_button_pressed():
+	print(name)
+	emit_signal("button_pressed")

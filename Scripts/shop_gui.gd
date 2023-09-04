@@ -57,8 +57,13 @@ func _on_canvas_layer_add_item():
 func _on_battle_gui_open_shop():
 	open()
 	
+func _on_shop_cursor_selected():
+	open()
+	
+#Key Cursor Input
 func _on_timer_timeout():
 	cursor.cursor_enabled()
+	cursor.shop_and_inventory_offset()
 	
 func _on_shop_slot_cursor_selected():
 	add_cupcake.emit()
@@ -84,7 +89,32 @@ func _on_shop_slot_7_cursor_selected():
 func _on_shop_slot_8_cursor_selected():
 	add_apron.emit()
 	
-
-
 func _on_shop_pressed():
 	open()
+
+#Mouse Button Input
+func _on_shop_slot_button_pressed():
+	add_cupcake.emit()
+
+func _on_shop_slot_2_button_pressed():
+	add_knife.emit()
+
+func _on_shop_slot_3_button_pressed():
+	add_toaster.emit()
+
+func _on_shop_slot_4_button_pressed():
+	add_molotov.emit()
+
+func _on_shop_slot_5_button_pressed():
+	add_poison.emit()
+
+func _on_shop_slot_6_button_pressed():
+	add_spice.emit()
+
+func _on_shop_slot_7_button_pressed():
+	add_mitts.emit()
+
+func _on_shop_slot_8_button_pressed():
+	add_apron.emit()
+
+

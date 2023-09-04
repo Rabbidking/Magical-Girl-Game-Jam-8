@@ -35,24 +35,25 @@ func _input(event):
 func _on_battle_gui_open_inventory():
 	inventory_sub = true
 	
-	
 func _on_battle_gui_open_shop():
 	shop_sub = true
-	
 	
 func _on_inventory_gui_closed():
 	pass
 	#battle.open()
 	
-	
 func _on_shop_gui_closed():
 	pass
 	#battle.open()
 	
-	
 func _on_item_pressed():
 	inventory_sub = true
 
-
 func _on_shop_pressed():
+	shop_sub = true
+
+func _on_item_cursor_selected():
+	inventory_sub = true
+
+func _on_shop_cursor_selected():
 	shop_sub = true
