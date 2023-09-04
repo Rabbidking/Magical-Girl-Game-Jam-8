@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7hpouycgm41p"]
+
+[ext_resource type="Script" path="res://Scripts/slot.gd" id="1_5qx2g"]
+[ext_resource type="Texture2D" uid="uid://cesubyhcfgfps" path="res://sample/Blue.png" id="1_qfv2l"]
+
+[node name="Slot" type="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(64, 64)
+offset_right = 64.0
+offset_bottom = 64.0
+script = ExtResource("1_5qx2g")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("1_qfv2l")
+centered = false
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(65, 65)
+layout_mode = 0
+offset_right = 65.0
+offset_bottom = 65.0
+
+[node name="Panel" type="Panel" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Item" type="Sprite2D" parent="CenterContainer/Panel"]
+scale = Vector2(0.13, 0.13)

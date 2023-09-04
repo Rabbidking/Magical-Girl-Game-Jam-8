@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Inventory_Item" load_steps=3 format=3 uid="uid://s2fxb8igxun8"]
+
+[ext_resource type="Script" path="res://Scripts/inventory_item.gd" id="1_wsm4n"]
+[ext_resource type="Texture2D" uid="uid://dtg1h0ewlbiiq" path="res://Assets/Sprites/Items/Toaster.png" id="2_t6it3"]
+
+[resource]
+script = ExtResource("1_wsm4n")
+name = "Unstable Toaster"
+texture = ExtResource("2_t6it3")

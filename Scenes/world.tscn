@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://conqtgd7m73bg"]
+
+[ext_resource type="Script" path="res://Scripts/world.gd" id="1_wry5n"]
+[ext_resource type="PackedScene" uid="uid://cs2k4tas2m42" path="res://Scenes/inventory_gui.tscn" id="2_rl4bg"]
+[ext_resource type="Script" path="res://Scripts/CanvasLayer.gd" id="5_evimm"]
+[ext_resource type="PackedScene" uid="uid://q83124j4wqwn" path="res://Scenes/battle_menu_gui.tscn" id="6_fxyaj"]
+[ext_resource type="PackedScene" uid="uid://bv2l2sim1wevf" path="res://Scenes/shop_gui.tscn" id="7_tpknt"]
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_wry5n")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
+script = ExtResource("5_evimm")
+
+[node name="Battle_GUI" parent="CanvasLayer" instance=ExtResource("6_fxyaj")]
+
+[node name="Inventory_GUI" parent="CanvasLayer" instance=ExtResource("2_rl4bg")]
+
+[node name="Shop_GUI" parent="CanvasLayer" instance=ExtResource("7_tpknt")]
+
+[connection signal="add_item" from="CanvasLayer" to="CanvasLayer/Inventory_GUI" method="_on_canvas_layer_add_item"]
+[connection signal="open_inventory" from="CanvasLayer/Battle_GUI" to="CanvasLayer" method="_on_battle_gui_open_inventory"]
+[connection signal="open_inventory" from="CanvasLayer/Battle_GUI" to="CanvasLayer/Inventory_GUI" method="_on_battle_gui_open_inventory"]
+[connection signal="open_shop" from="CanvasLayer/Battle_GUI" to="CanvasLayer" method="_on_battle_gui_open_shop"]
+[connection signal="open_shop" from="CanvasLayer/Battle_GUI" to="CanvasLayer/Shop_GUI" method="_on_battle_gui_open_shop"]
+[connection signal="closed" from="CanvasLayer/Inventory_GUI" to="CanvasLayer" method="_on_inventory_gui_closed"]
+[connection signal="add_apron" from="CanvasLayer/Shop_GUI" to="CanvasLayer/Inventory_GUI" method="_on_shop_gui_add_apron"]
+[connection signal="add_cupcake" from="CanvasLayer/Shop_GUI" to="CanvasLayer/Inventory_GUI" method="_on_shop_gui_add_cupcake"]
+[connection signal="add_knife" from="CanvasLayer/Shop_GUI" to="CanvasLayer/Inventory_GUI" method="_on_shop_gui_add_knife"]
+[connection signal="add_mitts" from="CanvasLayer/Shop_GUI" to="CanvasLayer/Inventory_GUI" method="_on_shop_gui_add_mitts"]
+[connection signal="add_molotov" from="CanvasLayer/Shop_GUI" to="CanvasLayer/Inventory_GUI" method="_on_shop_gui_add_molotov"]
+[connection signal="add_poison" from="CanvasLayer/Shop_GUI" to="CanvasLayer/Inventory_GUI" method="_on_shop_gui_add_poison"]
+[connection signal="add_spice" from="CanvasLayer/Shop_GUI" to="CanvasLayer/Inventory_GUI" method="_on_shop_gui_add_spice"]
+[connection signal="add_toaster" from="CanvasLayer/Shop_GUI" to="CanvasLayer/Inventory_GUI" method="_on_shop_gui_add_toaster"]
+[connection signal="closed" from="CanvasLayer/Shop_GUI" to="CanvasLayer" method="_on_shop_gui_closed"]

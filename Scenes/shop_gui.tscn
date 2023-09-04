@@ -1,0 +1,77 @@
+[gd_scene load_steps=5 format=3 uid="uid://bv2l2sim1wevf"]
+
+[ext_resource type="Script" path="res://Scripts/shop_gui.gd" id="1_nja2r"]
+[ext_resource type="Texture2D" uid="uid://c665plx0j6b0w" path="res://sample/Sky.png" id="2_xwmfa"]
+[ext_resource type="PackedScene" uid="uid://j1eleppaqkfr" path="res://Scenes/shop_slot.tscn" id="3_o0dkt"]
+[ext_resource type="PackedScene" uid="uid://7pbpaipl6xhg" path="res://Scenes/cursor.tscn" id="4_h0o8q"]
+
+[node name="Shop_GUI" type="Control"]
+custom_minimum_size = Vector2(1152, 648)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+script = ExtResource("1_nja2r")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 11.0
+offset_right = 1108.0
+offset_bottom = 386.0
+texture = ExtResource("2_xwmfa")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="GridContainer" type="GridContainer" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 25.0
+offset_right = 293.0
+offset_bottom = 157.0
+scale = Vector2(3.9, 2.5)
+columns = 4
+
+[node name="Shop_Slot" parent="NinePatchRect/GridContainer" instance=ExtResource("3_o0dkt")]
+layout_mode = 2
+
+[node name="Shop_Slot2" parent="NinePatchRect/GridContainer" instance=ExtResource("3_o0dkt")]
+layout_mode = 2
+
+[node name="Shop_Slot3" parent="NinePatchRect/GridContainer" instance=ExtResource("3_o0dkt")]
+layout_mode = 2
+
+[node name="Shop_Slot4" parent="NinePatchRect/GridContainer" instance=ExtResource("3_o0dkt")]
+layout_mode = 2
+
+[node name="Shop_Slot5" parent="NinePatchRect/GridContainer" instance=ExtResource("3_o0dkt")]
+layout_mode = 2
+
+[node name="Shop_Slot6" parent="NinePatchRect/GridContainer" instance=ExtResource("3_o0dkt")]
+layout_mode = 2
+
+[node name="Shop_Slot7" parent="NinePatchRect/GridContainer" instance=ExtResource("3_o0dkt")]
+layout_mode = 2
+
+[node name="Shop_Slot8" parent="NinePatchRect/GridContainer" instance=ExtResource("3_o0dkt")]
+layout_mode = 2
+
+[node name="Cursor" parent="." instance=ExtResource("4_h0o8q")]
+layout_mode = 0
+menu_parent_path = NodePath("../NinePatchRect/GridContainer")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="cursor_selected" from="NinePatchRect/GridContainer/Shop_Slot" to="." method="_on_shop_slot_cursor_selected"]
+[connection signal="cursor_selected" from="NinePatchRect/GridContainer/Shop_Slot2" to="." method="_on_shop_slot_2_cursor_selected"]
+[connection signal="cursor_selected" from="NinePatchRect/GridContainer/Shop_Slot3" to="." method="_on_shop_slot_3_cursor_selected"]
+[connection signal="cursor_selected" from="NinePatchRect/GridContainer/Shop_Slot4" to="." method="_on_shop_slot_4_cursor_selected"]
+[connection signal="cursor_selected" from="NinePatchRect/GridContainer/Shop_Slot5" to="." method="_on_shop_slot_5_cursor_selected"]
+[connection signal="cursor_selected" from="NinePatchRect/GridContainer/Shop_Slot6" to="." method="_on_shop_slot_6_cursor_selected"]
+[connection signal="cursor_selected" from="NinePatchRect/GridContainer/Shop_Slot7" to="." method="_on_shop_slot_7_cursor_selected"]
+[connection signal="cursor_selected" from="NinePatchRect/GridContainer/Shop_Slot8" to="." method="_on_shop_slot_8_cursor_selected"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

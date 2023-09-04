@@ -4,6 +4,8 @@ signal textbox_closed
 
 @export var enemy: Resource = null
 
+@onready var inventory = $ItemsPanel/Inventory_GUI
+
 var cur_player_health = 0
 var cur_enemy_health = 0
 var is_defending = false
@@ -202,7 +204,7 @@ func _on_attack_pressed():
 		await $AnimationPlayer.animation_finished
 		await get_tree().create_timer(0.25).timeout
 		get_tree().quit()
-		
+	
 	enemy_turn()
 	
 
@@ -214,3 +216,35 @@ func _on_defend_pressed():
 	await get_tree().create_timer(0.25).timeout
 	enemy_turn()
 	
+
+
+func _on_item_pressed():
+	pass # Replace with function body.
+
+
+func _on_inventory_gui_opened():
+	$ItemsPanel.visible = true
+
+
+func _on_inventory_gui_closed():
+	$ItemsPanel.visible = false
+
+
+func _on_shop_gui_opened():
+	$ItemsPanel.visible = true
+
+
+func _on_shop_gui_closed():
+	$ItemsPanel.visible = false
+
+
+func _on_inventory_gui_item_used(item):
+	$ItemsPanel.visible = false
+	if item == "cupcake":
+		display_text("Used cupcake")
+		cur_player_health = max(0, cur_player_health + 20)
+		set_health($PlayerPanel/PlayerData/ProgressBar, cur_player_health, State.max_health)
+	await textbox_closed
+	await get_tree().create_timer(0.25).timeout
+	enemy_turn()
+

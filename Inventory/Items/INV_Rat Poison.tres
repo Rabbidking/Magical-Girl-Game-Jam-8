@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Inventory_Item" load_steps=3 format=3 uid="uid://bpnty5b5mchc7"]
+
+[ext_resource type="Script" path="res://Scripts/inventory_item.gd" id="1_m2n4w"]
+[ext_resource type="Texture2D" uid="uid://dfsinghfqtoc3" path="res://Assets/Sprites/Items/Rat Poison.png" id="2_l0f83"]
+
+[resource]
+script = ExtResource("1_m2n4w")
+name = "Rat Poison"
+texture = ExtResource("2_l0f83")

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Inventory_Item" load_steps=3 format=3 uid="uid://bf1aei7o72pdq"]
+
+[ext_resource type="Script" path="res://Scripts/inventory_item.gd" id="1_x2xt8"]
+[ext_resource type="Texture2D" uid="uid://l0yrqq8fyr5j" path="res://Assets/Sprites/Items/Molotov.png" id="2_mknlc"]
+
+[resource]
+script = ExtResource("1_x2xt8")
+name = "Molotov"
+texture = ExtResource("2_mknlc")

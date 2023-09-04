@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Shop_Inventory" load_steps=3 format=3 uid="uid://b02pyv3qj74hf"]
+
+[ext_resource type="Script" path="res://Scripts/shop_inventory.gd" id="1_wxat7"]
+[ext_resource type="Texture2D" uid="uid://bnjyvcsy2o2lf" path="res://Assets/Sprites/Items/Knife.png" id="2_x5kwd"]
+
+[resource]
+script = ExtResource("1_wxat7")
+name = "Kitchen Knife"
+texture = ExtResource("2_x5kwd")

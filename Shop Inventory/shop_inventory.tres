@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Shop" load_steps=10 format=3 uid="uid://ctdubabvc7t28"]
+
+[ext_resource type="Script" path="res://Scripts/shop.gd" id="1_a8wy7"]
+[ext_resource type="Resource" uid="uid://bwseladsqy3kr" path="res://Shop Inventory/Shop_Cupcake.tres" id="2_citvv"]
+[ext_resource type="Resource" uid="uid://b02pyv3qj74hf" path="res://Shop Inventory/Shop_Kitchen Knife.tres" id="3_6tig8"]
+[ext_resource type="Resource" uid="uid://bhowvbjyhun5w" path="res://Shop Inventory/Shop_Unstable Toaster.tres" id="4_dbx8j"]
+[ext_resource type="Resource" uid="uid://wxcicsnvdmwj" path="res://Shop Inventory/Shop_Molotov.tres" id="5_ouxpe"]
+[ext_resource type="Resource" uid="uid://cqip85v0akqbh" path="res://Shop Inventory/Shop_Rat Poison.tres" id="6_lqgmd"]
+[ext_resource type="Resource" uid="uid://3fl8bbmdum0u" path="res://Shop Inventory/Shop_Spice.tres" id="7_k6ti6"]
+[ext_resource type="Resource" uid="uid://cd4rsiyqnp3ss" path="res://Shop Inventory/Shop_Oven Mitts.tres" id="8_i2b17"]
+[ext_resource type="Resource" uid="uid://dx06ye5aeksdw" path="res://Shop Inventory/Shop_Apron.tres" id="9_rctiw"]
+
+[resource]
+script = ExtResource("1_a8wy7")
+shop_items = Array[Resource("res://Scripts/shop_inventory.gd")]([ExtResource("2_citvv"), ExtResource("3_6tig8"), ExtResource("4_dbx8j"), ExtResource("5_ouxpe"), ExtResource("6_lqgmd"), ExtResource("7_k6ti6"), ExtResource("8_i2b17"), ExtResource("9_rctiw")])

@@ -1,0 +1,79 @@
+[gd_scene load_steps=5 format=3 uid="uid://cs2k4tas2m42"]
+
+[ext_resource type="Script" path="res://Scripts/inventory_gui.gd" id="1_56htf"]
+[ext_resource type="Texture2D" uid="uid://c665plx0j6b0w" path="res://sample/Sky.png" id="1_ehehm"]
+[ext_resource type="PackedScene" uid="uid://c7hpouycgm41p" path="res://Scenes/slot.tscn" id="2_oinjb"]
+[ext_resource type="PackedScene" uid="uid://7pbpaipl6xhg" path="res://Scenes/cursor.tscn" id="4_1fk17"]
+
+[node name="Inventory_GUI" type="Control"]
+custom_minimum_size = Vector2(1152, 648)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_56htf")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 1105.0
+offset_bottom = 385.0
+texture = ExtResource("1_ehehm")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="GridContainer" type="GridContainer" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 25.0
+offset_right = 293.0
+offset_bottom = 157.0
+scale = Vector2(3.9, 2.5)
+columns = 4
+
+[node name="Slot" parent="NinePatchRect/GridContainer" instance=ExtResource("2_oinjb")]
+layout_mode = 2
+
+[node name="Slot2" parent="NinePatchRect/GridContainer" instance=ExtResource("2_oinjb")]
+layout_mode = 2
+
+[node name="Slot3" parent="NinePatchRect/GridContainer" instance=ExtResource("2_oinjb")]
+layout_mode = 2
+
+[node name="Slot4" parent="NinePatchRect/GridContainer" instance=ExtResource("2_oinjb")]
+layout_mode = 2
+
+[node name="Slot5" parent="NinePatchRect/GridContainer" instance=ExtResource("2_oinjb")]
+layout_mode = 2
+
+[node name="Slot6" parent="NinePatchRect/GridContainer" instance=ExtResource("2_oinjb")]
+layout_mode = 2
+
+[node name="Slot7" parent="NinePatchRect/GridContainer" instance=ExtResource("2_oinjb")]
+layout_mode = 2
+
+[node name="Slot8" parent="NinePatchRect/GridContainer" instance=ExtResource("2_oinjb")]
+layout_mode = 2
+
+[node name="Cursor" parent="." instance=ExtResource("4_1fk17")]
+layout_mode = 0
+menu_parent_path = NodePath("../NinePatchRect/GridContainer")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="cursor_selected" from="NinePatchRect/GridContainer/Slot" to="." method="_on_slot_cursor_selected"]
+[connection signal="cursor_selected" from="NinePatchRect/GridContainer/Slot2" to="." method="_on_slot_2_cursor_selected"]
+[connection signal="cursor_selected" from="NinePatchRect/GridContainer/Slot3" to="." method="_on_slot_3_cursor_selected"]
+[connection signal="cursor_selected" from="NinePatchRect/GridContainer/Slot4" to="." method="_on_slot_4_cursor_selected"]
+[connection signal="cursor_selected" from="NinePatchRect/GridContainer/Slot5" to="." method="_on_slot_5_cursor_selected"]
+[connection signal="cursor_selected" from="NinePatchRect/GridContainer/Slot6" to="." method="_on_slot_6_cursor_selected"]
+[connection signal="cursor_selected" from="NinePatchRect/GridContainer/Slot7" to="." method="_on_slot_7_cursor_selected"]
+[connection signal="cursor_selected" from="NinePatchRect/GridContainer/Slot8" to="." method="_on_slot_8_cursor_selected"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
