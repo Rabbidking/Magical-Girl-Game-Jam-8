@@ -1,10 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://7pbpaipl6xhg"]
 
-[ext_resource type="Texture2D" uid="uid://yyp1h24r34ci" path="res://sample/Red.png" id="1_4k2mc"]
+[ext_resource type="Texture2D" uid="uid://4aniijuu43jr" path="res://Assets/Sprites/UI/Cursor_C.png" id="1_orjno"]
 [ext_resource type="Script" path="res://Scripts/cursor.gd" id="2_ax16r"]
 
 [node name="Cursor" type="TextureRect"]
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("1_4k2mc")
+offset_right = 128.0
+offset_bottom = 128.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_orjno")
 script = ExtResource("2_ax16r")

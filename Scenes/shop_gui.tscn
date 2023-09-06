@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bv2l2sim1wevf"]
 
 [ext_resource type="Script" path="res://Scripts/shop_gui.gd" id="1_nja2r"]
-[ext_resource type="Texture2D" uid="uid://c665plx0j6b0w" path="res://sample/Sky.png" id="2_xwmfa"]
+[ext_resource type="Texture2D" uid="uid://w0rulu25f2me" path="res://Assets/Sprites/UI/Shop_Background.png" id="2_yai3k"]
 [ext_resource type="PackedScene" uid="uid://j1eleppaqkfr" path="res://Scenes/shop_slot.tscn" id="3_o0dkt"]
 [ext_resource type="PackedScene" uid="uid://7pbpaipl6xhg" path="res://Scenes/cursor.tscn" id="4_h0o8q"]
 
@@ -15,11 +15,9 @@ script = ExtResource("1_nja2r")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 0
-offset_left = 13.0
-offset_top = 11.0
-offset_right = 1108.0
-offset_bottom = 386.0
-texture = ExtResource("2_xwmfa")
+offset_right = 1125.0
+offset_bottom = 400.0
+texture = ExtResource("2_yai3k")
 patch_margin_left = 6
 patch_margin_top = 6
 patch_margin_right = 6
@@ -27,11 +25,11 @@ patch_margin_bottom = 6
 
 [node name="GridContainer" type="GridContainer" parent="NinePatchRect"]
 layout_mode = 0
-offset_left = 25.0
-offset_top = 25.0
-offset_right = 293.0
-offset_bottom = 157.0
-scale = Vector2(3.9, 2.5)
+offset_left = 48.0
+offset_top = 42.0
+offset_right = 304.665
+offset_bottom = 170.405
+scale = Vector2(4.01, 2.48)
 columns = 4
 
 [node name="Shop_Slot" parent="NinePatchRect/GridContainer" instance=ExtResource("3_o0dkt")]
@@ -60,10 +58,10 @@ layout_mode = 2
 
 [node name="Cursor" parent="." instance=ExtResource("4_h0o8q")]
 layout_mode = 0
-offset_left = 38.0
-offset_top = 36.0
-offset_right = 102.0
-offset_bottom = 100.0
+offset_left = 48.0
+offset_top = 42.0
+offset_right = 176.0
+offset_bottom = 170.0
 menu_parent_path = NodePath("../NinePatchRect/GridContainer")
 
 [node name="Timer" type="Timer" parent="."]

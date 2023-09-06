@@ -1,17 +1,18 @@
 [gd_scene load_steps=3 format=3 uid="uid://j1eleppaqkfr"]
 
 [ext_resource type="Script" path="res://Scripts/shop_slot.gd" id="1_1lypq"]
-[ext_resource type="Texture2D" uid="uid://cesubyhcfgfps" path="res://sample/Blue.png" id="2_8nwbk"]
+[ext_resource type="Texture2D" uid="uid://d2qxrjhvbddr6" path="res://Assets/Sprites/UI/Item_Slot.png" id="2_2he2r"]
 
 [node name="Shop_Slot" type="Panel"]
 self_modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2(64, 64)
+custom_minimum_size = Vector2(60, 60)
 offset_right = 64.0
 offset_bottom = 64.0
 script = ExtResource("1_1lypq")
 
 [node name="Background" type="Sprite2D" parent="."]
-texture = ExtResource("2_8nwbk")
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_2he2r")
 centered = false
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
