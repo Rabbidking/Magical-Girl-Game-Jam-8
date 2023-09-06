@@ -1,10 +1,13 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1693803607
+::res://::1693957809
 Adventurer.ttf::FontFile::6385760573155114861::1693365885::1693365903::1::::<><>::
 icon.svg::CompressedTexture2D::6621006778267408347::1693365885::1693365903::1::::<><>::
 NES.tres::FontVariation::5069418288464971076::1693365885::0::1::::<><>::uid://bhnyl4v1ydf0o
 NESCyrillic.ttf::FontFile::2906057908353018380::1693365885::1693365903::1::::<><>::
-::res://Assets/::1693365885
+::res://Assets/::1693958040
+::res://Assets/BG/::1693958098
+battleback1.png::CompressedTexture2D::8482788428939489792::1693958042::1693958098::1::::<><>::
+battleback2.png::CompressedTexture2D::4829904055302253514::1693958050::1693958098::1::::<><>::
 ::res://Assets/Sprites/::1693704305
 ::res://Assets/Sprites/Enemy/::1693365904
 Cockatrice.png::CompressedTexture2D::4669315208392491358::1693365885::1693365904::1::::<><>::
@@ -21,9 +24,9 @@ Rat Poison.png::CompressedTexture2D::2454810500502942975::1693704305::1693704345
 Spice.png::CompressedTexture2D::5883037967474356614::1693704305::1693704345::1::::<><>::
 Toaster.png::CompressedTexture2D::3619686818211996494::1693704305::1693704345::1::::<><>::
 ::res://Battle Menu/::1693803595
-Option1.tres::Resource/Battle_Options::3293228306216758850::1693803595::0::1::::<><>::res://Scripts/battle_options.gd
-Option2.tres::Resource/Battle_Options::3567932103530775430::1693803595::0::1::::<><>::res://Scripts/battle_options.gd
-player_battle_menu.tres::Resource/Battle_Menu::6794201865256125916::1693803595::0::1::::<><>::res://Scripts/battle_menu.gd
+Option1.tres::Resource/Resource::3293228306216758850::1693803595::0::1::::<><>::res://Scripts/battle_options.gd
+Option2.tres::Resource/Resource::3567932103530775430::1693803595::0::1::::<><>::res://Scripts/battle_options.gd
+player_battle_menu.tres::Resource/Resource::6794201865256125916::1693803595::0::1::::<><>::res://Scripts/battle_menu.gd
 ::res://BG/::1693365904
 battleback1.png::CompressedTexture2D::7994459983546677137::1693365885::1693365904::1::::<><>::
 battleback2.png::CompressedTexture2D::4812152443789060645::1693365885::1693365904::1::::<><>::
@@ -55,70 +58,74 @@ battleback9-2.png::CompressedTexture2D::319198572234090604::1693365885::16933659
 battleback10-1.png::CompressedTexture2D::9196904345837355760::1693365885::1693365904::1::::<><>::
 battleback10-2.png::CompressedTexture2D::5239316938810354160::1693365885::1693365904::1::::<><>::
 ::res://Inventory/::1693803595
-player_inventory.tres::Resource/Inventory::3194459771099365132::1693803595::0::1::::<><>::uid://cps1i6171j0xy::::res://Inventory/Items/Empty.tres<>res://Scripts/inventory.gd
+player_inventory.tres::Resource/Resource::3194459771099365132::1693803595::0::1::::<><>::uid://cps1i6171j0xy
 ::res://Inventory/Items/::1693803595
-Empty.tres::Resource/Inventory_Item::5864427419570762098::1693803595::0::1::::<><>::res://Scripts/inventory_item.gd
-INV_Apron.tres::Resource/Inventory_Item::4646850814329892685::1693803595::0::1::::<><>::res://Scripts/inventory_item.gd<>uid://du7ic1ltfapa2::::res://Assets/Sprites/Items/Apron.png
-INV_Cupcake.tres::Resource/Inventory_Item::7453472718138278376::1693803595::0::1::::<><>::res://Scripts/inventory_item.gd<>uid://b05kgeil3ootc::::res://Assets/Sprites/Items/Cupcake.png
-INV_Empty.tres::Resource/Shop_Inventory::5998128109256221657::1693803595::0::1::::<><>::res://Scripts/shop_inventory.gd
-INV_Kitchen Knife.tres::Resource/Inventory_Item::4648660242100028501::1693803595::0::1::::<><>::res://Scripts/inventory_item.gd<>uid://bnjyvcsy2o2lf::::res://Assets/Sprites/Items/Knife.png
-INV_Molotov.tres::Resource/Inventory_Item::2791046336964916554::1693803595::0::1::::<><>::res://Scripts/inventory_item.gd<>uid://l0yrqq8fyr5j::::res://Assets/Sprites/Items/Molotov.png
-INV_Oven Mitts.tres::Resource/Inventory_Item::6502986971509181732::1693803595::0::1::::<><>::res://Scripts/inventory_item.gd<>uid://fxj0orjkp5y0::::res://Assets/Sprites/Items/Mitts.png
-INV_Rat Poison.tres::Resource/Inventory_Item::3467288309607138512::1693803595::0::1::::<><>::res://Scripts/inventory_item.gd<>uid://dfsinghfqtoc3::::res://Assets/Sprites/Items/Rat Poison.png
-INV_Spice.tres::Resource/Inventory_Item::7276123584573151700::1693803595::0::1::::<><>::res://Scripts/inventory_item.gd<>uid://cvgj6m3o0xp0e::::res://Assets/Sprites/Items/Spice.png
-INV_Unstable Toaster.tres::Resource/Inventory_Item::1319482146942166659::1693803595::0::1::::<><>::res://Scripts/inventory_item.gd<>uid://dtg1h0ewlbiiq::::res://Assets/Sprites/Items/Toaster.png
-Item1.tres::Resource/Inventory_Item::6014293133611733558::1693803595::0::1::::<><>::res://Scripts/inventory_item.gd<>uid://3lngvcxsuih4::::res://sample/Purple.png
-Item2.tres::Resource/Inventory_Item::1733003965154614126::1693803595::0::1::::<><>::res://Scripts/inventory_item.gd<>uid://0jxtllnl6rfr::::res://sample/Yellow.png
-::res://sample/::1693803595
+Empty.tres::Resource/Resource::5864427419570762098::1693803595::0::1::::<><>::res://Scripts/inventory_item.gd
+INV_Apron.tres::Resource/Resource::4646850814329892685::1693803595::0::1::::<><>::res://Scripts/inventory_item.gd<>uid://du7ic1ltfapa2
+INV_Cupcake.tres::Resource/Resource::7453472718138278376::1693803595::0::1::::<><>::res://Scripts/inventory_item.gd<>uid://b05kgeil3ootc
+INV_Empty.tres::Resource/Resource::5998128109256221657::1693803595::0::1::::<><>::res://Scripts/shop_inventory.gd
+INV_Kitchen Knife.tres::Resource/Resource::4648660242100028501::1693803595::0::1::::<><>::res://Scripts/inventory_item.gd<>uid://bnjyvcsy2o2lf
+INV_Molotov.tres::Resource/Resource::2791046336964916554::1693803595::0::1::::<><>::res://Scripts/inventory_item.gd<>uid://l0yrqq8fyr5j
+INV_Oven Mitts.tres::Resource/Resource::6502986971509181732::1693803595::0::1::::<><>::res://Scripts/inventory_item.gd<>uid://fxj0orjkp5y0
+INV_Rat Poison.tres::Resource/Resource::3467288309607138512::1693803595::0::1::::<><>::res://Scripts/inventory_item.gd<>uid://dfsinghfqtoc3
+INV_Spice.tres::Resource/Resource::7276123584573151700::1693803595::0::1::::<><>::res://Scripts/inventory_item.gd<>uid://cvgj6m3o0xp0e
+INV_Unstable Toaster.tres::Resource/Resource::1319482146942166659::1693803595::0::1::::<><>::res://Scripts/inventory_item.gd<>uid://dtg1h0ewlbiiq
+Item1.tres::Resource/Resource::6014293133611733558::1693803595::0::1::::<><>::res://Scripts/inventory_item.gd<>uid://3lngvcxsuih4
+Item2.tres::Resource/Resource::1733003965154614126::1693803595::0::1::::<><>::res://Scripts/inventory_item.gd<>uid://0jxtllnl6rfr
+::res://sample/::1693803607
 Blue.png::CompressedTexture2D::5091972938632470820::1693803595::1693803607::1::::<><>::
 Green.png::CompressedTexture2D::3102335091325382450::1693803595::1693803607::1::::<><>::
 Purple.png::CompressedTexture2D::1988796919978783947::1693803595::1693803607::1::::<><>::
 Red.png::CompressedTexture2D::1735034909657885456::1693803595::1693803607::1::::<><>::
 Sky.png::CompressedTexture2D::7014540141669112660::1693803595::1693803607::1::::<><>::
 Yellow.png::CompressedTexture2D::1774731507011467911::1693803595::1693803607::1::::<><>::
-::res://Scenes/::1693803595
-battle.tscn::PackedScene::8531818135450429019::1693803595::0::1::::<><>::res://Scripts/battle.gd<>uid://dl5tt8v0y2b7v::::res://BG/battleback1.png<>uid://ccjscgc06xbup::::res://Scripts/Lizardwoman.tres<>uid://ydbxqvda7gfr::::res://NESCyrillic.ttf<>res://NES.tres<>uid://3bsqb7c7o45l::::res://Adventurer.ttf<>uid://cy61d0ahcwq6b::::res://Assets/Sprites/Enemy/Lizardwoman.png<>uid://cs2k4tas2m42::::res://Scenes/inventory_gui.tscn<>res://Scripts/Render.gd<>uid://bv2l2sim1wevf::::res://Scenes/shop_gui.tscn
-battle_menu_gui.tscn::PackedScene::1192893933909817497::1693803595::0::1::::<><>::res://Scripts/battle_menu_gui.gd<>uid://c665plx0j6b0w::::res://sample/Sky.png<>uid://dqxuxpapmko30::::res://Scenes/battle_slot.tscn<>uid://7pbpaipl6xhg::::res://Scenes/cursor.tscn
-battle_slot.tscn::PackedScene::8331020439294567801::1693803595::0::1::::<><>::res://Scripts/battle_slot.gd<>uid://cesubyhcfgfps::::res://sample/Blue.png
-cursor.tscn::PackedScene::2277096179685184472::1693803595::0::1::::<><>::uid://yyp1h24r34ci::::res://sample/Red.png<>res://Scripts/cursor.gd
-inventory_gui.tscn::PackedScene::179195256146452445::1693803595::0::1::::<><>::res://Scripts/inventory_gui.gd<>uid://c665plx0j6b0w::::res://sample/Sky.png<>uid://c7hpouycgm41p::::res://Scenes/slot.tscn<>uid://7pbpaipl6xhg::::res://Scenes/cursor.tscn
-shop_gui.tscn::PackedScene::3916841661166836143::1693803595::0::1::::<><>::res://Scripts/shop_gui.gd<>uid://c665plx0j6b0w::::res://sample/Sky.png<>uid://j1eleppaqkfr::::res://Scenes/shop_slot.tscn<>uid://7pbpaipl6xhg::::res://Scenes/cursor.tscn
-shop_slot.tscn::PackedScene::685636159999504131::1693803595::0::1::::<><>::res://Scripts/shop_slot.gd<>uid://cesubyhcfgfps::::res://sample/Blue.png
-slot.tscn::PackedScene::7034271851729526135::1693803595::0::1::::<><>::res://Scripts/slot.gd<>uid://cesubyhcfgfps::::res://sample/Blue.png
-world.tscn::PackedScene::5783327812335662872::1693803595::0::1::::<><>::res://Scripts/world.gd<>uid://cs2k4tas2m42::::res://Scenes/inventory_gui.tscn<>res://Scripts/CanvasLayer.gd<>uid://q83124j4wqwn::::res://Scenes/battle_menu_gui.tscn<>uid://bv2l2sim1wevf::::res://Scenes/shop_gui.tscn
-::res://Scripts/::1693803595
+::res://Scenes/::1693958184
+battle2.tscn::PackedScene::4544083705839958878::1693958178::0::1::::<><>::res://Scripts/battle.gd<>uid://bk1vamtcwga6j
+battle3.tscn::PackedScene::8717566640040531644::1693958184::0::1::::<><>::res://Scripts/battle.gd<>uid://bk1vamtcwga6j::::res://Scripts/Cockatrice.tres<>uid://ca2v2xexix0gc::::res://Assets/BG/battleback2.png<>uid://cehwtw2yg7pdc::::res://NES.tres<>uid://cy61d0ahcwq6b::::res://Assets/Sprites/Enemy/Lizardwoman.png<>uid://bhnyl4v1ydf0o::::res://NESCyrillic.ttf<>res://Scripts/Actions.gd<>uid://7pbpaipl6xhg::::res://Scenes/cursor.tscn<>uid://cw8ksqql47ayn::::res://Adventurer.ttf<>res://Scripts/Render.gd<>uid://cs2k4tas2m42::::res://Scenes/inventory_gui.tscn<>uid://bv2l2sim1wevf::::res://Scenes/shop_gui.tscn
+battle.tscn::PackedScene::8531818135450429019::1693958154::0::1::::<><>::res://Scripts/battle.gd<>uid://bk1vamtcwga6j::::res://Scripts/Cockatrice.tres<>uid://bhnyl4v1ydf0o::::res://NESCyrillic.ttf<>uid://ca2v2xexix0gc::::res://Assets/BG/battleback2.png<>uid://cehwtw2yg7pdc::::res://NES.tres<>uid://cw8ksqql47ayn::::res://Adventurer.ttf<>uid://cy61d0ahcwq6b::::res://Assets/Sprites/Enemy/Lizardwoman.png<>res://Scripts/Actions.gd<>uid://7pbpaipl6xhg::::res://Scenes/cursor.tscn<>uid://cs2k4tas2m42::::res://Scenes/inventory_gui.tscn<>res://Scripts/Render.gd<>uid://bv2l2sim1wevf::::res://Scenes/shop_gui.tscn
+battle_menu_gui.tscn::PackedScene::1192893933909817497::1693803595::0::1::::<><>::res://Scripts/battle_menu_gui.gd<>uid://c665plx0j6b0w
+battle_slot.tscn::PackedScene::8331020439294567801::1693803595::0::1::::<><>::res://Scripts/battle_slot.gd<>uid://cesubyhcfgfps
+cursor.tscn::PackedScene::2277096179685184472::1693803595::0::1::::<><>::uid://yyp1h24r34ci
+inventory_gui.tscn::PackedScene::179195256146452445::1693957658::0::1::::<><>::res://Scripts/inventory_gui.gd<>uid://c665plx0j6b0w
+battle4.tscn::PackedScene::3518717952232728906::1693958189::0::1::::<><>::res://Scripts/battle.gd<>uid://bk1vamtcwga6j::::res://Scripts/Cockatrice.tres<>uid://ca2v2xexix0gc::::res://Assets/BG/battleback2.png<>uid://cehwtw2yg7pdc::::res://NES.tres<>uid://cy61d0ahcwq6b::::res://Assets/Sprites/Enemy/Lizardwoman.png<>uid://bhnyl4v1ydf0o::::res://NESCyrillic.ttf<>res://Scripts/Actions.gd<>uid://7pbpaipl6xhg::::res://Scenes/cursor.tscn<>uid://cw8ksqql47ayn::::res://Adventurer.ttf<>res://Scripts/Render.gd<>uid://cs2k4tas2m42::::res://Scenes/inventory_gui.tscn<>uid://bv2l2sim1wevf::::res://Scenes/shop_gui.tscn
+shop_gui.tscn::PackedScene::3916841661166836143::1693957658::0::1::::<><>::res://Scripts/shop_gui.gd<>uid://c665plx0j6b0w
+shop_slot.tscn::PackedScene::685636159999504131::1693957658::0::1::::<><>::res://Scripts/shop_slot.gd<>uid://cesubyhcfgfps
+slot.tscn::PackedScene::7034271851729526135::1693957658::0::1::::<><>::res://Scripts/slot.gd<>uid://cesubyhcfgfps
+world.tscn::PackedScene::5783327812335662872::1693803595::0::1::::<><>::res://Scripts/world.gd<>uid://cs2k4tas2m42
+::res://Scripts/::1693957658
+Actions.gd::GDScript::-1::1693957658::0::1::::<>Button<>::
 base_enemy.gd::GDScript::-1::1693365885::0::1::::<>Resource<>::
-battle.gd::GDScript::-1::1693803595::0::1::::<>Control<>::
+battle.gd::GDScript::-1::1693957658::0::1::::<>Control<>::
 battle_menu.gd::GDScript::-1::1693803595::0::1::::Battle_Menu<>Resource<>::
 battle_menu_gui.gd::GDScript::-1::1693803595::0::1::::<>Control<>::
 battle_options.gd::GDScript::-1::1693803595::0::1::::Battle_Options<>Resource<>::
 battle_slot.gd::GDScript::-1::1693803595::0::1::::<>Panel<>::
 CanvasLayer.gd::GDScript::-1::1693803595::0::1::::<>CanvasLayer<>::
 Cockatrice.tres::Resource::3143258658279067575::1693365885::0::1::::<><>::res://Scripts/base_enemy.gd<>uid://b7r3662yxbwve
-cursor.gd::GDScript::-1::1693803595::0::1::::<>TextureRect<>::
+cursor.gd::GDScript::-1::1693957658::0::1::::<>TextureRect<>::
 Harpy.tres::Resource::58733187814067267::1693365885::0::1::::<><>::res://Scripts/base_enemy.gd<>uid://obmhh3soovdp
 inventory.gd::GDScript::-1::1693803595::0::1::::Inventory<>Resource<>::
-inventory_gui.gd::GDScript::-1::1693803595::0::1::::<>Control<>::
+inventory_gui.gd::GDScript::-1::1693957658::0::1::::<>Control<>::
 inventory_item.gd::GDScript::-1::1693803595::0::1::::Inventory_Item<>Resource<>::
 Lamia.tres::Resource::873997728163647383::1693365885::0::1::::<><>::res://Scripts/base_enemy.gd<>uid://xdkc0wo0gh72
 Lizardwoman.tres::Resource::4932895251314338563::1693365885::0::1::::<><>::res://Scripts/base_enemy.gd<>uid://cy61d0ahcwq6b
 menu_item.gd::GDScript::-1::1693803595::0::1::::<>Label<>::
-Render.gd::GDScript::-1::1693803595::0::1::::<>CanvasLayer<>::
+Render.gd::GDScript::-1::1693957658::0::1::::<>CanvasLayer<>::
 shop.gd::GDScript::-1::1693803595::0::1::::Shop<>Resource<>::
-shop_gui.gd::GDScript::-1::1693803595::0::1::::<>Control<>::
+shop_gui.gd::GDScript::-1::1693957658::0::1::::<>Control<>::
 shop_inventory.gd::GDScript::-1::1693803595::0::1::::Shop_Inventory<>Resource<>::
-shop_slot.gd::GDScript::-1::1693803595::0::1::::<>Panel<>::
-slot.gd::GDScript::-1::1693803595::0::1::::<>Panel<>::
+shop_slot.gd::GDScript::-1::1693957658::0::1::::<>Panel<>::
+slot.gd::GDScript::-1::1693957658::0::1::::<>Panel<>::
 state.gd::GDScript::-1::1693365885::0::1::::<>Node<>::
 world.gd::GDScript::-1::1693803595::0::1::::<>Node2D<>::
 ::res://Shop Inventory/::1693803595
-Shop_Apron.tres::Resource/Shop_Inventory::8827140240878312660::1693803595::0::1::::<><>::res://Scripts/shop_inventory.gd<>uid://du7ic1ltfapa2::::res://Assets/Sprites/Items/Apron.png
-Shop_Cupcake.tres::Resource/Shop_Inventory::3967996560481517461::1693803595::0::1::::<><>::res://Scripts/shop_inventory.gd<>uid://b05kgeil3ootc::::res://Assets/Sprites/Items/Cupcake.png
-Shop_Empty.tres::Resource/Shop_Inventory::5280735294925335499::1693803595::0::1::::<><>::res://Scripts/shop_inventory.gd
-shop_inventory.tres::Resource/Shop::6113838657923132547::1693803595::0::1::::<><>::res://Scripts/shop.gd<>uid://bwseladsqy3kr::::res://Shop Inventory/Shop_Cupcake.tres<>uid://b02pyv3qj74hf::::res://Shop Inventory/Shop_Kitchen Knife.tres<>uid://bhowvbjyhun5w::::res://Shop Inventory/Shop_Unstable Toaster.tres<>uid://wxcicsnvdmwj::::res://Shop Inventory/Shop_Molotov.tres<>uid://cqip85v0akqbh::::res://Shop Inventory/Shop_Rat Poison.tres<>uid://3fl8bbmdum0u::::res://Shop Inventory/Shop_Spice.tres<>uid://cd4rsiyqnp3ss::::res://Shop Inventory/Shop_Oven Mitts.tres<>uid://dx06ye5aeksdw::::res://Shop Inventory/Shop_Apron.tres
-Shop_Kitchen Knife.tres::Resource/Shop_Inventory::4197834734933901047::1693803595::0::1::::<><>::res://Scripts/shop_inventory.gd<>uid://bnjyvcsy2o2lf::::res://Assets/Sprites/Items/Knife.png
-Shop_Molotov.tres::Resource/Shop_Inventory::1591771102188895277::1693803595::0::1::::<><>::res://Scripts/shop_inventory.gd<>uid://l0yrqq8fyr5j::::res://Assets/Sprites/Items/Molotov.png
-Shop_Oven Mitts.tres::Resource/Shop_Inventory::5044339644342419630::1693803595::0::1::::<><>::res://Scripts/shop_inventory.gd<>uid://fxj0orjkp5y0::::res://Assets/Sprites/Items/Mitts.png
-Shop_Rat Poison.tres::Resource/Shop_Inventory::5913349182995251225::1693803595::0::1::::<><>::res://Scripts/shop_inventory.gd<>uid://dfsinghfqtoc3::::res://Assets/Sprites/Items/Rat Poison.png
-Shop_Spice.tres::Resource/Shop_Inventory::1976336383372687782::1693803595::0::1::::<><>::res://Scripts/shop_inventory.gd<>uid://cvgj6m3o0xp0e::::res://Assets/Sprites/Items/Spice.png
-Shop_Unstable Toaster.tres::Resource/Shop_Inventory::2908017220756226198::1693803595::0::1::::<><>::res://Scripts/shop_inventory.gd<>uid://dtg1h0ewlbiiq::::res://Assets/Sprites/Items/Toaster.png
+Shop_Apron.tres::Resource/Resource::8827140240878312660::1693803595::0::1::::<><>::res://Scripts/shop_inventory.gd<>uid://du7ic1ltfapa2
+Shop_Cupcake.tres::Resource/Resource::3967996560481517461::1693803595::0::1::::<><>::res://Scripts/shop_inventory.gd<>uid://b05kgeil3ootc
+Shop_Empty.tres::Resource/Resource::5280735294925335499::1693803595::0::1::::<><>::res://Scripts/shop_inventory.gd
+shop_inventory.tres::Resource/Resource::6113838657923132547::1693803595::0::1::::<><>::res://Scripts/shop.gd<>uid://bwseladsqy3kr
+Shop_Kitchen Knife.tres::Resource/Resource::4197834734933901047::1693803595::0::1::::<><>::res://Scripts/shop_inventory.gd<>uid://bnjyvcsy2o2lf
+Shop_Molotov.tres::Resource/Resource::1591771102188895277::1693803595::0::1::::<><>::res://Scripts/shop_inventory.gd<>uid://l0yrqq8fyr5j
+Shop_Oven Mitts.tres::Resource/Resource::5044339644342419630::1693803595::0::1::::<><>::res://Scripts/shop_inventory.gd<>uid://fxj0orjkp5y0
+Shop_Rat Poison.tres::Resource/Resource::5913349182995251225::1693803595::0::1::::<><>::res://Scripts/shop_inventory.gd<>uid://dfsinghfqtoc3
+Shop_Spice.tres::Resource/Resource::1976336383372687782::1693803595::0::1::::<><>::res://Scripts/shop_inventory.gd<>uid://cvgj6m3o0xp0e
+Shop_Unstable Toaster.tres::Resource/Resource::2908017220756226198::1693803595::0::1::::<><>::res://Scripts/shop_inventory.gd<>uid://dtg1h0ewlbiiq

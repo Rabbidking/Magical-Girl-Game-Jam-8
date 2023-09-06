@@ -1,17 +1,17 @@
-[gd_scene load_steps=28 format=3 uid="uid://dts42exsgao3l"]
+[gd_scene load_steps=28 format=3 uid="uid://dwg4bwsk6btm7"]
 
-[ext_resource type="Script" path="res://Scripts/battle.gd" id="1_7vh5k"]
-[ext_resource type="Resource" uid="uid://bk1vamtcwga6j" path="res://Scripts/Cockatrice.tres" id="2_1rfas"]
-[ext_resource type="FontFile" uid="uid://bhnyl4v1ydf0o" path="res://NESCyrillic.ttf" id="2_ittsq"]
-[ext_resource type="Texture2D" uid="uid://ca2v2xexix0gc" path="res://Assets/BG/battleback2.png" id="3_1i5at"]
-[ext_resource type="FontVariation" uid="uid://cehwtw2yg7pdc" path="res://NES.tres" id="4_ig3rg"]
-[ext_resource type="FontFile" uid="uid://cw8ksqql47ayn" path="res://Adventurer.ttf" id="4_npueg"]
-[ext_resource type="Texture2D" uid="uid://cy61d0ahcwq6b" path="res://Assets/Sprites/Enemy/Lizardwoman.png" id="5_pr5gj"]
-[ext_resource type="Script" path="res://Scripts/Actions.gd" id="7_lg8tm"]
-[ext_resource type="PackedScene" uid="uid://7pbpaipl6xhg" path="res://Scenes/cursor.tscn" id="7_oqjqt"]
-[ext_resource type="PackedScene" uid="uid://cs2k4tas2m42" path="res://Scenes/inventory_gui.tscn" id="8_aygqv"]
-[ext_resource type="Script" path="res://Scripts/Render.gd" id="8_hn75r"]
-[ext_resource type="PackedScene" uid="uid://bv2l2sim1wevf" path="res://Scenes/shop_gui.tscn" id="10_nvjgh"]
+[ext_resource type="Script" path="res://Scripts/battle.gd" id="1_bw0pc"]
+[ext_resource type="Resource" uid="uid://3plebjvth4f" path="res://Scripts/Harpy.tres" id="2_1ige5"]
+[ext_resource type="Texture2D" uid="uid://ca2v2xexix0gc" path="res://Assets/BG/battleback2.png" id="3_qll3a"]
+[ext_resource type="FontVariation" uid="uid://cehwtw2yg7pdc" path="res://NES.tres" id="4_ij41p"]
+[ext_resource type="Texture2D" uid="uid://cy61d0ahcwq6b" path="res://Assets/Sprites/Enemy/Lizardwoman.png" id="5_r8515"]
+[ext_resource type="FontFile" uid="uid://bhnyl4v1ydf0o" path="res://NESCyrillic.ttf" id="6_iwqvp"]
+[ext_resource type="Script" path="res://Scripts/Actions.gd" id="7_5nmeq"]
+[ext_resource type="PackedScene" uid="uid://7pbpaipl6xhg" path="res://Scenes/cursor.tscn" id="8_jcmo8"]
+[ext_resource type="FontFile" uid="uid://cw8ksqql47ayn" path="res://Adventurer.ttf" id="9_q3t3e"]
+[ext_resource type="Script" path="res://Scripts/Render.gd" id="10_i0koc"]
+[ext_resource type="PackedScene" uid="uid://cs2k4tas2m42" path="res://Scenes/inventory_gui.tscn" id="11_d71vj"]
+[ext_resource type="PackedScene" uid="uid://bv2l2sim1wevf" path="res://Scenes/shop_gui.tscn" id="12_d31kn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1gc8j"]
 bg_color = Color(1, 0, 0, 1)
@@ -186,12 +186,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_7vh5k")
-enemy = ExtResource("2_1rfas")
+script = ExtResource("1_bw0pc")
+enemy = ExtResource("2_1ige5")
 
 [node name="Battleback2" type="Sprite2D" parent="."]
 position = Vector2(578, 330)
-texture = ExtResource("3_1i5at")
+texture = ExtResource("3_qll3a")
 
 [node name="EnemyContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
@@ -219,7 +219,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_ig3rg")
+theme_override_fonts/font = ExtResource("4_ij41p")
 theme_override_font_sizes/font_size = 32
 text = "HP: 25/50"
 horizontal_alignment = 1
@@ -227,7 +227,7 @@ horizontal_alignment = 1
 [node name="Enemy" type="TextureRect" parent="EnemyContainer"]
 texture_filter = 1
 layout_mode = 2
-texture = ExtResource("5_pr5gj")
+texture = ExtResource("5_r8515")
 stretch_mode = 3
 
 [node name="PlayerPanel" type="Panel" parent="."]
@@ -253,7 +253,7 @@ alignment = 1
 texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("4_ig3rg")
+theme_override_fonts/font = ExtResource("4_ij41p")
 theme_override_font_sizes/font_size = 32
 text = "PLAYER"
 horizontal_alignment = 1
@@ -280,7 +280,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_ig3rg")
+theme_override_fonts/font = ExtResource("4_ij41p")
 text = "HP: 25/50"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -314,13 +314,13 @@ mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_ittsq")
+theme_override_fonts/font = ExtResource("6_iwqvp")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_vpa5y")
 theme_override_styles/hover = SubResource("StyleBoxFlat_sojgh")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_okp46")
 text = "ATTACK"
-script = ExtResource("7_lg8tm")
+script = ExtResource("7_5nmeq")
 
 [node name="Item" type="Button" parent="ActionsPanel/Actions"]
 layout_mode = 2
@@ -330,13 +330,13 @@ mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_ittsq")
+theme_override_fonts/font = ExtResource("6_iwqvp")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_vpa5y")
 theme_override_styles/hover = SubResource("StyleBoxFlat_sojgh")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_okp46")
 text = "Item"
-script = ExtResource("7_lg8tm")
+script = ExtResource("7_5nmeq")
 
 [node name="Shop" type="Button" parent="ActionsPanel/Actions"]
 layout_mode = 2
@@ -346,13 +346,13 @@ mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_ittsq")
+theme_override_fonts/font = ExtResource("6_iwqvp")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_vpa5y")
 theme_override_styles/hover = SubResource("StyleBoxFlat_sojgh")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_okp46")
 text = "SHOP"
-script = ExtResource("7_lg8tm")
+script = ExtResource("7_5nmeq")
 
 [node name="Run" type="Button" parent="ActionsPanel/Actions"]
 layout_mode = 2
@@ -362,15 +362,15 @@ mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_ittsq")
+theme_override_fonts/font = ExtResource("6_iwqvp")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_vpa5y")
 theme_override_styles/hover = SubResource("StyleBoxFlat_sojgh")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_okp46")
 text = "RUN"
-script = ExtResource("7_lg8tm")
+script = ExtResource("7_5nmeq")
 
-[node name="Cursor" parent="ActionsPanel" instance=ExtResource("7_oqjqt")]
+[node name="Cursor" parent="ActionsPanel" instance=ExtResource("8_jcmo8")]
 layout_mode = 0
 offset_left = 11.0
 offset_top = 12.0
@@ -402,7 +402,7 @@ offset_right = -8.0
 offset_bottom = -8.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("4_npueg")
+theme_override_fonts/font = ExtResource("9_q3t3e")
 theme_override_font_sizes/font_size = 32
 text = "Text goes here!"
 
@@ -420,7 +420,7 @@ offset_right = -14.0
 offset_bottom = -8.0
 grow_horizontal = 0
 grow_vertical = 0
-theme_override_fonts/font = ExtResource("4_npueg")
+theme_override_fonts/font = ExtResource("9_q3t3e")
 theme_override_font_sizes/font_size = 32
 text = ">"
 
@@ -437,16 +437,16 @@ grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_u1n8a")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="ItemsPanel"]
-script = ExtResource("8_hn75r")
+script = ExtResource("10_i0koc")
 
-[node name="Inventory_GUI" parent="ItemsPanel" instance=ExtResource("8_aygqv")]
+[node name="Inventory_GUI" parent="ItemsPanel" instance=ExtResource("11_d71vj")]
 visible = false
 layout_mode = 1
 offset_left = 2.0
 offset_right = 34.0
 offset_bottom = 248.0
 
-[node name="Shop_GUI" parent="ItemsPanel" instance=ExtResource("10_nvjgh")]
+[node name="Shop_GUI" parent="ItemsPanel" instance=ExtResource("12_d31kn")]
 visible = false
 layout_mode = 1
 

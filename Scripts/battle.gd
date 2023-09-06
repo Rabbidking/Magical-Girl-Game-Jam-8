@@ -190,7 +190,7 @@ func _on_run_pressed():
 	display_text("Got away safely!")
 	await textbox_closed
 	await get_tree().create_timer(0.25).timeout
-	get_tree().quit()
+	get_tree().change_scene_to_file("res://Scenes/boss_select.tscn")
 
 
 func _on_attack_pressed():
@@ -215,7 +215,7 @@ func _on_attack_pressed():
 		$AnimationPlayer.play("enemy_die")
 		await $AnimationPlayer.animation_finished
 		await get_tree().create_timer(0.25).timeout
-		get_tree().quit()
+		get_tree().change_scene_to_file("res://Scenes/boss_select.tscn")
 	
 	enemy_turn()
 	
@@ -278,7 +278,7 @@ func _on_inventory_gui_item_used(item):
 			$AnimationPlayer.play("enemy_die")
 			await $AnimationPlayer.animation_finished
 			await get_tree().create_timer(0.25).timeout
-			get_tree().quit()
+			get_tree().change_scene_to_file("res://Scenes/boss_select.tscn")
 	
 		enemy_turn()
 		
@@ -300,7 +300,7 @@ func _on_inventory_gui_item_used(item):
 			$AnimationPlayer.play("enemy_die")
 			await $AnimationPlayer.animation_finished
 			await get_tree().create_timer(0.25).timeout
-			get_tree().quit()
+			get_tree().change_scene_to_file("res://Scenes/boss_select.tscn")
 	
 		enemy_turn()
 		
@@ -322,7 +322,7 @@ func _on_inventory_gui_item_used(item):
 			$AnimationPlayer.play("enemy_die")
 			await $AnimationPlayer.animation_finished
 			await get_tree().create_timer(0.25).timeout
-			get_tree().quit()
+			get_tree().change_scene_to_file("res://Scenes/boss_select.tscn")
 	
 		enemy_turn()
 		
@@ -344,7 +344,7 @@ func _on_inventory_gui_item_used(item):
 			$AnimationPlayer.play("enemy_die")
 			await $AnimationPlayer.animation_finished
 			await get_tree().create_timer(0.25).timeout
-			get_tree().quit()
+			get_tree().change_scene_to_file("res://Scenes/boss_select.tscn")
 	
 		enemy_turn()
 		
@@ -366,7 +366,7 @@ func _on_inventory_gui_item_used(item):
 			$AnimationPlayer.play("enemy_die")
 			await $AnimationPlayer.animation_finished
 			await get_tree().create_timer(0.25).timeout
-			get_tree().quit()
+			get_tree().change_scene_to_file("res://Scenes/boss_select.tscn")
 	
 		enemy_turn()
 		
@@ -397,7 +397,7 @@ func _on_inventory_gui_item_used(item):
 			$AnimationPlayer.play("enemy_die")
 			await $AnimationPlayer.animation_finished
 			await get_tree().create_timer(0.25).timeout
-			get_tree().quit()
+			get_tree().change_scene_to_file("res://Scenes/boss_select.tscn")
 	
 		enemy_turn()
 		

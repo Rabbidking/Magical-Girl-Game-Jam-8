@@ -1,1 +1,7 @@
 res://Scenes/battle.tscn
+res://Scenes/battle4.tscn
+res://Scenes/battle3.tscn
+res://Scenes/battle2.tscn
+res://Scripts/boss_select.gd
+res://Scenes/boss_select.tscn
+res://Scripts/battle.gd
