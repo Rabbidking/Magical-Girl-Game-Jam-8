@@ -7,3 +7,4 @@ extends Resource
 @export var damage2: int = 20
 @export var damage3: int = 20
 @export var damage4: int = 20
+@export var accuracy: int = 100
