@@ -181,11 +181,6 @@ func enemy_turn():
 	$ActionsPanel.show()
 	$CursorBuffer.start()
 
-
-func _process(delta):
-	pass
-
-
 func _on_run_pressed():
 	display_text("Got away safely!")
 	await textbox_closed
@@ -208,15 +203,8 @@ func _on_attack_pressed():
 	display_text("You dealt %d damage!" % State.damage)
 	await textbox_closed
 	
-	if cur_enemy_health == 0:
-		display_text("%s has been defeated!" % enemy.name.to_upper())
-		await textbox_closed
-		
-		$AnimationPlayer.play("enemy_die")
-		await $AnimationPlayer.animation_finished
-		await get_tree().create_timer(0.25).timeout
-		get_tree().change_scene_to_file("res://Scenes/boss_select.tscn")
-	
+	if cur_enemy_health <= 0:
+		enemy_die()
 	enemy_turn()
 	
 
@@ -272,14 +260,7 @@ func _on_inventory_gui_item_used(item):
 		await textbox_closed
 	
 		if cur_enemy_health == 0:
-			display_text("%s has been defeated!" % enemy.name.to_upper())
-			await textbox_closed
-		
-			$AnimationPlayer.play("enemy_die")
-			await $AnimationPlayer.animation_finished
-			await get_tree().create_timer(0.25).timeout
-			get_tree().change_scene_to_file("res://Scenes/boss_select.tscn")
-	
+			enemy_die()
 		enemy_turn()
 		
 	elif item == "toaster":
@@ -294,14 +275,7 @@ func _on_inventory_gui_item_used(item):
 		await textbox_closed
 	
 		if cur_enemy_health == 0:
-			display_text("%s has been defeated!" % enemy.name.to_upper())
-			await textbox_closed
-		
-			$AnimationPlayer.play("enemy_die")
-			await $AnimationPlayer.animation_finished
-			await get_tree().create_timer(0.25).timeout
-			get_tree().change_scene_to_file("res://Scenes/boss_select.tscn")
-	
+			enemy_die()
 		enemy_turn()
 		
 	elif item == "molotov":
@@ -316,14 +290,7 @@ func _on_inventory_gui_item_used(item):
 		await textbox_closed
 	
 		if cur_enemy_health == 0:
-			display_text("%s has been defeated!" % enemy.name.to_upper())
-			await textbox_closed
-		
-			$AnimationPlayer.play("enemy_die")
-			await $AnimationPlayer.animation_finished
-			await get_tree().create_timer(0.25).timeout
-			get_tree().change_scene_to_file("res://Scenes/boss_select.tscn")
-	
+			enemy_die()
 		enemy_turn()
 		
 	elif item == "poison":
@@ -338,14 +305,7 @@ func _on_inventory_gui_item_used(item):
 		await textbox_closed
 	
 		if cur_enemy_health == 0:
-			display_text("%s has been defeated!" % enemy.name.to_upper())
-			await textbox_closed
-		
-			$AnimationPlayer.play("enemy_die")
-			await $AnimationPlayer.animation_finished
-			await get_tree().create_timer(0.25).timeout
-			get_tree().change_scene_to_file("res://Scenes/boss_select.tscn")
-	
+			enemy_die()
 		enemy_turn()
 		
 	elif item == "spice":
@@ -360,14 +320,7 @@ func _on_inventory_gui_item_used(item):
 		await textbox_closed
 	
 		if cur_enemy_health == 0:
-			display_text("%s has been defeated!" % enemy.name.to_upper())
-			await textbox_closed
-		
-			$AnimationPlayer.play("enemy_die")
-			await $AnimationPlayer.animation_finished
-			await get_tree().create_timer(0.25).timeout
-			get_tree().change_scene_to_file("res://Scenes/boss_select.tscn")
-	
+			enemy_die()
 		enemy_turn()
 		
 	elif item == "mitts":
@@ -391,14 +344,7 @@ func _on_inventory_gui_item_used(item):
 		await textbox_closed
 	
 		if cur_enemy_health == 0:
-			display_text("%s has been defeated!" % enemy.name.to_upper())
-			await textbox_closed
-		
-			$AnimationPlayer.play("enemy_die")
-			await $AnimationPlayer.animation_finished
-			await get_tree().create_timer(0.25).timeout
-			get_tree().change_scene_to_file("res://Scenes/boss_select.tscn")
-	
+			enemy_die()
 		enemy_turn()
 		
 	elif item == "apron":
@@ -411,6 +357,25 @@ func _on_inventory_gui_item_used(item):
 		enemy_turn()
 	
 
+func enemy_die():
+	#set flags for boss defeats
+	match enemy.name:
+		"Cockatrice":
+			State.boss_1_def = true
+		"Lizardwoman":
+			State.boss_2_def = true
+		"Harpy":
+			State.boss_3_def = true
+		"Lamia":
+			State.boss_4_def = true
+	
+	display_text("%s has been defeated!" % enemy.name.to_upper())
+	await textbox_closed
+
+	$AnimationPlayer.play("enemy_die")
+	await $AnimationPlayer.animation_finished
+	await get_tree().create_timer(0.25).timeout
+	get_tree().change_scene_to_file("res://Scenes/boss_select.tscn")
 
 func _on_attack_cursor_selected():
 	cursor.cursor_disabled()
