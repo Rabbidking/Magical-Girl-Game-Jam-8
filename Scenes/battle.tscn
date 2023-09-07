@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" path="res://Scripts/battle.gd" id="1_7vh5k"]
 [ext_resource type="Resource" uid="uid://bk1vamtcwga6j" path="res://Scripts/Cockatrice.tres" id="2_1rfas"]
-[ext_resource type="FontFile" uid="uid://ydbxqvda7gfr" path="res://NESCyrillic.ttf" id="2_ittsq"]
+[ext_resource type="FontFile" uid="uid://bhnyl4v1ydf0o" path="res://NESCyrillic.ttf" id="2_ittsq"]
 [ext_resource type="Texture2D" uid="uid://ca2v2xexix0gc" path="res://Assets/BG/battleback2.png" id="3_1i5at"]
-[ext_resource type="FontVariation" path="res://NES.tres" id="4_ig3rg"]
-[ext_resource type="FontFile" uid="uid://3bsqb7c7o45l" path="res://Adventurer.ttf" id="4_npueg"]
+[ext_resource type="FontVariation" uid="uid://cehwtw2yg7pdc" path="res://NES.tres" id="4_ig3rg"]
+[ext_resource type="FontFile" uid="uid://cw8ksqql47ayn" path="res://Adventurer.ttf" id="4_npueg"]
 [ext_resource type="Texture2D" uid="uid://cy61d0ahcwq6b" path="res://Assets/Sprites/Enemy/Lizardwoman.png" id="5_pr5gj"]
 [ext_resource type="Script" path="res://Scripts/Actions.gd" id="7_lg8tm"]
 [ext_resource type="PackedScene" uid="uid://7pbpaipl6xhg" path="res://Scenes/cursor.tscn" id="7_oqjqt"]

@@ -283,7 +283,7 @@ func _on_attack_pressed():
 	display_text("You dealt %d damage!" % State.damage)
 	await textbox_closed
 	
-	if cur_enemy_health <= 0:
+	if cur_enemy_health == 0:
 		enemy_die()
 	enemy_turn()
 	
