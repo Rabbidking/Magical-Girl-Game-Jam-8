@@ -55,3 +55,30 @@ func load_game():
 
 func _on_quit_pressed():
 	get_tree().quit()
+
+
+func _on_boss_gui_cockatrice_select():
+	get_tree().change_scene_to_file("res://Scenes/battle.tscn")
+
+func _on_boss_gui_harpy_select():
+	get_tree().change_scene_to_file("res://Scenes/battle4.tscn")
+
+func _on_boss_gui_lamia_select():
+	get_tree().change_scene_to_file("res://Scenes/battle3.tscn")
+
+func _on_boss_gui_lizardwoman_select():
+	get_tree().change_scene_to_file("res://Scenes/battle2.tscn")
+
+func _on_boss_gui_open_shop():
+	pass # Replace with function body.
+
+func _on_boss_gui_save_select():
+	var save_game = FileAccess.open("user://savegame.save", FileAccess.WRITE)
+	var json_string = JSON.stringify(save())
+	save_game.store_line(json_string)
+
+func _on_boss_gui_load_select():
+	load_game()
+
+func _on_boss_gui_option_select():
+	pass # Replace with function body.

@@ -76,3 +76,7 @@ func shop_and_inventory_offset():
 	
 func battle_offset():
 	cursor_offset.x = -136
+	
+func boss_offset():
+	cursor_offset.x = -125
+	
