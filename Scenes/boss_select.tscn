@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://b44b106gxpswt"]
+[gd_scene load_steps=4 format=3 uid="uid://b44b106gxpswt"]
 
 [ext_resource type="Script" path="res://Scripts/boss_select.gd" id="1_gnblr"]
+[ext_resource type="Texture2D" uid="uid://gxu3y84ffdq" path="res://Assets/Sprites/UI/Blank_Background.png" id="2_u508w"]
+[ext_resource type="PackedScene" uid="uid://q83124j4wqwn" path="res://Scenes/boss_menu_gui.tscn" id="3_0e7l5"]
 
 [node name="BossSelect" type="Control"]
 layout_mode = 3
@@ -11,7 +13,20 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_gnblr")
 
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(1.97, 1.99)
+texture = ExtResource("2_u508w")
+
+[node name="Boss_GUI" parent="." instance=ExtResource("3_0e7l5")]
+layout_mode = 1
+offset_left = 121.0
+offset_top = 114.0
+offset_right = 121.0
+offset_bottom = 116.0
+
 [node name="MarginContainer" type="MarginContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -45,6 +60,7 @@ layout_mode = 2
 text = "Lamia"
 
 [node name="MarginContainer2" type="MarginContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -82,6 +98,14 @@ layout_mode = 2
 text = "Quit
 "
 
+[connection signal="cockatrice_select" from="Boss_GUI" to="." method="_on_boss_gui_cockatrice_select"]
+[connection signal="harpy_select" from="Boss_GUI" to="." method="_on_boss_gui_harpy_select"]
+[connection signal="lamia_select" from="Boss_GUI" to="." method="_on_boss_gui_lamia_select"]
+[connection signal="lizardwoman_select" from="Boss_GUI" to="." method="_on_boss_gui_lizardwoman_select"]
+[connection signal="load_select" from="Boss_GUI" to="." method="_on_boss_gui_load_select"]
+[connection signal="open_shop" from="Boss_GUI" to="." method="_on_boss_gui_open_shop"]
+[connection signal="option_select" from="Boss_GUI" to="." method="_on_boss_gui_option_select"]
+[connection signal="save_select" from="Boss_GUI" to="." method="_on_boss_gui_save_select"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Boss 1" to="." method="_on_boss_1_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Boss 2" to="." method="_on_boss_2_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Boss 3" to="." method="_on_boss_3_pressed"]

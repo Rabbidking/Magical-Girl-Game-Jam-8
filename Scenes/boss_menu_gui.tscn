@@ -1,0 +1,77 @@
+[gd_scene load_steps=4 format=3 uid="uid://q83124j4wqwn"]
+
+[ext_resource type="Script" path="res://Scripts/boss_menu_gui.gd" id="1_t8dbl"]
+[ext_resource type="PackedScene" uid="uid://dqxuxpapmko30" path="res://Scenes/boss_slot.tscn" id="3_1ux8d"]
+[ext_resource type="PackedScene" uid="uid://7pbpaipl6xhg" path="res://Scenes/cursor.tscn" id="3_yvks7"]
+
+[node name="Boss_GUI" type="Control"]
+custom_minimum_size = Vector2(1152, 648)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t8dbl")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_right = 907.0
+offset_bottom = 387.0
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="GridContainer" type="GridContainer" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 696.0
+offset_bottom = 366.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 4
+
+[node name="Boss_Slot" parent="NinePatchRect/GridContainer" instance=ExtResource("3_1ux8d")]
+layout_mode = 2
+
+[node name="Boss_Slot2" parent="NinePatchRect/GridContainer" instance=ExtResource("3_1ux8d")]
+layout_mode = 2
+
+[node name="Boss_Slot3" parent="NinePatchRect/GridContainer" instance=ExtResource("3_1ux8d")]
+layout_mode = 2
+
+[node name="Boss_Slot4" parent="NinePatchRect/GridContainer" instance=ExtResource("3_1ux8d")]
+layout_mode = 2
+
+[node name="Boss_Slot5" parent="NinePatchRect/GridContainer" instance=ExtResource("3_1ux8d")]
+layout_mode = 2
+
+[node name="Boss_Slot6" parent="NinePatchRect/GridContainer" instance=ExtResource("3_1ux8d")]
+layout_mode = 2
+
+[node name="Boss_Slot7" parent="NinePatchRect/GridContainer" instance=ExtResource("3_1ux8d")]
+layout_mode = 2
+
+[node name="Boss_Slot8" parent="NinePatchRect/GridContainer" instance=ExtResource("3_1ux8d")]
+layout_mode = 2
+
+[node name="Cursor" parent="." instance=ExtResource("3_yvks7")]
+layout_mode = 0
+menu_parent_path = NodePath("../NinePatchRect/GridContainer")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="cursor_selected" from="NinePatchRect/GridContainer/Boss_Slot" to="." method="_on_boss_slot_cursor_selected"]
+[connection signal="cursor_selected" from="NinePatchRect/GridContainer/Boss_Slot2" to="." method="_on_boss_slot_2_cursor_selected"]
+[connection signal="cursor_selected" from="NinePatchRect/GridContainer/Boss_Slot3" to="." method="_on_boss_slot_3_cursor_selected"]
+[connection signal="cursor_selected" from="NinePatchRect/GridContainer/Boss_Slot4" to="." method="_on_boss_slot_4_cursor_selected"]
+[connection signal="cursor_selected" from="NinePatchRect/GridContainer/Boss_Slot5" to="." method="_on_boss_slot_5_cursor_selected"]
+[connection signal="cursor_selected" from="NinePatchRect/GridContainer/Boss_Slot6" to="." method="_on_boss_slot_6_cursor_selected"]
+[connection signal="cursor_selected" from="NinePatchRect/GridContainer/Boss_Slot7" to="." method="_on_boss_slot_7_cursor_selected"]
+[connection signal="cursor_selected" from="NinePatchRect/GridContainer/Boss_Slot8" to="." method="_on_boss_slot_8_cursor_selected"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
