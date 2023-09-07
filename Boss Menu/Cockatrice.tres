@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Boss_Options" load_steps=3 format=3 uid="uid://bm6i8vl5dd2ly"]
+
+[ext_resource type="Script" path="res://Scripts/boss_options.gd" id="1_g87ec"]
+[ext_resource type="Texture2D" uid="uid://7cqi7y8txyyh" path="res://Assets/Sprites/UI/Cockatrice_Face.png" id="2_x2vi8"]
+
+[resource]
+script = ExtResource("1_g87ec")
+name = ""
+texture = ExtResource("2_x2vi8")

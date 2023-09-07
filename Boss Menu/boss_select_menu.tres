@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Boss_Menu" load_steps=10 format=3 uid="uid://c32frn7u4k83a"]
+
+[ext_resource type="Script" path="res://Scripts/boss_menu.gd" id="1_d7137"]
+[ext_resource type="Resource" uid="uid://bm6i8vl5dd2ly" path="res://Boss Menu/Cockatrice.tres" id="1_jyq5n"]
+[ext_resource type="Resource" uid="uid://bq3lk5priivic" path="res://Boss Menu/Lizardwoman.tres" id="2_8n3mo"]
+[ext_resource type="Resource" uid="uid://sysy1od1xrb5" path="res://Boss Menu/Harpy.tres" id="3_fyv1j"]
+[ext_resource type="Resource" uid="uid://dbxcou01cao8s" path="res://Boss Menu/Lamia.tres" id="4_srjo4"]
+[ext_resource type="Resource" uid="uid://71j1cjv8h2j0" path="res://Boss Menu/Shop.tres" id="5_kgh8n"]
+[ext_resource type="Resource" uid="uid://dny0brceyjrhd" path="res://Boss Menu/Options.tres" id="6_nrln4"]
+[ext_resource type="Resource" uid="uid://vxhfslspe1yy" path="res://Boss Menu/Save.tres" id="7_kxi5p"]
+[ext_resource type="Resource" uid="uid://c8udryejfl6dy" path="res://Boss Menu/Load.tres" id="8_ikh2x"]
+
+[resource]
+script = ExtResource("1_d7137")
+boss_options = Array[Resource("res://Scripts/boss_options.gd")]([ExtResource("1_jyq5n"), ExtResource("2_8n3mo"), ExtResource("3_fyv1j"), ExtResource("4_srjo4"), ExtResource("5_kgh8n"), ExtResource("6_nrln4"), ExtResource("7_kxi5p"), ExtResource("8_ikh2x")])

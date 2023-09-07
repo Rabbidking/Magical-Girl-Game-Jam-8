@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Boss_Options" load_steps=3 format=3 uid="uid://dbxcou01cao8s"]
+
+[ext_resource type="Script" path="res://Scripts/boss_options.gd" id="1_7lwst"]
+[ext_resource type="Texture2D" uid="uid://bbxapb5yqkal5" path="res://Assets/Sprites/UI/Lamia_Face.png" id="2_s1ybf"]
+
+[resource]
+script = ExtResource("1_7lwst")
+name = ""
+texture = ExtResource("2_s1ybf")
