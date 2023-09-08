@@ -3,4 +3,5 @@ res://Scenes/battle4.tscn
 res://Scenes/battle3.tscn
 res://Scenes/battle2.tscn
 res://Scenes/boss_select.tscn
+res://Scenes/boss_menu_gui.tscn
 res://Scripts/battle.gd

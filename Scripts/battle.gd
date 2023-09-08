@@ -285,7 +285,8 @@ func _on_attack_pressed():
 	
 	if cur_enemy_health == 0:
 		enemy_die()
-	enemy_turn()
+	else:
+		enemy_turn()
 	
 
 
@@ -341,7 +342,8 @@ func _on_inventory_gui_item_used(item):
 	
 		if cur_enemy_health == 0:
 			enemy_die()
-		enemy_turn()
+		else:
+			enemy_turn()
 		
 	elif item == "toaster":
 		display_text("You threw a unstable toaster")
@@ -365,7 +367,8 @@ func _on_inventory_gui_item_used(item):
 	
 		if cur_enemy_health == 0:
 			enemy_die()
-		enemy_turn()
+		else:	
+			enemy_turn()
 		
 	elif item == "molotov":
 		display_text("You threw a lit molotov")
@@ -389,7 +392,8 @@ func _on_inventory_gui_item_used(item):
 		
 		if cur_enemy_health == 0:
 			enemy_die()
-		enemy_turn()
+		else:
+			enemy_turn()
 		
 	elif item == "poison":
 		display_text("You splashed the enemy with extra strong rat poison")
@@ -413,7 +417,8 @@ func _on_inventory_gui_item_used(item):
 		
 		if cur_enemy_health == 0:
 			enemy_die()
-		enemy_turn()
+		else:
+			enemy_turn()
 		
 	elif item == "spice":
 		display_text("You threw spice powder at %s eyes" % enemy.name)
@@ -436,7 +441,8 @@ func _on_inventory_gui_item_used(item):
 	
 		if cur_enemy_health == 0:
 			enemy_die()
-		enemy_turn()
+		else:
+			enemy_turn()
 		
 	elif item == "mitts":
 		var barrage = true
@@ -481,7 +487,8 @@ func _on_inventory_gui_item_used(item):
 		
 		if cur_enemy_health == 0:
 			enemy_die()
-		enemy_turn()
+		else:
+			enemy_turn()
 		
 	elif item == "apron":
 		if wearing_apron == false:
