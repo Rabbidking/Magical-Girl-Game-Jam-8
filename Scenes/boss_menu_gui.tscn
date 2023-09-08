@@ -66,12 +66,20 @@ menu_parent_path = NodePath("../NinePatchRect/GridContainer")
 wait_time = 0.1
 one_shot = true
 
+[connection signal="button_pressed" from="NinePatchRect/GridContainer/Boss_Slot" to="." method="_on_boss_slot_button_pressed"]
 [connection signal="cursor_selected" from="NinePatchRect/GridContainer/Boss_Slot" to="." method="_on_boss_slot_cursor_selected"]
+[connection signal="button_pressed" from="NinePatchRect/GridContainer/Boss_Slot2" to="." method="_on_boss_slot_2_button_pressed"]
 [connection signal="cursor_selected" from="NinePatchRect/GridContainer/Boss_Slot2" to="." method="_on_boss_slot_2_cursor_selected"]
+[connection signal="button_pressed" from="NinePatchRect/GridContainer/Boss_Slot3" to="." method="_on_boss_slot_3_button_pressed"]
 [connection signal="cursor_selected" from="NinePatchRect/GridContainer/Boss_Slot3" to="." method="_on_boss_slot_3_cursor_selected"]
+[connection signal="button_pressed" from="NinePatchRect/GridContainer/Boss_Slot4" to="." method="_on_boss_slot_4_button_pressed"]
 [connection signal="cursor_selected" from="NinePatchRect/GridContainer/Boss_Slot4" to="." method="_on_boss_slot_4_cursor_selected"]
+[connection signal="button_pressed" from="NinePatchRect/GridContainer/Boss_Slot5" to="." method="_on_boss_slot_5_button_pressed"]
 [connection signal="cursor_selected" from="NinePatchRect/GridContainer/Boss_Slot5" to="." method="_on_boss_slot_5_cursor_selected"]
+[connection signal="button_pressed" from="NinePatchRect/GridContainer/Boss_Slot6" to="." method="_on_boss_slot_6_button_pressed"]
 [connection signal="cursor_selected" from="NinePatchRect/GridContainer/Boss_Slot6" to="." method="_on_boss_slot_6_cursor_selected"]
+[connection signal="button_pressed" from="NinePatchRect/GridContainer/Boss_Slot7" to="." method="_on_boss_slot_7_button_pressed"]
 [connection signal="cursor_selected" from="NinePatchRect/GridContainer/Boss_Slot7" to="." method="_on_boss_slot_7_cursor_selected"]
+[connection signal="button_pressed" from="NinePatchRect/GridContainer/Boss_Slot8" to="." method="_on_boss_slot_8_button_pressed"]
 [connection signal="cursor_selected" from="NinePatchRect/GridContainer/Boss_Slot8" to="." method="_on_boss_slot_8_cursor_selected"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
