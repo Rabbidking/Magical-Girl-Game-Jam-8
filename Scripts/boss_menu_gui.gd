@@ -61,24 +61,35 @@ func _on_timer_timeout():
 	
 func _on_boss_slot_cursor_selected():
 	cockatrice_select.emit()
-
 func _on_boss_slot_2_cursor_selected():
 	lizardwoman_select.emit()
-
 func _on_boss_slot_3_cursor_selected():
 	lamia_select.emit()
-
 func _on_boss_slot_4_cursor_selected():
 	harpy_select.emit()
-
 func _on_boss_slot_5_cursor_selected():
 	open_shop.emit()
-
 func _on_boss_slot_6_cursor_selected():
 	option_select.emit()
-
 func _on_boss_slot_7_cursor_selected():
 	save_select.emit()
-
 func _on_boss_slot_8_cursor_selected():
 	load_select.emit()
+
+
+func _on_boss_slot_button_pressed():
+	_on_boss_slot_cursor_selected()
+func _on_boss_slot_2_button_pressed():
+	_on_boss_slot_2_cursor_selected()
+func _on_boss_slot_3_button_pressed():
+	_on_boss_slot_3_cursor_selected()
+func _on_boss_slot_4_button_pressed():
+	_on_boss_slot_4_cursor_selected()
+func _on_boss_slot_5_button_pressed():
+	_on_boss_slot_5_cursor_selected()
+func _on_boss_slot_6_button_pressed():
+	_on_boss_slot_6_cursor_selected()
+func _on_boss_slot_7_button_pressed():
+	_on_boss_slot_7_cursor_selected()
+func _on_boss_slot_8_button_pressed():
+	_on_boss_slot_8_cursor_selected()
