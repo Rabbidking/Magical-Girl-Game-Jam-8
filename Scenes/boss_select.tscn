@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://b44b106gxpswt"]
+[gd_scene load_steps=6 format=3 uid="uid://b44b106gxpswt"]
 
 [ext_resource type="Script" path="res://Scripts/boss_select.gd" id="1_gnblr"]
 [ext_resource type="PackedScene" uid="uid://q83124j4wqwn" path="res://Scenes/boss_menu_gui.tscn" id="3_0e7l5"]
+[ext_resource type="Script" path="res://Scripts/Render.gd" id="3_rnner"]
 [ext_resource type="PackedScene" uid="uid://cs2k4tas2m42" path="res://Scenes/inventory_gui.tscn" id="4_8g3ux"]
+[ext_resource type="PackedScene" uid="uid://bv2l2sim1wevf" path="res://Scenes/shop_gui.tscn" id="4_85lwt"]
 
 [node name="BossSelect" type="Control"]
 layout_mode = 3
@@ -19,14 +21,17 @@ scale = Vector2(1.97, 1.99)
 
 [node name="Boss_GUI" parent="." instance=ExtResource("3_0e7l5")]
 layout_mode = 1
-offset_left = 121.0
-offset_top = 114.0
-offset_right = 121.0
-offset_bottom = 116.0
+offset_top = -2.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("3_rnner")
 
 [node name="Inventory_GUI" parent="." instance=ExtResource("4_8g3ux")]
 visible = false
 layout_mode = 1
+
+[node name="Shop_GUI" parent="." instance=ExtResource("4_85lwt")]
+visible = false
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 visible = false
@@ -108,9 +113,20 @@ text = "Quit
 [connection signal="load_select" from="Boss_GUI" to="." method="_on_boss_gui_load_select"]
 [connection signal="load_select" from="Boss_GUI" to="Inventory_GUI" method="_on_boss_gui_load_select"]
 [connection signal="open_shop" from="Boss_GUI" to="." method="_on_boss_gui_open_shop"]
-[connection signal="open_shop" from="Boss_GUI" to="Inventory_GUI" method="_on_boss_gui_open_shop"]
+[connection signal="open_shop" from="Boss_GUI" to="CanvasLayer" method="_on_boss_gui_open_shop"]
+[connection signal="open_shop" from="Boss_GUI" to="Shop_GUI" method="_on_boss_gui_open_shop"]
 [connection signal="option_select" from="Boss_GUI" to="." method="_on_boss_gui_option_select"]
-[connection signal="save_select" from="Boss_GUI" to="." method="_on_boss_gui_save_select"]
+[connection signal="save_select" from="Boss_GUI" to="Inventory_GUI" method="_on_boss_gui_save_select"]
+[connection signal="save_items" from="Inventory_GUI" to="." method="_on_inventory_gui_save_items"]
+[connection signal="add_apron" from="Shop_GUI" to="Inventory_GUI" method="_on_shop_gui_add_apron"]
+[connection signal="add_cupcake" from="Shop_GUI" to="Inventory_GUI" method="_on_shop_gui_add_cupcake"]
+[connection signal="add_knife" from="Shop_GUI" to="Inventory_GUI" method="_on_shop_gui_add_knife"]
+[connection signal="add_mitts" from="Shop_GUI" to="Inventory_GUI" method="_on_shop_gui_add_mitts"]
+[connection signal="add_molotov" from="Shop_GUI" to="Inventory_GUI" method="_on_shop_gui_add_molotov"]
+[connection signal="add_poison" from="Shop_GUI" to="Inventory_GUI" method="_on_shop_gui_add_poison"]
+[connection signal="add_spice" from="Shop_GUI" to="Inventory_GUI" method="_on_shop_gui_add_spice"]
+[connection signal="add_toaster" from="Shop_GUI" to="Inventory_GUI" method="_on_shop_gui_add_toaster"]
+[connection signal="closed" from="Shop_GUI" to="Boss_GUI" method="_on_shop_gui_closed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Boss 1" to="." method="_on_boss_1_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Boss 2" to="." method="_on_boss_2_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Boss 3" to="." method="_on_boss_3_pressed"]
