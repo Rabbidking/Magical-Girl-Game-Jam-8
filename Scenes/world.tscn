@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_wry5n"]
 [ext_resource type="PackedScene" uid="uid://cs2k4tas2m42" path="res://Scenes/inventory_gui.tscn" id="2_rl4bg"]
 [ext_resource type="Script" path="res://Scripts/CanvasLayer.gd" id="5_evimm"]
-[ext_resource type="PackedScene" uid="uid://q83124j4wqwn" path="res://Scenes/battle_menu_gui.tscn" id="6_fxyaj"]
+[ext_resource type="PackedScene" uid="uid://q83124j4wqwn" path="res://Scenes/boss_menu_gui.tscn" id="6_fxyaj"]
 [ext_resource type="PackedScene" uid="uid://bv2l2sim1wevf" path="res://Scenes/shop_gui.tscn" id="7_tpknt"]
 
 [node name="World" type="Node2D"]

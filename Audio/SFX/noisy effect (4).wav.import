@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://t8v3qxurlkcx"
+path="res://.godot/imported/noisy effect (4).wav-0dd43c127e971325f22c7788edadb28e.sample"
+
+[deps]
+
+source_file="res://Audio/SFX/noisy effect (4).wav"
+dest_files=["res://.godot/imported/noisy effect (4).wav-0dd43c127e971325f22c7788edadb28e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

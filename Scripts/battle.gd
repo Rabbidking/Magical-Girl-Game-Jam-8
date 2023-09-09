@@ -257,9 +257,19 @@ func enemy_turn():
 #		display_text("%s dealt %d damage!" % [enemy.name.to_upper(), enemy.damage])
 #		await textbox_closed
 		
+	if cur_player_health == 0:
+		display_text("You have been defeated!")
+		await textbox_closed
+
+		$AnimationPlayer.play("player_die")
+		$MagicalGirl/player_die.play()
+		await $AnimationPlayer.animation_finished
+		await get_tree().create_timer(0.25).timeout
+		get_tree().change_scene_to_file("res://Scenes/boss_select.tscn")
 		
-	$ActionsPanel.show()
-	$CursorBuffer.start()
+	else:
+		$ActionsPanel.show()
+		$CursorBuffer.start()
 
 func _on_run_pressed():
 	display_text("Got away safely!")
@@ -274,6 +284,7 @@ func _on_attack_pressed():
 	await textbox_closed
 	
 	#enemy health decreases
+	$MagicalGirl/player_attack.play()
 	cur_enemy_health = max(0, cur_enemy_health - State.damage)
 	set_health($EnemyContainer/ProgressBar, cur_enemy_health, enemy.health)
 	
@@ -521,6 +532,7 @@ func enemy_die():
 	await textbox_closed
 
 	$AnimationPlayer.play("enemy_die")
+	$EnemyContainer/enemy_die.play()
 	await $AnimationPlayer.animation_finished
 	await get_tree().create_timer(0.25).timeout
 	get_tree().change_scene_to_file("res://Scenes/boss_select.tscn")

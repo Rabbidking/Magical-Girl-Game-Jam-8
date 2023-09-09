@@ -1,10 +1,11 @@
-[gd_scene load_steps=28 format=3 uid="uid://bqeq1g17wsute"]
+[gd_scene load_steps=32 format=3 uid="uid://vip8pu63gpc6"]
 
 [ext_resource type="Script" path="res://Scripts/battle.gd" id="1_8ohry"]
 [ext_resource type="Resource" uid="uid://mpmu52v5pq6b" path="res://Scripts/Lamia.tres" id="2_0wnyv"]
-[ext_resource type="Texture2D" uid="uid://ds4ejyx3vmy21" path="res://Assets/BG/battleback1.png" id="3_7xfy8"]
+[ext_resource type="Texture2D" uid="uid://ca2v2xexix0gc" path="res://Assets/BG/battleback2.png" id="3_ipuvc"]
 [ext_resource type="FontVariation" uid="uid://cehwtw2yg7pdc" path="res://NES.tres" id="4_k6xtu"]
 [ext_resource type="Texture2D" uid="uid://cy61d0ahcwq6b" path="res://Assets/Sprites/Enemy/Lizardwoman.png" id="5_xqk3p"]
+[ext_resource type="AudioStream" uid="uid://t8v3qxurlkcx" path="res://Audio/SFX/noisy effect (4).wav" id="6_kraau"]
 [ext_resource type="FontFile" uid="uid://bhnyl4v1ydf0o" path="res://NESCyrillic.ttf" id="6_vs83n"]
 [ext_resource type="Script" path="res://Scripts/Actions.gd" id="7_m31wq"]
 [ext_resource type="PackedScene" uid="uid://7pbpaipl6xhg" path="res://Scenes/cursor.tscn" id="8_dnj32"]
@@ -12,6 +13,8 @@
 [ext_resource type="Script" path="res://Scripts/Render.gd" id="10_qv4r2"]
 [ext_resource type="PackedScene" uid="uid://cs2k4tas2m42" path="res://Scenes/inventory_gui.tscn" id="11_2wyt6"]
 [ext_resource type="PackedScene" uid="uid://bv2l2sim1wevf" path="res://Scenes/shop_gui.tscn" id="12_l751s"]
+[ext_resource type="Texture2D" uid="uid://cl8spd50ab23v" path="res://Assets/Sprites/Magical_Girl.png" id="13_ss31g"]
+[ext_resource type="AudioStream" uid="uid://dcdi851i1yok3" path="res://Audio/SFX/Shield Metal 3_1.wav" id="15_rypqe"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1gc8j"]
 bg_color = Color(1, 0, 0, 1)
@@ -106,6 +109,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MagicalGirl:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_gyoea"]
 resource_name = "enemy_damaged"
@@ -154,9 +169,24 @@ tracks/0/keys = {
 "values": [Vector2(0, 0), Vector2(2, 2), Vector2(-2, 2), Vector2(-1, -2), Vector2(1, -2), Vector2(0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_7hyo4"]
+resource_name = "player_die"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MagicalGirl:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 1), Color(1, 0, 0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_gwd2r"]
 resource_name = "shake"
-length = 0.5
+length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -164,10 +194,22 @@ tracks/0/path = NodePath("Camera2D:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"times": PackedFloat32Array(0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(16, 16), Vector2(-10, 12), Vector2(10, -8), Vector2(-14, -10), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MagicalGirl:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mtei2"]
@@ -176,6 +218,7 @@ _data = {
 "enemy_damaged": SubResource("Animation_gyoea"),
 "enemy_die": SubResource("Animation_uhl5n"),
 "mini_shake": SubResource("Animation_v8lbn"),
+"player_die": SubResource("Animation_7hyo4"),
 "shake": SubResource("Animation_gwd2r")
 }
 
@@ -191,7 +234,7 @@ enemy = ExtResource("2_0wnyv")
 
 [node name="Battleback2" type="Sprite2D" parent="."]
 position = Vector2(578, 330)
-texture = ExtResource("3_7xfy8")
+texture = ExtResource("3_ipuvc")
 
 [node name="EnemyContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
@@ -229,6 +272,9 @@ texture_filter = 1
 layout_mode = 2
 texture = ExtResource("5_xqk3p")
 stretch_mode = 3
+
+[node name="enemy_die" type="AudioStreamPlayer" parent="EnemyContainer"]
+stream = ExtResource("6_kraau")
 
 [node name="PlayerPanel" type="Panel" parent="."]
 texture_filter = 1
@@ -372,10 +418,10 @@ script = ExtResource("7_m31wq")
 
 [node name="Cursor" parent="ActionsPanel" instance=ExtResource("8_dnj32")]
 layout_mode = 0
-offset_left = 11.0
+offset_left = 12.0
 offset_top = 12.0
-offset_right = 75.0
-offset_bottom = 76.0
+offset_right = 140.0
+offset_bottom = 140.0
 menu_parent_path = NodePath("../Actions")
 
 [node name="Text" type="Panel" parent="."]
@@ -461,6 +507,17 @@ anchor_mode = 0
 [node name="CursorBuffer" type="Timer" parent="."]
 wait_time = 0.1
 one_shot = true
+
+[node name="MagicalGirl" type="Sprite2D" parent="."]
+position = Vector2(218, 396)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("13_ss31g")
+
+[node name="player_die" type="AudioStreamPlayer" parent="MagicalGirl"]
+stream = ExtResource("6_kraau")
+
+[node name="player_attack" type="AudioStreamPlayer" parent="MagicalGirl"]
+stream = ExtResource("15_rypqe")
 
 [connection signal="cursor_selected" from="ActionsPanel/Actions/Attack" to="." method="_on_attack_cursor_selected"]
 [connection signal="pressed" from="ActionsPanel/Actions/Attack" to="." method="_on_attack_pressed"]

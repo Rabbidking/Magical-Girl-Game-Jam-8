@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Boss_Menu" load_steps=10 format=3 uid="uid://c32frn7u4k83a"]
+[gd_resource type="Resource" script_class="Boss_Menu" load_steps=10 format=3 uid="uid://m4skxmvtib6m"]
 
 [ext_resource type="Script" path="res://Scripts/boss_menu.gd" id="1_d7137"]
 [ext_resource type="Resource" uid="uid://bm6i8vl5dd2ly" path="res://Boss Menu/Cockatrice.tres" id="1_jyq5n"]
