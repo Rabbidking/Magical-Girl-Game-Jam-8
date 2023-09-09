@@ -6,3 +6,7 @@ res://Scripts/state.gd
 res://Scenes/battle3.tscn
 res://Scenes/battle2.tscn
 res://Scenes/battle4.tscn
+res://Boss Menu/Cockatrice.tres
+res://Boss Menu/Lizardwoman.tres
+res://Boss Menu/Harpy.tres
+res://Boss Menu/Lamia.tres

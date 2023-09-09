@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="Boss_Options" load_steps=3 format=3 uid="uid://sysy1od1xrb5"]
 
 [ext_resource type="Script" path="res://Scripts/boss_options.gd" id="1_jfx7k"]
-[ext_resource type="Texture2D" uid="uid://boic8dtlqfwjm" path="res://Assets/Sprites/UI/Harpy_Face.png" id="2_6jkmq"]
+[ext_resource type="Texture2D" uid="uid://boic8dtlqfwjm" path="res://Assets/Sprites/UI/Harpy_Face.png" id="2_01pk4"]
 
 [resource]
 script = ExtResource("1_jfx7k")
-name = ""
-texture = ExtResource("2_6jkmq")
+name = "Harpy"
+texture = ExtResource("2_01pk4")

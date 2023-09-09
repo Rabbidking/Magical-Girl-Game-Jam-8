@@ -1,0 +1,121 @@
+[gd_scene load_steps=4 format=3 uid="uid://b44b106gxpswt"]
+
+[ext_resource type="Script" path="res://Scripts/boss_select.gd" id="1_gnblr"]
+[ext_resource type="PackedScene" uid="uid://q83124j4wqwn" path="res://Scenes/boss_menu_gui.tscn" id="3_0e7l5"]
+[ext_resource type="PackedScene" uid="uid://cs2k4tas2m42" path="res://Scenes/inventory_gui.tscn" id="4_8g3ux"]
+
+[node name="BossSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gnblr")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(1.97, 1.99)
+
+[node name="Boss_GUI" parent="." instance=ExtResource("3_0e7l5")]
+layout_mode = 1
+offset_left = 121.0
+offset_top = 114.0
+offset_right = 121.0
+offset_bottom = 116.0
+
+[node name="Inventory_GUI" parent="." instance=ExtResource("4_8g3ux")]
+visible = false
+layout_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.5
+offset_top = -68.0
+offset_right = 56.5
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Boss 1" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Cockatrice"
+
+[node name="Boss 2" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Lizardwoman"
+
+[node name="Boss 3" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Harpy"
+
+[node name="Boss 4" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Lamia"
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -133.0
+offset_top = -55.0
+offset_right = 133.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Options" type="Button" parent="MarginContainer2/HBoxContainer"]
+layout_mode = 2
+text = "Options
+"
+
+[node name="Save" type="Button" parent="MarginContainer2/HBoxContainer"]
+layout_mode = 2
+text = "Save
+"
+
+[node name="Load" type="Button" parent="MarginContainer2/HBoxContainer"]
+layout_mode = 2
+text = "Load
+"
+
+[node name="Quit" type="Button" parent="MarginContainer2/HBoxContainer"]
+layout_mode = 2
+text = "Quit
+"
+
+[connection signal="cockatrice_select" from="Boss_GUI" to="." method="_on_boss_gui_cockatrice_select"]
+[connection signal="harpy_select" from="Boss_GUI" to="." method="_on_boss_gui_harpy_select"]
+[connection signal="lamia_select" from="Boss_GUI" to="." method="_on_boss_gui_lamia_select"]
+[connection signal="lizardwoman_select" from="Boss_GUI" to="." method="_on_boss_gui_lizardwoman_select"]
+[connection signal="load_select" from="Boss_GUI" to="." method="_on_boss_gui_load_select"]
+[connection signal="load_select" from="Boss_GUI" to="Inventory_GUI" method="_on_boss_gui_load_select"]
+[connection signal="open_shop" from="Boss_GUI" to="." method="_on_boss_gui_open_shop"]
+[connection signal="open_shop" from="Boss_GUI" to="Inventory_GUI" method="_on_boss_gui_open_shop"]
+[connection signal="option_select" from="Boss_GUI" to="." method="_on_boss_gui_option_select"]
+[connection signal="save_select" from="Boss_GUI" to="." method="_on_boss_gui_save_select"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Boss 1" to="." method="_on_boss_1_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Boss 2" to="." method="_on_boss_2_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Boss 3" to="." method="_on_boss_3_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Boss 4" to="." method="_on_boss_4_pressed"]
+[connection signal="pressed" from="MarginContainer2/HBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="MarginContainer2/HBoxContainer/Save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="MarginContainer2/HBoxContainer/Load" to="." method="_on_load_pressed"]
+[connection signal="pressed" from="MarginContainer2/HBoxContainer/Quit" to="." method="_on_quit_pressed"]
