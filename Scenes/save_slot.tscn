@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://boi3mrc2om1ea"]
+
+[ext_resource type="Script" path="res://Scripts/save_slot.gd" id="1_baxnd"]
+[ext_resource type="Texture2D" uid="uid://d2qxrjhvbddr6" path="res://Assets/Sprites/UI/Item_Slot.png" id="2_v7ow1"]
+
+[node name="Save_Slot" type="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(80, 80)
+offset_right = 64.0
+offset_bottom = 64.0
+script = ExtResource("1_baxnd")
+
+[node name="Background" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_v7ow1")
+centered = false
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(65, 65)
+layout_mode = 0
+offset_right = 65.0
+offset_bottom = 65.0
+
+[node name="Panel" type="Panel" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Item" type="Sprite2D" parent="CenterContainer/Panel"]
+scale = Vector2(0.13, 0.13)
+
+[node name="Button" type="Button" parent="CenterContainer/Panel/Item"]
+offset_left = -246.0
+offset_top = -246.0
+offset_right = 246.0
+offset_bottom = 246.0
+flat = true
