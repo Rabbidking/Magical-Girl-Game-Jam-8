@@ -31,16 +31,9 @@ func save():
 		"boss_2_def": State.boss_2_def,
 		"boss_3_def": State.boss_3_def,
 		"boss_4_def": State.boss_4_def,
-		"slot_1_def": State.slot_1_def,
-		"slot_2_def": State.slot_2_def,
-		"slot_3_def": State.slot_3_def,
-		"slot_4_def": State.slot_4_def,
-		"slot_5_def": State.slot_5_def,
-		"slot_6_def": State.slot_6_def,
-		"slot_7_def": State.slot_7_def,
-		"slot_8_def": State.slot_8_def
+		"slot_array_def": State.slot_array_def
 	}
-	
+
 	return save_dict
 
 func _on_load_pressed():
@@ -63,15 +56,7 @@ func load_game():
 		State.boss_2_def = node_data["boss_2_def"]
 		State.boss_3_def = node_data["boss_3_def"]
 		State.boss_4_def = node_data["boss_4_def"]
-		State.slot_1_def = node_data["slot_1_def"]
-		State.slot_2_def = node_data["slot_2_def"]
-		State.slot_3_def = node_data["slot_3_def"]
-		State.slot_4_def = node_data["slot_4_def"]
-		State.slot_5_def = node_data["slot_5_def"]
-		State.slot_6_def = node_data["slot_6_def"]
-		State.slot_7_def = node_data["slot_7_def"]
-		State.slot_8_def = node_data["slot_8_def"]
-		
+		State.slot_array_def = node_data["slot_array_def"]
 
 
 func _on_quit_pressed():
@@ -89,11 +74,6 @@ func _on_boss_gui_lizardwoman_select():
 func _on_boss_gui_open_shop():
 	pass # Replace with function body.
 	
-func _on_boss_gui_save_select():
-	var save_game = FileAccess.open("user://savegame.save", FileAccess.WRITE)
-	var json_string = JSON.stringify(save())
-	save_game.store_line(json_string)
-
 func _on_boss_gui_load_select():
 	load_game()
 	print(State.boss_1_def)
@@ -103,3 +83,9 @@ func _on_boss_gui_load_select():
 	
 func _on_boss_gui_option_select():
 	pass # Replace with function body.
+
+
+func _on_inventory_gui_save_items():
+	var save_game = FileAccess.open("user://savegame.save", FileAccess.WRITE)
+	var json_string = JSON.stringify(save())
+	save_game.store_line(json_string)

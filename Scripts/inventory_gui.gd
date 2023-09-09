@@ -3,6 +3,7 @@ extends Control
 signal opened
 signal closed
 signal item_used (value)
+signal save_items
 
 var is_open: bool = false
 var num = 0
@@ -444,4 +445,51 @@ func _on_slot_7_button_pressed():
 func _on_slot_8_button_pressed():
 	_on_slot_8_cursor_selected()
 
+func _on_boss_gui_load_select():
+	for i in range(State.slot_array_def.size()):
+		if State.slot_array_def[i] == "empty":
+			inventory.items[i] = empty
+		elif State.slot_array_def[i] == "cupcake":
+			inventory.items[i] = cupcake
+		elif State.slot_array_def[i] == "knife":
+			inventory.items[i] = knife
+		elif State.slot_array_def[i] == "toaster":
+			inventory.items[i] = toaster
+		elif State.slot_array_def[i] == "molotov":
+			inventory.items[i] = molotov
+		elif State.slot_array_def[i] == "poison":
+			inventory.items[i] = poison
+		elif State.slot_array_def[i] == "spice":
+			inventory.items[i] = spice
+		elif State.slot_array_def[i] == "mitts":
+			inventory.items[i] = mitts
+		elif State.slot_array_def[i] == "apron":
+			inventory.items[i] = apron
+		else:
+			inventory.items[i] = empty
 
+
+func _on_boss_gui_save_select():
+	for i in range(min(inventory.items.size(), slots.size())):
+		if inventory.items[i] == empty:
+			State.slot_array_def[i] = "empty"
+		elif inventory.items[i] == cupcake:
+			State.slot_array_def[i] = "cupcake"
+		elif inventory.items[i] == knife:
+			State.slot_array_def[i] = "knife"
+		elif inventory.items[i] == toaster:
+			State.slot_array_def[i] = "toaster"
+		elif inventory.items[i] == molotov:
+			State.slot_array_def[i] = "molotov"
+		elif inventory.items[i] == poison:
+			State.slot_array_def[i] = "poison"
+		elif inventory.items[i] == spice:
+			State.slot_array_def[i] = "spice"
+		elif inventory.items[i] == mitts:
+			State.slot_array_def[i] = "mitts"
+		elif inventory.items[i] == apron:
+			State.slot_array_def[i] = "apron"
+		else:
+			State.slot_array_def[i] = "empty"
+	print(State.slot_array_def)
+	save_items.emit()
