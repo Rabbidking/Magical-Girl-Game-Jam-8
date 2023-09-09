@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Save_Collection" load_steps=3 format=3 uid="uid://d2oe3eq5cydy2"]
+
+[ext_resource type="Script" path="res://Scripts/save_collection.gd" id="1_k0jaf"]
+[ext_resource type="Texture2D" uid="uid://3lngvcxsuih4" path="res://sample/Purple.png" id="2_0t8cw"]
+
+[resource]
+script = ExtResource("1_k0jaf")
+name = ""
+texture = ExtResource("2_0t8cw")
