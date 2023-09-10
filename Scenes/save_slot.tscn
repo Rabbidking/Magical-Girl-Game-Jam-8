@@ -27,9 +27,11 @@ layout_mode = 2
 [node name="Item" type="Sprite2D" parent="CenterContainer/Panel"]
 scale = Vector2(0.13, 0.13)
 
-[node name="Button" type="Button" parent="CenterContainer/Panel/Item"]
-offset_left = -246.0
-offset_top = -246.0
-offset_right = 246.0
-offset_bottom = 246.0
+[node name="Button" type="Button" parent="CenterContainer/Panel"]
+offset_left = -31.98
+offset_top = -31.98
+offset_right = 460.02
+offset_bottom = 460.02
 flat = true
+
+[connection signal="pressed" from="CenterContainer/Panel/Button" to="." method="_on_button_pressed"]

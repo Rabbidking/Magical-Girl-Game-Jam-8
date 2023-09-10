@@ -16,8 +16,8 @@ script = ExtResource("1_2jqh5")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 0
-offset_right = 907.0
-offset_bottom = 387.0
+offset_right = 1152.0
+offset_bottom = 648.0
 texture = ExtResource("2_hftwn")
 patch_margin_left = 6
 patch_margin_top = 6
@@ -29,12 +29,13 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 49.0
-offset_top = 38.0
-offset_right = 747.0
-offset_bottom = 406.0
+offset_left = 70.0
+offset_top = 70.0
+offset_right = -1002.0
+offset_bottom = -246.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.5, 1.5)
 
 [node name="Save_Slot" parent="NinePatchRect/GridContainer" instance=ExtResource("2_cvech")]
 layout_mode = 2
@@ -50,14 +51,22 @@ layout_mode = 2
 
 [node name="Cursor" parent="." instance=ExtResource("4_mmg8m")]
 layout_mode = 0
-offset_left = 49.0
-offset_top = 38.0
-offset_right = 177.0
-offset_bottom = 166.0
+offset_left = 71.0
+offset_top = 71.0
+offset_right = 199.0
+offset_bottom = 199.0
 menu_parent_path = NodePath("../NinePatchRect/GridContainer")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.1
 one_shot = true
 
+[connection signal="button_pressed" from="NinePatchRect/GridContainer/Save_Slot" to="." method="_on_save_slot_button_pressed"]
+[connection signal="cursor_selected" from="NinePatchRect/GridContainer/Save_Slot" to="." method="_on_save_slot_cursor_selected"]
+[connection signal="button_pressed" from="NinePatchRect/GridContainer/Save_Slot2" to="." method="_on_save_slot_2_button_pressed"]
+[connection signal="cursor_selected" from="NinePatchRect/GridContainer/Save_Slot2" to="." method="_on_save_slot_2_cursor_selected"]
+[connection signal="button_pressed" from="NinePatchRect/GridContainer/Save_Slot3" to="." method="_on_save_slot_3_button_pressed"]
+[connection signal="cursor_selected" from="NinePatchRect/GridContainer/Save_Slot3" to="." method="_on_save_slot_3_cursor_selected"]
+[connection signal="button_pressed" from="NinePatchRect/GridContainer/Save_Slot4" to="." method="_on_save_slot_4_button_pressed"]
+[connection signal="cursor_selected" from="NinePatchRect/GridContainer/Save_Slot4" to="." method="_on_save_slot_4_cursor_selected"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

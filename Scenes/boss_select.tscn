@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://b44b106gxpswt"]
+[gd_scene load_steps=8 format=3 uid="uid://b44b106gxpswt"]
 
 [ext_resource type="Script" path="res://Scripts/boss_select.gd" id="1_gnblr"]
+[ext_resource type="Texture2D" uid="uid://gxu3y84ffdq" path="res://Assets/Sprites/UI/Blank_Background.png" id="2_rxme2"]
 [ext_resource type="PackedScene" uid="uid://q83124j4wqwn" path="res://Scenes/boss_menu_gui.tscn" id="3_0e7l5"]
 [ext_resource type="Script" path="res://Scripts/Render.gd" id="3_rnner"]
 [ext_resource type="PackedScene" uid="uid://cs2k4tas2m42" path="res://Scenes/inventory_gui.tscn" id="4_8g3ux"]
 [ext_resource type="PackedScene" uid="uid://bv2l2sim1wevf" path="res://Scenes/shop_gui.tscn" id="4_85lwt"]
+[ext_resource type="PackedScene" uid="uid://cvqc1efxaaj6u" path="res://Scenes/save_gui.tscn" id="7_g6k7e"]
 
 [node name="BossSelect" type="Control"]
 layout_mode = 3
@@ -18,10 +20,14 @@ script = ExtResource("1_gnblr")
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(576, 324)
 scale = Vector2(1.97, 1.99)
+texture = ExtResource("2_rxme2")
 
 [node name="Boss_GUI" parent="." instance=ExtResource("3_0e7l5")]
 layout_mode = 1
-offset_top = -2.0
+offset_left = 125.0
+offset_top = 120.0
+offset_right = 125.0
+offset_bottom = 122.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("3_rnner")
@@ -32,6 +38,10 @@ layout_mode = 1
 
 [node name="Shop_GUI" parent="." instance=ExtResource("4_85lwt")]
 visible = false
+
+[node name="Save_GUI" parent="." instance=ExtResource("7_g6k7e")]
+visible = false
+layout_mode = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 visible = false
@@ -106,18 +116,30 @@ layout_mode = 2
 text = "Quit
 "
 
+[node name="Cursor_Buffer" type="Timer" parent="."]
+
+[connection signal="load_file1" from="." to="Inventory_GUI" method="_on_boss_select_load_file_1"]
+[connection signal="load_file2" from="." to="Inventory_GUI" method="_on_boss_select_load_file_2"]
+[connection signal="load_file3" from="." to="Inventory_GUI" method="_on_boss_select_load_file_3"]
+[connection signal="load_file4" from="." to="Inventory_GUI" method="_on_boss_select_load_file_4"]
+[connection signal="save_file" from="." to="Save_GUI" method="_on_boss_select_save_file"]
 [connection signal="cockatrice_select" from="Boss_GUI" to="." method="_on_boss_gui_cockatrice_select"]
 [connection signal="harpy_select" from="Boss_GUI" to="." method="_on_boss_gui_harpy_select"]
 [connection signal="lamia_select" from="Boss_GUI" to="." method="_on_boss_gui_lamia_select"]
 [connection signal="lizardwoman_select" from="Boss_GUI" to="." method="_on_boss_gui_lizardwoman_select"]
-[connection signal="load_select" from="Boss_GUI" to="." method="_on_boss_gui_load_select"]
-[connection signal="load_select" from="Boss_GUI" to="Inventory_GUI" method="_on_boss_gui_load_select"]
+[connection signal="load_select" from="Boss_GUI" to="CanvasLayer" method="_on_boss_gui_load_select"]
+[connection signal="load_select" from="Boss_GUI" to="Save_GUI" method="_on_boss_gui_load_select"]
 [connection signal="open_shop" from="Boss_GUI" to="." method="_on_boss_gui_open_shop"]
 [connection signal="open_shop" from="Boss_GUI" to="CanvasLayer" method="_on_boss_gui_open_shop"]
 [connection signal="open_shop" from="Boss_GUI" to="Shop_GUI" method="_on_boss_gui_open_shop"]
 [connection signal="option_select" from="Boss_GUI" to="." method="_on_boss_gui_option_select"]
-[connection signal="save_select" from="Boss_GUI" to="Inventory_GUI" method="_on_boss_gui_save_select"]
-[connection signal="save_items" from="Inventory_GUI" to="." method="_on_inventory_gui_save_items"]
+[connection signal="save_select" from="Boss_GUI" to="CanvasLayer" method="_on_boss_gui_save_select"]
+[connection signal="save_select" from="Boss_GUI" to="Save_GUI" method="_on_boss_gui_save_select"]
+[connection signal="loaded_items" from="Inventory_GUI" to="Save_GUI" method="_on_inventory_gui_loaded_items"]
+[connection signal="save_items1" from="Inventory_GUI" to="." method="_on_inventory_gui_save_items_1"]
+[connection signal="save_items2" from="Inventory_GUI" to="." method="_on_inventory_gui_save_items_2"]
+[connection signal="save_items3" from="Inventory_GUI" to="." method="_on_inventory_gui_save_items_3"]
+[connection signal="save_items4" from="Inventory_GUI" to="." method="_on_inventory_gui_save_items_4"]
 [connection signal="add_apron" from="Shop_GUI" to="Inventory_GUI" method="_on_shop_gui_add_apron"]
 [connection signal="add_cupcake" from="Shop_GUI" to="Inventory_GUI" method="_on_shop_gui_add_cupcake"]
 [connection signal="add_knife" from="Shop_GUI" to="Inventory_GUI" method="_on_shop_gui_add_knife"]
@@ -127,6 +149,15 @@ text = "Quit
 [connection signal="add_spice" from="Shop_GUI" to="Inventory_GUI" method="_on_shop_gui_add_spice"]
 [connection signal="add_toaster" from="Shop_GUI" to="Inventory_GUI" method="_on_shop_gui_add_toaster"]
 [connection signal="closed" from="Shop_GUI" to="Boss_GUI" method="_on_shop_gui_closed"]
+[connection signal="closed" from="Save_GUI" to="Boss_GUI" method="_on_save_gui_closed"]
+[connection signal="load_slot1" from="Save_GUI" to="." method="_on_save_gui_load_slot_1"]
+[connection signal="load_slot2" from="Save_GUI" to="." method="_on_save_gui_load_slot_2"]
+[connection signal="load_slot3" from="Save_GUI" to="." method="_on_save_gui_load_slot_3"]
+[connection signal="load_slot4" from="Save_GUI" to="." method="_on_save_gui_load_slot_4"]
+[connection signal="save_slot1" from="Save_GUI" to="Inventory_GUI" method="_on_save_gui_save_slot_1"]
+[connection signal="save_slot2" from="Save_GUI" to="Inventory_GUI" method="_on_save_gui_save_slot_2"]
+[connection signal="save_slot3" from="Save_GUI" to="Inventory_GUI" method="_on_save_gui_save_slot_3"]
+[connection signal="save_slot4" from="Save_GUI" to="Inventory_GUI" method="_on_save_gui_save_slot_4"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Boss 1" to="." method="_on_boss_1_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Boss 2" to="." method="_on_boss_2_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Boss 3" to="." method="_on_boss_3_pressed"]
