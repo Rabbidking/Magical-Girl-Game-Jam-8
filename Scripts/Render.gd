@@ -4,9 +4,11 @@ signal add_item
 
 var inventory_sub = false
 var shop_sub = false
+var save_sub = false
 
 @onready var inventory = $"../Inventory_GUI"
 @onready var shop = $"../Shop_GUI"
+@onready var save = $"../Save_GUI"
 #@onready var battle = $Battle_GUI
 
 func _ready():
@@ -31,6 +33,8 @@ func _input(event):
 		if shop_sub == true:
 			shop.close()
 			
+		if save_sub == true:
+			save.close()
 			
 func _on_battle_gui_open_inventory():
 	inventory_sub = true
@@ -52,3 +56,7 @@ func _on_shop_cursor_selected():
 	shop_sub = true
 func _on_boss_gui_open_shop():
 	shop_sub = true
+func _on_boss_gui_save_select():
+	save_sub = true
+func _on_boss_gui_load_select():
+	save_sub = true

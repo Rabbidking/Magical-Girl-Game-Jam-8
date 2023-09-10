@@ -3,8 +3,16 @@ extends Control
 signal opened
 signal closed
 signal item_used (value)
-signal save_items
+signal save_items1
+signal save_items2
+signal save_items3
+signal save_items4
+signal loaded_items
 
+var save1 = false
+var save2 = false
+var save3 = false
+var save4 = false
 var is_open: bool = false
 var num = 0
 var item
@@ -445,7 +453,7 @@ func _on_slot_7_button_pressed():
 func _on_slot_8_button_pressed():
 	_on_slot_8_cursor_selected()
 
-func _on_boss_gui_load_select():
+func load_select():
 	for i in range(State.slot_array_def.size()):
 		if State.slot_array_def[i] == "empty":
 			inventory.items[i] = empty
@@ -467,9 +475,10 @@ func _on_boss_gui_load_select():
 			inventory.items[i] = apron
 		else:
 			inventory.items[i] = empty
+		loaded_items.emit()
 
 
-func _on_boss_gui_save_select():
+func save_select():
 	for i in range(min(inventory.items.size(), slots.size())):
 		if inventory.items[i] == empty:
 			State.slot_array_def[i] = "empty"
@@ -492,4 +501,39 @@ func _on_boss_gui_save_select():
 		else:
 			State.slot_array_def[i] = "empty"
 	print(State.slot_array_def)
-	save_items.emit()
+	if save1 == true:
+		save1 = false
+		save_items1.emit()
+	elif save2 == true:
+		save2 = false
+		save_items2.emit()
+	elif save3 == true:
+		save3 = false
+		save_items3.emit()
+	elif save4 == true:
+		save4 = false
+		save_items4.emit()
+
+
+func _on_save_gui_save_slot_1():
+	save1 = true
+	save_select()
+func _on_save_gui_save_slot_2():
+	save2 = true
+	save_select()
+func _on_save_gui_save_slot_3():
+	save3 = true
+	save_select()
+func _on_save_gui_save_slot_4():
+	save4 = true
+	save_select()
+
+
+func _on_boss_select_load_file_1():
+	load_select()
+func _on_boss_select_load_file_2():
+	load_select()
+func _on_boss_select_load_file_3():
+	load_select()
+func _on_boss_select_load_file_4():
+	load_select()

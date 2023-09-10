@@ -96,8 +96,19 @@ func enemy_turn():
 			
 			match enemy_attack:
 				0:
-					display_text("%s launches at you fiercely!" % enemy.name)
-					await textbox_closed
+					#Light Damage Attacks
+					if enemy.name == "Cockatrice":
+						display_text("%s Pecks Tia!" % enemy.name)
+						await textbox_closed
+					elif enemy.name == "Lizardwoman":
+						display_text("%s Claws Tia twice!" % enemy.name)
+						await textbox_closed
+					elif enemy.name == "Harpy":
+						display_text("%s strikes Tia with her Talons!" % enemy.name)
+						await textbox_closed
+					elif enemy.name == "Lamia":
+						display_text("%s whips Tia with her Tail!" % enemy.name)
+						await textbox_closed
 					
 					if is_defending:
 						#is_defending = false
@@ -128,8 +139,19 @@ func enemy_turn():
 						await textbox_closed
 						
 				1:
-					display_text("%s lunges quickly!" % enemy.name)
-					await textbox_closed
+					#Medium Damage
+					if enemy.name == "Cockatrice":
+						display_text("%s gives out a Shrill Crow!" % enemy.name)
+						await textbox_closed
+					elif enemy.name == "Lizardwoman":
+						display_text("%s Bites Tia!" % enemy.name)
+						await textbox_closed
+					elif enemy.name == "Harpy":
+						display_text("%s drops bricks on Tia!" % enemy.name)
+						await textbox_closed
+					elif enemy.name == "Lamia":
+						display_text("%s bites Tia with her venom fangs!" % enemy.name)
+						await textbox_closed
 					
 					if is_defending:
 						#is_defending = false
@@ -160,8 +182,19 @@ func enemy_turn():
 						await textbox_closed
 						
 				2:
-					display_text("%s lets out a battle cry!" % enemy.name)
-					await textbox_closed
+					#Heavy Attack
+					if enemy.name == "Cockatrice":
+						display_text("%s gives Tia a Death Stare!" % enemy.name)
+						await textbox_closed
+					if enemy.name == "Lizardwoman":
+						display_text("%s hits Tia with a Lariat!" % enemy.name)
+						await textbox_closed
+					elif enemy.name == "Harpy":
+						display_text("%s Dive Strikes Tia!" % enemy.name)
+						await textbox_closed
+					elif enemy.name == "Lamia":
+						display_text("%s hurls a Fire Ball at Tia!" % enemy.name)
+						await textbox_closed
 					
 					if is_defending:
 						#is_defending = false
@@ -192,35 +225,20 @@ func enemy_turn():
 						await textbox_closed
 						
 				3:
-					display_text("%s swings its tail!" % enemy.name)
-					await textbox_closed
-					
-					if is_defending:
-						#is_defending = false
-						
-						$AnimationPlayer.play("mini_shake")
-						await $AnimationPlayer.animation_finished
-						
-						apron_counter -= 1
-						if apron_counter <= 0:
-							wearing_apron = false
-							is_defending = false
-							display_text("Apron is destroyed")
-							await textbox_closed
-						else:
-							display_text("Apron is still holding")
-							await textbox_closed
-							
-					else:
-						#player health decreases
-						cur_player_health = max(0, cur_player_health - enemy.damage4)
-						set_health($PlayerPanel/PlayerData/ProgressBar, cur_player_health, State.max_health)
-						
-						$AnimationPlayer.play("shake")
-						await $AnimationPlayer.animation_finished
-					
-						display_text("%s dealt %d damage!" % [enemy.name.to_upper(), enemy.damage4])
+					#Harmless or Special attack
+					if enemy.name == "Cockatrice":
+						display_text("%s glares at Tia!" % enemy.name)
 						await textbox_closed
+					if enemy.name == "Lizardwoman":
+						display_text("%s does a set of Push-Ups!" % enemy.name)
+						await textbox_closed
+					elif enemy.name == "Harpy":
+						display_text("%s steals from Tia!" % enemy.name)
+						await textbox_closed
+					elif enemy.name == "Lamia":
+						display_text("%s gives Tia a Evil Grin!" % enemy.name)
+						await textbox_closed
+					
 		
 		else:
 			display_text("%s attack missed" % enemy.name)
@@ -552,7 +570,6 @@ func _on_shop_cursor_selected():
 func _on_run_cursor_selected():
 	cursor.cursor_disabled()
 	_on_run_pressed()
-
 
 func _on_cursor_buffer_timeout():
 	cursor.cursor_enabled()

@@ -69,12 +69,15 @@ func _on_boss_slot_4_cursor_selected():
 	harpy_select.emit()
 func _on_boss_slot_5_cursor_selected():
 	open_shop.emit()
+	cursor.cursor_disabled()
 func _on_boss_slot_6_cursor_selected():
 	option_select.emit()
 func _on_boss_slot_7_cursor_selected():
 	save_select.emit()
+	cursor.cursor_disabled()
 func _on_boss_slot_8_cursor_selected():
 	load_select.emit()
+	cursor.cursor_disabled()
 
 
 func _on_boss_slot_button_pressed():
@@ -93,3 +96,9 @@ func _on_boss_slot_7_button_pressed():
 	_on_boss_slot_7_cursor_selected()
 func _on_boss_slot_8_button_pressed():
 	_on_boss_slot_8_cursor_selected()
+
+
+func _on_shop_gui_closed():
+	$Timer.start()
+func _on_save_gui_closed():
+	$Timer.start()
