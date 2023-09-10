@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://c2osmmujfuaur"]
+[gd_scene load_steps=32 format=3 uid="uid://bm2evocdv3c08"]
 
 [ext_resource type="Script" path="res://Scripts/battle.gd" id="1_bw0pc"]
 [ext_resource type="Resource" uid="uid://3plebjvth4f" path="res://Scripts/Harpy.tres" id="2_1ige5"]
@@ -223,6 +223,7 @@ _data = {
 }
 
 [node name="Battle" type="Control"]
+texture_filter = 4
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -245,6 +246,7 @@ offset_bottom = 1207.0
 scale = Vector2(0.4, 0.4)
 
 [node name="ProgressBar" type="ProgressBar" parent="EnemyContainer"]
+texture_filter = 2
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_1gc8j")
@@ -254,7 +256,7 @@ value = 50.0
 show_percentage = false
 
 [node name="Label" type="Label" parent="EnemyContainer/ProgressBar"]
-texture_filter = 1
+texture_filter = 2
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -268,7 +270,7 @@ text = "HP: 25/50"
 horizontal_alignment = 1
 
 [node name="Enemy" type="TextureRect" parent="EnemyContainer"]
-texture_filter = 1
+texture_filter = 2
 layout_mode = 2
 texture = ExtResource("5_r8515")
 stretch_mode = 3
@@ -318,7 +320,7 @@ value = 50.0
 show_percentage = false
 
 [node name="Label" type="Label" parent="PlayerPanel/PlayerData/ProgressBar"]
-texture_filter = 1
+texture_filter = 2
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -508,10 +510,16 @@ anchor_mode = 0
 wait_time = 0.1
 one_shot = true
 
-[node name="MagicalGirl" type="Sprite2D" parent="."]
-position = Vector2(218, 396)
-scale = Vector2(0.3, 0.3)
+[node name="MagicalGirl" type="TextureRect" parent="."]
+texture_filter = 2
+layout_mode = 0
+offset_left = 64.0
+offset_top = 140.0
+offset_right = 921.0
+offset_bottom = 1220.0
+scale = Vector2(0.4, 0.4)
 texture = ExtResource("13_ptpd6")
+stretch_mode = 3
 
 [node name="player_die" type="AudioStreamPlayer" parent="MagicalGirl"]
 stream = ExtResource("6_lv4rd")

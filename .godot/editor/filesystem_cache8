@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1694223311
+::res://::1694311544
 Adventurer.ttf::FontFile::6385760573155114861::1693365885::1693365903::1::::<><>::
 icon.svg::CompressedTexture2D::6621006778267408347::1693365885::1693365903::1::::<><>::
 NES.tres::FontVariation::5069418288464971076::1693365885::0::1::::<><>::uid://bhnyl4v1ydf0o
@@ -24,7 +24,7 @@ Molotov.png::CompressedTexture2D::8691234400177637548::1693704305::1693704345::1
 Rat Poison.png::CompressedTexture2D::2454810500502942975::1693704305::1693704345::1::::<><>::
 Spice.png::CompressedTexture2D::5883037967474356614::1693704305::1693704345::1::::<><>::
 Toaster.png::CompressedTexture2D::3619686818211996494::1693704305::1693704345::1::::<><>::
-::res://Assets/Sprites/UI/::1694231508
+::res://Assets/Sprites/UI/::1694231511
 Blank_Background.png::CompressedTexture2D::13819982503520418::1694231508::1694231510::1::::<><>::
 Cockatrice_Face.png::CompressedTexture2D::2251159229508860959::1694231508::1694231511::1::::<><>::
 Cursor_A.png::CompressedTexture2D::739345840985696051::1694231508::1694231510::1::::<><>::
@@ -48,12 +48,12 @@ whip effect (3).wav::AudioStreamWAV::7660049550101339241::1517522593::1694223311
 Option1.tres::Resource/Resource::3293228306216758850::1693803595::0::1::::<><>::res://Scripts/battle_options.gd
 Option2.tres::Resource/Resource::3567932103530775430::1693803595::0::1::::<><>::res://Scripts/battle_options.gd
 player_battle_menu.tres::Resource/Resource::6794201865256125916::1693803595::0::1::::<><>::res://Scripts/battle_menu.gd
-::res://Boss Menu/::1694231338
-boss_select_menu.tres::Resource/Boss_Menu::903245069887524670::1694223448::0::1::::<><>::res://Scripts/boss_menu.gd<>uid://bm6i8vl5dd2ly::::res://Boss Menu/Cockatrice.tres<>uid://bq3lk5priivic::::res://Boss Menu/Lizardwoman.tres<>uid://sysy1od1xrb5::::res://Boss Menu/Harpy.tres<>uid://dbxcou01cao8s::::res://Boss Menu/Lamia.tres<>uid://71j1cjv8h2j0::::res://Boss Menu/Shop.tres<>uid://dny0brceyjrhd::::res://Boss Menu/Options.tres<>uid://vxhfslspe1yy::::res://Boss Menu/Save.tres<>uid://c8udryejfl6dy::::res://Boss Menu/Load.tres
-Cockatrice.tres::Resource/Boss_Options::3293228306216758850::1694231338::0::1::::<><>::res://Scripts/boss_options.gd<>uid://b7r3662yxbwve::::res://Assets/Sprites/Enemy/Cockatrice.png
-Harpy.tres::Resource/Boss_Options::1314081403911871676::1694231338::0::1::::<><>::res://Scripts/boss_options.gd<>uid://obmhh3soovdp::::res://Assets/Sprites/Enemy/Harpy.png
-Lamia.tres::Resource/Boss_Options::7277079108432036172::1694231338::0::1::::<><>::res://Scripts/boss_options.gd<>uid://xdkc0wo0gh72::::res://Assets/Sprites/Enemy/Lamia.png
-Lizardwoman.tres::Resource/Boss_Options::3567932103530775430::1694231338::0::1::::<><>::res://Scripts/boss_options.gd<>uid://cy61d0ahcwq6b::::res://Assets/Sprites/Enemy/Lizardwoman.png
+::res://Boss Menu/::1694311608
+boss_select_menu.tres::Resource/Boss_Menu::903245069887524670::1694311608::0::1::::<><>::res://Scripts/boss_menu.gd<>uid://bm6i8vl5dd2ly::::res://Boss Menu/Cockatrice.tres<>uid://bq3lk5priivic::::res://Boss Menu/Lizardwoman.tres<>uid://sysy1od1xrb5::::res://Boss Menu/Harpy.tres<>uid://dbxcou01cao8s::::res://Boss Menu/Lamia.tres<>uid://71j1cjv8h2j0::::res://Boss Menu/Shop.tres<>uid://dny0brceyjrhd::::res://Boss Menu/Options.tres<>uid://vxhfslspe1yy::::res://Boss Menu/Save.tres<>uid://c8udryejfl6dy::::res://Boss Menu/Load.tres
+Cockatrice.tres::Resource/Resource::3293228306216758850::1694231551::0::1::::<><>::res://Scripts/boss_options.gd<>uid://7cqi7y8txyyh
+Harpy.tres::Resource/Resource::1314081403911871676::1694231551::0::1::::<><>::res://Scripts/boss_options.gd<>uid://boic8dtlqfwjm
+Lamia.tres::Resource/Resource::7277079108432036172::1694231551::0::1::::<><>::res://Scripts/boss_options.gd<>uid://bbxapb5yqkal5
+Lizardwoman.tres::Resource/Resource::3567932103530775430::1694231551::0::1::::<><>::res://Scripts/boss_options.gd<>uid://btotkngaj6boe
 Load.tres::Resource/Resource::7130574539152838850::1694136931::0::1::::<><>::res://Scripts/boss_options.gd<>uid://cesubyhcfgfps
 Options.tres::Resource/Resource::8122782691284973949::1694136931::0::1::::<><>::res://Scripts/boss_options.gd<>uid://yyp1h24r34ci
 Save.tres::Resource/Resource::1521881315912166592::1694136931::0::1::::<><>::res://Scripts/boss_options.gd<>uid://0jxtllnl6rfr
@@ -80,23 +80,31 @@ Purple.png::CompressedTexture2D::1988796919978783947::1693803595::1693803607::1:
 Red.png::CompressedTexture2D::1735034909657885456::1693803595::1693803607::1::::<><>::
 Sky.png::CompressedTexture2D::7014540141669112660::1693803595::1693803607::1::::<><>::
 Yellow.png::CompressedTexture2D::1774731507011467911::1693803595::1693803607::1::::<><>::
-::res://Scenes/::1694231337
-battle2.tscn::PackedScene::3426874552320016259::1694231212::0::1::::<><>::res://Scripts/battle.gd<>uid://ccjscgc06xbup::::res://Scripts/Lizardwoman.tres<>uid://ca2v2xexix0gc::::res://Assets/BG/battleback2.png<>uid://cehwtw2yg7pdc::::res://NES.tres<>uid://cy61d0ahcwq6b::::res://Assets/Sprites/Enemy/Lizardwoman.png<>uid://bhnyl4v1ydf0o::::res://NESCyrillic.ttf<>uid://t8v3qxurlkcx::::res://Audio/SFX/noisy effect (4).wav<>res://Scripts/Actions.gd<>uid://7pbpaipl6xhg::::res://Scenes/cursor.tscn<>uid://cw8ksqql47ayn::::res://Adventurer.ttf<>res://Scripts/Render.gd<>uid://cs2k4tas2m42::::res://Scenes/inventory_gui.tscn<>uid://bv2l2sim1wevf::::res://Scenes/shop_gui.tscn<>uid://cl8spd50ab23v::::res://Assets/Sprites/Magical_Girl.png<>uid://dcdi851i1yok3::::res://Audio/SFX/Shield Metal 3_1.wav
-battle3.tscn::PackedScene::6697956431159245769::1694231212::0::1::::<><>::res://Scripts/battle.gd<>uid://3plebjvth4f::::res://Scripts/Harpy.tres<>uid://ca2v2xexix0gc::::res://Assets/BG/battleback2.png<>uid://cehwtw2yg7pdc::::res://NES.tres<>uid://cy61d0ahcwq6b::::res://Assets/Sprites/Enemy/Lizardwoman.png<>uid://bhnyl4v1ydf0o::::res://NESCyrillic.ttf<>uid://t8v3qxurlkcx::::res://Audio/SFX/noisy effect (4).wav<>res://Scripts/Actions.gd<>uid://7pbpaipl6xhg::::res://Scenes/cursor.tscn<>uid://cw8ksqql47ayn::::res://Adventurer.ttf<>res://Scripts/Render.gd<>uid://cs2k4tas2m42::::res://Scenes/inventory_gui.tscn<>uid://bv2l2sim1wevf::::res://Scenes/shop_gui.tscn<>uid://cl8spd50ab23v::::res://Assets/Sprites/Magical_Girl.png<>uid://dcdi851i1yok3::::res://Audio/SFX/Shield Metal 3_1.wav
-battle4.tscn::PackedScene::1491451244714026095::1694231212::0::1::::<><>::res://Scripts/battle.gd<>uid://mpmu52v5pq6b::::res://Scripts/Lamia.tres<>uid://ca2v2xexix0gc::::res://Assets/BG/battleback2.png<>uid://cehwtw2yg7pdc::::res://NES.tres<>uid://cy61d0ahcwq6b::::res://Assets/Sprites/Enemy/Lizardwoman.png<>uid://t8v3qxurlkcx::::res://Audio/SFX/noisy effect (4).wav<>uid://bhnyl4v1ydf0o::::res://NESCyrillic.ttf<>res://Scripts/Actions.gd<>uid://7pbpaipl6xhg::::res://Scenes/cursor.tscn<>uid://cw8ksqql47ayn::::res://Adventurer.ttf<>res://Scripts/Render.gd<>uid://cs2k4tas2m42::::res://Scenes/inventory_gui.tscn<>uid://bv2l2sim1wevf::::res://Scenes/shop_gui.tscn<>uid://cl8spd50ab23v::::res://Assets/Sprites/Magical_Girl.png<>uid://dcdi851i1yok3::::res://Audio/SFX/Shield Metal 3_1.wav
-battle.tscn::PackedScene::8531818135450429019::1694231212::0::1::::<><>::res://Scripts/battle.gd<>uid://bk1vamtcwga6j::::res://Scripts/Cockatrice.tres<>uid://bhnyl4v1ydf0o::::res://NESCyrillic.ttf<>uid://ca2v2xexix0gc::::res://Assets/BG/battleback2.png<>uid://cehwtw2yg7pdc::::res://NES.tres<>uid://cw8ksqql47ayn::::res://Adventurer.ttf<>uid://cy61d0ahcwq6b::::res://Assets/Sprites/Enemy/Lizardwoman.png<>uid://t8v3qxurlkcx::::res://Audio/SFX/noisy effect (4).wav<>res://Scripts/Actions.gd<>uid://7pbpaipl6xhg::::res://Scenes/cursor.tscn<>uid://cs2k4tas2m42::::res://Scenes/inventory_gui.tscn<>res://Scripts/Render.gd<>uid://bv2l2sim1wevf::::res://Scenes/shop_gui.tscn<>uid://cl8spd50ab23v::::res://Assets/Sprites/Magical_Girl.png<>uid://dcdi851i1yok3::::res://Audio/SFX/Shield Metal 3_1.wav
+::res://Save Files/::1694294873
+save_file_menu.tres::Resource/Resource::8528376296137128975::1694294873::0::1::::<><>::uid://t4tpecueqm78
+save_slot1.tres::Resource/Resource::1394635607859192145::1694294873::0::1::::<><>::res://Scripts/save_collection.gd<>uid://cesubyhcfgfps
+save_slot2.tres::Resource/Resource::7365857023196771148::1694294873::0::1::::<><>::res://Scripts/save_collection.gd<>uid://bkg2agt6rhy0y
+save_slot3.tres::Resource/Resource::9083555224240371575::1694294873::0::1::::<><>::res://Scripts/save_collection.gd<>uid://3lngvcxsuih4
+save_slot4.tres::Resource/Resource::4705251253516147967::1694294873::0::1::::<><>::res://Scripts/save_collection.gd<>uid://yyp1h24r34ci
+::res://Scenes/::1694312206
+battle2.tscn::PackedScene::555726863273023890::1694312197::0::1::::<><>::res://Scripts/battle.gd<>uid://ccjscgc06xbup::::res://Scripts/Lizardwoman.tres<>uid://ca2v2xexix0gc::::res://Assets/BG/battleback2.png<>uid://cehwtw2yg7pdc::::res://NES.tres<>uid://cy61d0ahcwq6b::::res://Assets/Sprites/Enemy/Lizardwoman.png<>uid://bhnyl4v1ydf0o::::res://NESCyrillic.ttf<>uid://t8v3qxurlkcx::::res://Audio/SFX/noisy effect (4).wav<>res://Scripts/Actions.gd<>uid://7pbpaipl6xhg::::res://Scenes/cursor.tscn<>uid://cw8ksqql47ayn::::res://Adventurer.ttf<>res://Scripts/Render.gd<>uid://cs2k4tas2m42::::res://Scenes/inventory_gui.tscn<>uid://bv2l2sim1wevf::::res://Scenes/shop_gui.tscn<>uid://cl8spd50ab23v::::res://Assets/Sprites/Magical_Girl.png<>uid://dcdi851i1yok3::::res://Audio/SFX/Shield Metal 3_1.wav
+battle3.tscn::PackedScene::3284706114934156171::1694312222::0::1::::<><>::res://Scripts/battle.gd<>uid://3plebjvth4f::::res://Scripts/Harpy.tres<>uid://ca2v2xexix0gc::::res://Assets/BG/battleback2.png<>uid://cehwtw2yg7pdc::::res://NES.tres<>uid://cy61d0ahcwq6b::::res://Assets/Sprites/Enemy/Lizardwoman.png<>uid://bhnyl4v1ydf0o::::res://NESCyrillic.ttf<>uid://t8v3qxurlkcx::::res://Audio/SFX/noisy effect (4).wav<>res://Scripts/Actions.gd<>uid://7pbpaipl6xhg::::res://Scenes/cursor.tscn<>uid://cw8ksqql47ayn::::res://Adventurer.ttf<>res://Scripts/Render.gd<>uid://cs2k4tas2m42::::res://Scenes/inventory_gui.tscn<>uid://bv2l2sim1wevf::::res://Scenes/shop_gui.tscn<>uid://cl8spd50ab23v::::res://Assets/Sprites/Magical_Girl.png<>uid://dcdi851i1yok3::::res://Audio/SFX/Shield Metal 3_1.wav
+battle.tscn::PackedScene::8531818135450429019::1694312131::0::1::::<><>::res://Scripts/battle.gd<>uid://bk1vamtcwga6j::::res://Scripts/Cockatrice.tres<>uid://bhnyl4v1ydf0o::::res://NESCyrillic.ttf<>uid://ca2v2xexix0gc::::res://Assets/BG/battleback2.png<>uid://cehwtw2yg7pdc::::res://NES.tres<>uid://cw8ksqql47ayn::::res://Adventurer.ttf<>uid://cy61d0ahcwq6b::::res://Assets/Sprites/Enemy/Lizardwoman.png<>uid://t8v3qxurlkcx::::res://Audio/SFX/noisy effect (4).wav<>res://Scripts/Actions.gd<>uid://7pbpaipl6xhg::::res://Scenes/cursor.tscn<>uid://cs2k4tas2m42::::res://Scenes/inventory_gui.tscn<>res://Scripts/Render.gd<>uid://bv2l2sim1wevf::::res://Scenes/shop_gui.tscn<>uid://cl8spd50ab23v::::res://Assets/Sprites/Magical_Girl.png<>uid://dcdi851i1yok3::::res://Audio/SFX/Shield Metal 3_1.wav
 battle_menu_gui.tscn::PackedScene::1192893933909817497::1693803595::0::1::::<><>::res://Scripts/battle_menu_gui.gd<>uid://c665plx0j6b0w
 battle_slot.tscn::PackedScene::8331020439294567801::1693803595::0::1::::<><>::res://Scripts/battle_slot.gd<>uid://cesubyhcfgfps
 boss_menu_gui.tscn::PackedScene::1192893933909817497::1694217648::0::1::::<><>::res://Scripts/boss_menu_gui.gd<>uid://dqxuxpapmko30
-boss_select.tscn::PackedScene::4481872612974717359::1694231212::0::1::::<><>::res://Scripts/boss_select.gd<>uid://q83124j4wqwn::::res://Scenes/boss_menu_gui.tscn<>uid://cs2k4tas2m42::::res://Scenes/inventory_gui.tscn
+boss_select.tscn::PackedScene::4481872612974717359::1694312131::0::1::::<><>::res://Scripts/boss_select.gd<>uid://q83124j4wqwn::::res://Scenes/boss_menu_gui.tscn<>res://Scripts/Render.gd<>uid://cs2k4tas2m42::::res://Scenes/inventory_gui.tscn<>uid://bv2l2sim1wevf::::res://Scenes/shop_gui.tscn
 boss_slot.tscn::PackedScene::8331020439294567801::1694217542::0::1::::<><>::res://Scripts/boss_slot.gd<>uid://d2qxrjhvbddr6
 cursor.tscn::PackedScene::2277096179685184472::1694057898::0::1::::<><>::uid://4aniijuu43jr
 inventory_gui.tscn::PackedScene::179195256146452445::1694057898::0::1::::<><>::res://Scripts/inventory_gui.gd<>uid://c7hpouycgm41p
+battle4.tscn::PackedScene::6201804718484387770::1694312231::0::1::::<><>::res://Scripts/battle.gd<>uid://bk1vamtcwga6j::::res://Scripts/Cockatrice.tres<>uid://ca2v2xexix0gc::::res://Assets/BG/battleback2.png<>uid://cehwtw2yg7pdc::::res://NES.tres<>uid://cy61d0ahcwq6b::::res://Assets/Sprites/Enemy/Lizardwoman.png<>uid://t8v3qxurlkcx::::res://Audio/SFX/noisy effect (4).wav<>uid://bhnyl4v1ydf0o::::res://NESCyrillic.ttf<>res://Scripts/Actions.gd<>uid://7pbpaipl6xhg::::res://Scenes/cursor.tscn<>uid://cw8ksqql47ayn::::res://Adventurer.ttf<>res://Scripts/Render.gd<>uid://cs2k4tas2m42::::res://Scenes/inventory_gui.tscn<>uid://bv2l2sim1wevf::::res://Scenes/shop_gui.tscn<>uid://cl8spd50ab23v::::res://Assets/Sprites/Magical_Girl.png<>uid://dcdi851i1yok3::::res://Audio/SFX/Shield Metal 3_1.wav
+save_gui.tscn::PackedScene::6280005211339347702::1694294873::0::1::::<><>::res://Scripts/save_gui.gd<>uid://boi3mrc2om1ea
+save_slot.tscn::PackedScene::3387301919214880656::1694294873::0::1::::<><>::res://Scripts/save_slot.gd<>uid://d2qxrjhvbddr6
 shop_gui.tscn::PackedScene::3916841661166836143::1694057898::0::1::::<><>::res://Scripts/shop_gui.gd<>uid://w0rulu25f2me
 shop_slot.tscn::PackedScene::685636159999504131::1694057898::0::1::::<><>::res://Scripts/shop_slot.gd<>uid://d2qxrjhvbddr6
 slot.tscn::PackedScene::7034271851729526135::1694057898::0::1::::<><>::res://Scripts/slot.gd<>uid://d2qxrjhvbddr6
 world.tscn::PackedScene::5783327812335662872::1694217609::0::1::::<><>::res://Scripts/world.gd<>uid://cs2k4tas2m42
-::res://Scripts/::1694224836
+::res://Scripts/::1694294873
 Actions.gd::GDScript::-1::1693957658::0::1::::<>Button<>::
 base_enemy.gd::GDScript::-1::1694057898::0::1::::<>Resource<>::
 battle.gd::GDScript::-1::1694224836::0::1::::<>Control<>::
@@ -107,25 +115,29 @@ battle_slot.gd::GDScript::-1::1693803595::0::1::::<>Panel<>::
 boss_menu.gd::GDScript::-1::1694136931::0::1::::Boss_Menu<>Resource<>::
 boss_menu_gui.gd::GDScript::-1::1694217642::0::1::::<>Control<>::
 boss_options.gd::GDScript::-1::1694136931::0::1::::Boss_Options<>Resource<>::
-boss_select.gd::GDScript::-1::1694217542::0::1::::<>Control<>::
+boss_select.gd::GDScript::-1::1694294873::0::1::::<>Control<>::
 boss_slot.gd::GDScript::-1::1694217542::0::1::::<>Panel<>::
 CanvasLayer.gd::GDScript::-1::1693803595::0::1::::<>CanvasLayer<>::
 Cockatrice.tres::Resource::3143258658279067575::1693365885::0::1::::<><>::res://Scripts/base_enemy.gd<>uid://b7r3662yxbwve
 cursor.gd::GDScript::-1::1694136931::0::1::::<>TextureRect<>::
 Harpy.tres::Resource::58733187814067267::1693365885::0::1::::<><>::res://Scripts/base_enemy.gd<>uid://obmhh3soovdp
 inventory.gd::GDScript::-1::1693803595::0::1::::Inventory<>Resource<>::
-inventory_gui.gd::GDScript::-1::1693957658::0::1::::<>Control<>::
+inventory_gui.gd::GDScript::-1::1694294873::0::1::::<>Control<>::
 inventory_item.gd::GDScript::-1::1693803595::0::1::::Inventory_Item<>Resource<>::
 Lamia.tres::Resource::873997728163647383::1693365885::0::1::::<><>::res://Scripts/base_enemy.gd<>uid://xdkc0wo0gh72
 Lizardwoman.tres::Resource::4932895251314338563::1693365885::0::1::::<><>::res://Scripts/base_enemy.gd<>uid://cy61d0ahcwq6b
 menu_item.gd::GDScript::-1::1693803595::0::1::::<>Label<>::
-Render.gd::GDScript::-1::1693957658::0::1::::<>CanvasLayer<>::
+Render.gd::GDScript::-1::1694294873::0::1::::<>CanvasLayer<>::
+savefile.gd::GDScript::-1::1694294873::0::1::::Savefile<>Resource<>::
+save_collection.gd::GDScript::-1::1694294873::0::1::::Save_Collection<>Resource<>::
+save_gui.gd::GDScript::-1::1694294873::0::1::::<>Control<>::
+save_slot.gd::GDScript::-1::1694294873::0::1::::<>Panel<>::
 shop.gd::GDScript::-1::1693803595::0::1::::Shop<>Resource<>::
 shop_gui.gd::GDScript::-1::1693957658::0::1::::<>Control<>::
 shop_inventory.gd::GDScript::-1::1693803595::0::1::::Shop_Inventory<>Resource<>::
 shop_slot.gd::GDScript::-1::1693957658::0::1::::<>Panel<>::
 slot.gd::GDScript::-1::1693957658::0::1::::<>Panel<>::
-state.gd::GDScript::-1::1694224792::0::1::::<>Node<>::
+state.gd::GDScript::-1::1694294873::0::1::::<>Node<>::
 world.gd::GDScript::-1::1693803595::0::1::::<>Node2D<>::
 ::res://Shop Inventory/::1693803595
 Shop_Apron.tres::Resource/Resource::8827140240878312660::1693803595::0::1::::<><>::res://Scripts/shop_inventory.gd<>uid://du7ic1ltfapa2
