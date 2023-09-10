@@ -308,7 +308,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ProgressBar" type="ProgressBar" parent="PlayerPanel/PlayerData"]
-texture_filter = 1
+texture_filter = 2
 custom_minimum_size = Vector2(0, 16)
 layout_mode = 2
 size_flags_horizontal = 3
