@@ -5,5 +5,5 @@
 
 [resource]
 script = ExtResource("1_7lwst")
-name = ""
+name = "Lamia"
 texture = ExtResource("2_32o8s")

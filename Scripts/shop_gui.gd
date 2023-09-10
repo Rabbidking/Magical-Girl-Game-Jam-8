@@ -14,6 +14,7 @@ signal add_apron
 
 var is_open: bool = false
 
+
 @onready var shop: Shop = preload("res://Shop Inventory/shop_inventory.tres")
 @onready var slots: Array = $NinePatchRect/GridContainer.get_children()
 @onready var cupcake: Shop_Inventory = preload("res://Shop Inventory/Shop_Cupcake.tres")
@@ -67,54 +68,40 @@ func _on_timer_timeout():
 	
 func _on_shop_slot_cursor_selected():
 	add_cupcake.emit()
-	
 func _on_shop_slot_2_cursor_selected():
 	add_knife.emit()
-	
 func _on_shop_slot_3_cursor_selected():
 	add_toaster.emit()
-	
 func _on_shop_slot_4_cursor_selected():
 	add_molotov.emit()
-	
 func _on_shop_slot_5_cursor_selected():
 	add_poison.emit()
-	
 func _on_shop_slot_6_cursor_selected():
 	add_spice.emit()
-	
 func _on_shop_slot_7_cursor_selected():
 	add_mitts.emit()
-	
 func _on_shop_slot_8_cursor_selected():
 	add_apron.emit()
-	
 func _on_shop_pressed():
 	open()
 
 #Mouse Button Input
 func _on_shop_slot_button_pressed():
 	add_cupcake.emit()
-
 func _on_shop_slot_2_button_pressed():
 	add_knife.emit()
-
 func _on_shop_slot_3_button_pressed():
 	add_toaster.emit()
-
 func _on_shop_slot_4_button_pressed():
 	add_molotov.emit()
-
 func _on_shop_slot_5_button_pressed():
 	add_poison.emit()
-
 func _on_shop_slot_6_button_pressed():
 	add_spice.emit()
-
 func _on_shop_slot_7_button_pressed():
 	add_mitts.emit()
-
 func _on_shop_slot_8_button_pressed():
 	add_apron.emit()
 
-
+func _on_boss_gui_open_shop():
+	open()

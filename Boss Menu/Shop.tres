@@ -5,5 +5,5 @@
 
 [resource]
 script = ExtResource("1_dfham")
-name = ""
+name = "Shop"
 texture = ExtResource("2_0x7ur")
