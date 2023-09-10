@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/battle.gd" id="1_7vh5k"]
 [ext_resource type="Resource" uid="uid://bk1vamtcwga6j" path="res://Scripts/Cockatrice.tres" id="2_1rfas"]
 [ext_resource type="FontFile" uid="uid://bhnyl4v1ydf0o" path="res://NESCyrillic.ttf" id="2_ittsq"]
-[ext_resource type="Texture2D" uid="uid://ca2v2xexix0gc" path="res://Assets/BG/battleback2.png" id="3_1i5at"]
+[ext_resource type="Texture2D" uid="uid://ds4ejyx3vmy21" path="res://Assets/BG/battleback1.png" id="3_cv4r8"]
 [ext_resource type="FontVariation" uid="uid://cehwtw2yg7pdc" path="res://NES.tres" id="4_ig3rg"]
 [ext_resource type="FontFile" uid="uid://cw8ksqql47ayn" path="res://Adventurer.ttf" id="4_npueg"]
 [ext_resource type="Texture2D" uid="uid://cy61d0ahcwq6b" path="res://Assets/Sprites/Enemy/Lizardwoman.png" id="5_pr5gj"]
@@ -235,7 +235,7 @@ enemy = ExtResource("2_1rfas")
 
 [node name="Battleback2" type="Sprite2D" parent="."]
 position = Vector2(578, 330)
-texture = ExtResource("3_1i5at")
+texture = ExtResource("3_cv4r8")
 
 [node name="EnemyContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
@@ -277,6 +277,23 @@ stretch_mode = 3
 
 [node name="enemy_die" type="AudioStreamPlayer" parent="EnemyContainer"]
 stream = ExtResource("6_rmkjb")
+
+[node name="MagicalGirl" type="TextureRect" parent="."]
+texture_filter = 2
+layout_mode = 0
+offset_left = 64.0
+offset_top = 140.0
+offset_right = 921.0
+offset_bottom = 1220.0
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("13_8xkdl")
+stretch_mode = 3
+
+[node name="player_die" type="AudioStreamPlayer" parent="MagicalGirl"]
+stream = ExtResource("6_rmkjb")
+
+[node name="player_attack" type="AudioStreamPlayer" parent="MagicalGirl"]
+stream = ExtResource("15_y23rv")
 
 [node name="PlayerPanel" type="Panel" parent="."]
 texture_filter = 1
@@ -509,23 +526,6 @@ anchor_mode = 0
 [node name="CursorBuffer" type="Timer" parent="."]
 wait_time = 0.1
 one_shot = true
-
-[node name="MagicalGirl" type="TextureRect" parent="."]
-texture_filter = 2
-layout_mode = 0
-offset_left = 64.0
-offset_top = 140.0
-offset_right = 921.0
-offset_bottom = 1220.0
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("13_8xkdl")
-stretch_mode = 3
-
-[node name="player_die" type="AudioStreamPlayer" parent="MagicalGirl"]
-stream = ExtResource("6_rmkjb")
-
-[node name="player_attack" type="AudioStreamPlayer" parent="MagicalGirl"]
-stream = ExtResource("15_y23rv")
 
 [connection signal="cursor_selected" from="ActionsPanel/Actions/Attack" to="." method="_on_attack_cursor_selected"]
 [connection signal="pressed" from="ActionsPanel/Actions/Attack" to="." method="_on_attack_pressed"]

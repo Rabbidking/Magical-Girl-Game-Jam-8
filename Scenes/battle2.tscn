@@ -278,6 +278,23 @@ stretch_mode = 3
 [node name="enemy_die" type="AudioStreamPlayer" parent="EnemyContainer"]
 stream = ExtResource("6_lemk2")
 
+[node name="MagicalGirl" type="TextureRect" parent="."]
+texture_filter = 2
+layout_mode = 2
+offset_left = 64.0
+offset_top = 140.0
+offset_right = 921.0
+offset_bottom = 1220.0
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("13_4um57")
+stretch_mode = 3
+
+[node name="player_die" type="AudioStreamPlayer" parent="MagicalGirl"]
+stream = ExtResource("6_lemk2")
+
+[node name="player_attack" type="AudioStreamPlayer" parent="MagicalGirl"]
+stream = ExtResource("15_s0jp7")
+
 [node name="PlayerPanel" type="Panel" parent="."]
 texture_filter = 1
 layout_mode = 1
@@ -509,23 +526,6 @@ anchor_mode = 0
 [node name="CursorBuffer" type="Timer" parent="."]
 wait_time = 0.1
 one_shot = true
-
-[node name="MagicalGirl" type="TextureRect" parent="."]
-texture_filter = 2
-layout_mode = 0
-offset_left = 64.0
-offset_top = 140.0
-offset_right = 921.0
-offset_bottom = 1220.0
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("13_4um57")
-stretch_mode = 3
-
-[node name="player_die" type="AudioStreamPlayer" parent="MagicalGirl"]
-stream = ExtResource("6_lemk2")
-
-[node name="player_attack" type="AudioStreamPlayer" parent="MagicalGirl"]
-stream = ExtResource("15_s0jp7")
 
 [connection signal="cursor_selected" from="ActionsPanel/Actions/Attack" to="." method="_on_attack_cursor_selected"]
 [connection signal="pressed" from="ActionsPanel/Actions/Attack" to="." method="_on_attack_pressed"]
