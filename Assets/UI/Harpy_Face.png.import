@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://boic8dtlqfwjm"
-path="res://.godot/imported/Harpy_Face.png-a08ce1d108fb21ea84bdf3526e7cf0c2.ctex"
+path="res://.godot/imported/Harpy_Face.png-1367a34f6bae8ce916529682436c8db6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/UI/Harpy_Face.png"
-dest_files=["res://.godot/imported/Harpy_Face.png-a08ce1d108fb21ea84bdf3526e7cf0c2.ctex"]
+source_file="res://Assets/UI/Harpy_Face.png"
+dest_files=["res://.godot/imported/Harpy_Face.png-1367a34f6bae8ce916529682436c8db6.ctex"]
 
 [params]
 
