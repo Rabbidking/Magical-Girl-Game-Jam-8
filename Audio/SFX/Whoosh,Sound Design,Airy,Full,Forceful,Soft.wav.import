@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bhlby1mje4ijq"
+path="res://.godot/imported/Whoosh,Sound Design,Airy,Full,Forceful,Soft.wav-66f53db0319abbb859573a87efa1696a.sample"
+
+[deps]
+
+source_file="res://Audio/SFX/Whoosh,Sound Design,Airy,Full,Forceful,Soft.wav"
+dest_files=["res://.godot/imported/Whoosh,Sound Design,Airy,Full,Forceful,Soft.wav-66f53db0319abbb859573a87efa1696a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

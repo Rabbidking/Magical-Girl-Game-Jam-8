@@ -1,5 +1,6 @@
-TextureRect
+Control
 AudioStreamPlayer
+TextureRect
 Button
 HBoxContainer
 MarginContainer

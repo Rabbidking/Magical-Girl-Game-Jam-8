@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dnncn2lho8xrr"
+path="res://.godot/imported/Whoosh,Sound Design,Whip By,Airy to Whine,High.wav-73b4f77546d607e8d8dbf52440b82599.sample"
+
+[deps]
+
+source_file="res://Audio/SFX/Whoosh,Sound Design,Whip By,Airy to Whine,High.wav"
+dest_files=["res://.godot/imported/Whoosh,Sound Design,Whip By,Airy to Whine,High.wav-73b4f77546d607e8d8dbf52440b82599.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

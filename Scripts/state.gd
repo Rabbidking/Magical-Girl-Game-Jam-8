@@ -2,7 +2,7 @@ extends Node
 
 var cur_health = 35
 var max_health = 35
-var damage = 30
+var damage = 5
 
 #bosses defeated
 var boss_1_def = false

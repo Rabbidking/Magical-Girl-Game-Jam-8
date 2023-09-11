@@ -100,9 +100,11 @@ func enemy_turn():
 					if enemy.name == "Cockatrice":
 						display_text("%s Pecks Tia!" % enemy.name)
 						await textbox_closed
+						
 					elif enemy.name == "Lizardwoman":
 						display_text("%s Claws Tia twice!" % enemy.name)
 						await textbox_closed
+						$"EnemyContainer/Attack SFX/Light_Attack".play()
 					elif enemy.name == "Harpy":
 						display_text("%s strikes Tia with her Talons!" % enemy.name)
 						await textbox_closed
@@ -143,6 +145,7 @@ func enemy_turn():
 					if enemy.name == "Cockatrice":
 						display_text("%s gives out a Shrill Crow!" % enemy.name)
 						await textbox_closed
+						$"EnemyContainer/Attack SFX/Medium Attack".play()
 					elif enemy.name == "Lizardwoman":
 						display_text("%s Bites Tia!" % enemy.name)
 						await textbox_closed
@@ -186,6 +189,7 @@ func enemy_turn():
 					if enemy.name == "Cockatrice":
 						display_text("%s gives Tia a Death Stare!" % enemy.name)
 						await textbox_closed
+						$"EnemyContainer/Attack SFX/Heavy Attack".play()
 					if enemy.name == "Lizardwoman":
 						display_text("%s hits Tia with a Lariat!" % enemy.name)
 						await textbox_closed
@@ -229,6 +233,7 @@ func enemy_turn():
 					if enemy.name == "Cockatrice":
 						display_text("%s glares at Tia!" % enemy.name)
 						await textbox_closed
+						$"EnemyContainer/Attack SFX/Special".play()
 					if enemy.name == "Lizardwoman":
 						display_text("%s does a set of Push-Ups!" % enemy.name)
 						await textbox_closed

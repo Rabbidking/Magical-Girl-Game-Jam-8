@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cc1iw4wljn3r8"
+path="res://.godot/imported/Whoosh,Sound Design,Chatter,Buzz,Tight,High,Fast,Decelerate.wav-2a9aa0e1fc9d9174ccf303708fd46477.sample"
+
+[deps]
+
+source_file="res://Audio/SFX/Whoosh,Sound Design,Chatter,Buzz,Tight,High,Fast,Decelerate.wav"
+dest_files=["res://.godot/imported/Whoosh,Sound Design,Chatter,Buzz,Tight,High,Fast,Decelerate.wav-2a9aa0e1fc9d9174ccf303708fd46477.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
