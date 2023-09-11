@@ -6,10 +6,10 @@
 [ext_resource type="FontVariation" uid="uid://cehwtw2yg7pdc" path="res://NES.tres" id="4_k6xtu"]
 [ext_resource type="Texture2D" uid="uid://cy61d0ahcwq6b" path="res://Assets/Sprites/Enemy/Lizardwoman.png" id="5_xqk3p"]
 [ext_resource type="AudioStream" uid="uid://t8v3qxurlkcx" path="res://Audio/SFX/noisy effect (4).wav" id="6_kraau"]
-[ext_resource type="FontFile" uid="uid://ydbxqvda7gfr" path="res://NESCyrillic.ttf" id="6_vs83n"]
+[ext_resource type="FontFile" uid="uid://bhnyl4v1ydf0o" path="res://NESCyrillic.ttf" id="6_vs83n"]
 [ext_resource type="Script" path="res://Scripts/Actions.gd" id="7_m31wq"]
 [ext_resource type="PackedScene" uid="uid://7pbpaipl6xhg" path="res://Scenes/cursor.tscn" id="8_dnj32"]
-[ext_resource type="FontFile" uid="uid://3bsqb7c7o45l" path="res://Adventurer.ttf" id="9_m5js5"]
+[ext_resource type="FontFile" uid="uid://cw8ksqql47ayn" path="res://Adventurer.ttf" id="9_m5js5"]
 [ext_resource type="Script" path="res://Scripts/Render.gd" id="10_qv4r2"]
 [ext_resource type="PackedScene" uid="uid://cs2k4tas2m42" path="res://Scenes/inventory_gui.tscn" id="11_2wyt6"]
 [ext_resource type="PackedScene" uid="uid://bv2l2sim1wevf" path="res://Scenes/shop_gui.tscn" id="12_l751s"]
@@ -251,6 +251,7 @@ custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_1gc8j")
 theme_override_styles/fill = SubResource("StyleBoxFlat_d7neg")
+max_value = 130.0
 step = 1.0
 value = 50.0
 show_percentage = false

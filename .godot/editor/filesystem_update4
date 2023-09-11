@@ -1,8 +1,7 @@
 res://Scenes/battle.tscn
 res://Boss Menu/boss_select_menu.tres
-res://Scripts/battle.gd
 res://Scenes/boss_select.tscn
 res://Scenes/battle2.tscn
 res://Scenes/battle3.tscn
 res://Scenes/battle4.tscn
-res://Scripts/state.gd
+res://Scripts/battle.gd

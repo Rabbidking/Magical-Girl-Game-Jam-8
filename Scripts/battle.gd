@@ -116,7 +116,7 @@ func enemy_turn():
 					elif enemy.name == "Lizardwoman":
 						display_text("%s Claws Tia twice!" % enemy.name)
 						await textbox_closed
-						$"EnemyContainer/Attack SFX/Light_Attack".play()
+						#$"EnemyContainer/Attack SFX/Light_Attack".play()
 					elif enemy.name == "Harpy":
 						display_text("%s strikes Tia with her Talons!" % enemy.name)
 						await textbox_closed
