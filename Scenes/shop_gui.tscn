@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bv2l2sim1wevf"]
+[gd_scene load_steps=6 format=3 uid="uid://bv2l2sim1wevf"]
 
 [ext_resource type="Script" path="res://Scripts/shop_gui.gd" id="1_nja2r"]
 [ext_resource type="Texture2D" uid="uid://w0rulu25f2me" path="res://Assets/Sprites/UI/Shop_Background.png" id="2_yai3k"]
 [ext_resource type="PackedScene" uid="uid://j1eleppaqkfr" path="res://Scenes/shop_slot.tscn" id="3_o0dkt"]
 [ext_resource type="PackedScene" uid="uid://7pbpaipl6xhg" path="res://Scenes/cursor.tscn" id="4_h0o8q"]
+[ext_resource type="FontVariation" uid="uid://cehwtw2yg7pdc" path="res://NES.tres" id="4_jo4p2"]
 
 [node name="Shop_GUI" type="Control"]
 custom_minimum_size = Vector2(1152, 648)
@@ -16,7 +17,7 @@ script = ExtResource("1_nja2r")
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 0
 offset_right = 1125.0
-offset_bottom = 400.0
+offset_bottom = 430.0
 texture = ExtResource("2_yai3k")
 patch_margin_left = 6
 patch_margin_top = 6
@@ -33,6 +34,7 @@ scale = Vector2(4.01, 2.48)
 columns = 4
 
 [node name="Shop_Slot" parent="NinePatchRect/GridContainer" instance=ExtResource("3_o0dkt")]
+custom_minimum_size = Vector2(60, 68)
 layout_mode = 2
 
 [node name="Shop_Slot2" parent="NinePatchRect/GridContainer" instance=ExtResource("3_o0dkt")]
@@ -55,6 +57,141 @@ layout_mode = 2
 
 [node name="Shop_Slot8" parent="NinePatchRect/GridContainer" instance=ExtResource("3_o0dkt")]
 layout_mode = 2
+
+[node name="Money" type="Label" parent="NinePatchRect"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 34.0
+offset_top = 15.0
+offset_right = 184.0
+offset_bottom = 45.0
+scale = Vector2(1.1, 1.1)
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_jo4p2")
+theme_override_font_sizes/font_size = 32
+text = "Money : "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Cupcake_Price" type="Label" parent="NinePatchRect"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 115.0
+offset_top = 193.0
+offset_right = 210.0
+offset_bottom = 223.0
+scale = Vector2(1.1, 1.1)
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_jo4p2")
+theme_override_font_sizes/font_size = 32
+text = "$10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Poison_Price" type="Label" parent="NinePatchRect"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 115.0
+offset_top = 373.0
+offset_right = 210.0
+offset_bottom = 403.0
+scale = Vector2(1.1, 1.1)
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_jo4p2")
+theme_override_font_sizes/font_size = 32
+text = "$10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Knife_Price" type="Label" parent="NinePatchRect"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 370.0
+offset_top = 193.0
+offset_right = 465.0
+offset_bottom = 223.0
+scale = Vector2(1.1, 1.1)
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_jo4p2")
+theme_override_font_sizes/font_size = 32
+text = "$10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Spice_Price" type="Label" parent="NinePatchRect"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 370.0
+offset_top = 373.0
+offset_right = 465.0
+offset_bottom = 403.0
+scale = Vector2(1.1, 1.1)
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_jo4p2")
+theme_override_font_sizes/font_size = 32
+text = "$10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Toaster_Price" type="Label" parent="NinePatchRect"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 635.0
+offset_top = 193.0
+offset_right = 730.0
+offset_bottom = 223.0
+scale = Vector2(1.1, 1.1)
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_jo4p2")
+theme_override_font_sizes/font_size = 32
+text = "$10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Mitts_Price" type="Label" parent="NinePatchRect"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 635.0
+offset_top = 373.0
+offset_right = 730.0
+offset_bottom = 403.0
+scale = Vector2(1.1, 1.1)
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_jo4p2")
+theme_override_font_sizes/font_size = 32
+text = "$10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Molotov_Price" type="Label" parent="NinePatchRect"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 891.0
+offset_top = 193.0
+offset_right = 986.0
+offset_bottom = 223.0
+scale = Vector2(1.1, 1.1)
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_jo4p2")
+theme_override_font_sizes/font_size = 32
+text = "$10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Apron_Price" type="Label" parent="NinePatchRect"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 891.0
+offset_top = 373.0
+offset_right = 986.0
+offset_bottom = 403.0
+scale = Vector2(1.1, 1.1)
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_jo4p2")
+theme_override_font_sizes/font_size = 32
+text = "$10"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Cursor" parent="." instance=ExtResource("4_h0o8q")]
 layout_mode = 0

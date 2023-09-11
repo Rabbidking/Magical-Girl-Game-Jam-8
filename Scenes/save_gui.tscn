@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cvqc1efxaaj6u"]
+[gd_scene load_steps=6 format=3 uid="uid://cvqc1efxaaj6u"]
 
 [ext_resource type="Script" path="res://Scripts/save_gui.gd" id="1_2jqh5"]
 [ext_resource type="PackedScene" uid="uid://boi3mrc2om1ea" path="res://Scenes/save_slot.tscn" id="2_cvech"]
 [ext_resource type="Texture2D" uid="uid://gxu3y84ffdq" path="res://Assets/Sprites/UI/Blank_Background.png" id="2_hftwn"]
 [ext_resource type="PackedScene" uid="uid://7pbpaipl6xhg" path="res://Scenes/cursor.tscn" id="4_mmg8m"]
+[ext_resource type="FontVariation" uid="uid://cehwtw2yg7pdc" path="res://NES.tres" id="4_ubpg8"]
 
 [node name="Save_GUI" type="Control"]
 layout_mode = 3
@@ -48,6 +49,80 @@ layout_mode = 2
 
 [node name="Save_Slot4" parent="NinePatchRect/GridContainer" instance=ExtResource("2_cvech")]
 layout_mode = 2
+
+[node name="Label" type="Label" parent="NinePatchRect"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 385.0
+offset_top = 30.0
+offset_right = 479.0
+offset_bottom = 58.0
+scale = Vector2(3.646, 3.5)
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_ubpg8")
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Slot1" type="Label" parent="NinePatchRect"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 165.0
+offset_top = 80.0
+offset_right = 260.0
+offset_bottom = 110.0
+scale = Vector2(2.5, 2.5)
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_ubpg8")
+theme_override_font_sizes/font_size = 32
+text = "SLOT 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Slot2" type="Label" parent="NinePatchRect"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 165.0
+offset_top = 205.0
+offset_right = 260.0
+offset_bottom = 235.0
+scale = Vector2(2.5, 2.5)
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_ubpg8")
+theme_override_font_sizes/font_size = 32
+text = "SLOT 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Slot3" type="Label" parent="NinePatchRect"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 165.0
+offset_top = 330.0
+offset_right = 260.0
+offset_bottom = 360.0
+scale = Vector2(2.5, 2.5)
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_ubpg8")
+theme_override_font_sizes/font_size = 32
+text = "SLOT 3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Slot4" type="Label" parent="NinePatchRect"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 165.0
+offset_top = 458.0
+offset_right = 260.0
+offset_bottom = 488.0
+scale = Vector2(2.5, 2.5)
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_ubpg8")
+theme_override_font_sizes/font_size = 32
+text = "SLOT 4"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Cursor" parent="." instance=ExtResource("4_mmg8m")]
 layout_mode = 0

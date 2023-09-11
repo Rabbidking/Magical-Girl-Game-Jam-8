@@ -5,11 +5,11 @@
 [ext_resource type="Texture2D" uid="uid://ca2v2xexix0gc" path="res://Assets/BG/battleback2.png" id="3_nj3jc"]
 [ext_resource type="FontVariation" uid="uid://cehwtw2yg7pdc" path="res://NES.tres" id="4_lrw5d"]
 [ext_resource type="Texture2D" uid="uid://cy61d0ahcwq6b" path="res://Assets/Sprites/Enemy/Lizardwoman.png" id="5_174ka"]
-[ext_resource type="FontFile" uid="uid://bhnyl4v1ydf0o" path="res://NESCyrillic.ttf" id="6_gk8ih"]
+[ext_resource type="FontFile" uid="uid://ydbxqvda7gfr" path="res://NESCyrillic.ttf" id="6_gk8ih"]
 [ext_resource type="AudioStream" uid="uid://t8v3qxurlkcx" path="res://Audio/SFX/noisy effect (4).wav" id="6_lemk2"]
 [ext_resource type="Script" path="res://Scripts/Actions.gd" id="7_djf4g"]
 [ext_resource type="PackedScene" uid="uid://7pbpaipl6xhg" path="res://Scenes/cursor.tscn" id="8_wqdyb"]
-[ext_resource type="FontFile" uid="uid://cw8ksqql47ayn" path="res://Adventurer.ttf" id="9_wsuvm"]
+[ext_resource type="FontFile" uid="uid://3bsqb7c7o45l" path="res://Adventurer.ttf" id="9_wsuvm"]
 [ext_resource type="Script" path="res://Scripts/Render.gd" id="10_fduew"]
 [ext_resource type="PackedScene" uid="uid://cs2k4tas2m42" path="res://Scenes/inventory_gui.tscn" id="11_ekkoo"]
 [ext_resource type="PackedScene" uid="uid://bv2l2sim1wevf" path="res://Scenes/shop_gui.tscn" id="12_56pto"]
@@ -507,13 +507,20 @@ script = ExtResource("10_fduew")
 [node name="Inventory_GUI" parent="ItemsPanel" instance=ExtResource("11_ekkoo")]
 visible = false
 layout_mode = 1
-offset_left = 2.0
-offset_right = 34.0
-offset_bottom = 248.0
+offset_left = -1.0
+offset_top = 167.0
+offset_right = 31.0
+offset_bottom = 415.0
+scale = Vector2(1, 0.8)
 
 [node name="Shop_GUI" parent="ItemsPanel" instance=ExtResource("12_56pto")]
 visible = false
 layout_mode = 1
+offset_left = -1.0
+offset_top = -159.0
+offset_right = 1151.0
+offset_bottom = 489.0
+scale = Vector2(1, 0.8)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -543,7 +550,9 @@ one_shot = true
 [connection signal="cursor_selected" from="ActionsPanel/Actions/Run" to="." method="_on_run_cursor_selected"]
 [connection signal="pressed" from="ActionsPanel/Actions/Run" to="." method="_on_run_pressed"]
 [connection signal="closed" from="ItemsPanel/Inventory_GUI" to="." method="_on_inventory_gui_closed"]
+[connection signal="is_full" from="ItemsPanel/Inventory_GUI" to="ItemsPanel/Shop_GUI" method="_on_inventory_gui_is_full"]
 [connection signal="item_used" from="ItemsPanel/Inventory_GUI" to="." method="_on_inventory_gui_item_used"]
+[connection signal="not_full" from="ItemsPanel/Inventory_GUI" to="ItemsPanel/Shop_GUI" method="_on_inventory_gui_not_full"]
 [connection signal="opened" from="ItemsPanel/Inventory_GUI" to="." method="_on_inventory_gui_opened"]
 [connection signal="add_apron" from="ItemsPanel/Shop_GUI" to="ItemsPanel/Inventory_GUI" method="_on_shop_gui_add_apron"]
 [connection signal="add_cupcake" from="ItemsPanel/Shop_GUI" to="ItemsPanel/Inventory_GUI" method="_on_shop_gui_add_cupcake"]
@@ -554,5 +563,7 @@ one_shot = true
 [connection signal="add_spice" from="ItemsPanel/Shop_GUI" to="ItemsPanel/Inventory_GUI" method="_on_shop_gui_add_spice"]
 [connection signal="add_toaster" from="ItemsPanel/Shop_GUI" to="ItemsPanel/Inventory_GUI" method="_on_shop_gui_add_toaster"]
 [connection signal="closed" from="ItemsPanel/Shop_GUI" to="." method="_on_shop_gui_closed"]
+[connection signal="closed" from="ItemsPanel/Shop_GUI" to="ItemsPanel/Inventory_GUI" method="_on_shop_gui_closed"]
 [connection signal="opened" from="ItemsPanel/Shop_GUI" to="." method="_on_shop_gui_opened"]
+[connection signal="opened" from="ItemsPanel/Shop_GUI" to="ItemsPanel/Inventory_GUI" method="_on_shop_gui_opened"]
 [connection signal="timeout" from="CursorBuffer" to="." method="_on_cursor_buffer_timeout"]
