@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="Save_Collection" load_steps=3 format=3 uid="uid://t4tpecueqm78"]
 
 [ext_resource type="Script" path="res://Scripts/save_collection.gd" id="1_tscmf"]
-[ext_resource type="Texture2D" uid="uid://cesubyhcfgfps" path="res://sample/Blue.png" id="2_qq6dp"]
+[ext_resource type="Texture2D" uid="uid://ctnkfs16fh1gx" path="res://Assets/Sprites/UI/Save_Icon.png" id="2_n22nu"]
 
 [resource]
 script = ExtResource("1_tscmf")
-name = ""
-texture = ExtResource("2_qq6dp")
+name = "slot1"
+texture = ExtResource("2_n22nu")
