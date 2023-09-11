@@ -23,3 +23,13 @@ func cursor_select() -> void:
 func _on_button_pressed():
 	print(name)
 	emit_signal("button_pressed")
+
+func resize_slot():
+	$CenterContainer/Panel/Item.scale.x = 0.78
+	$CenterContainer/Panel/Item.scale.y = 0.78
+
+func disable_button():
+	$CenterContainer/Panel/Button.disabled = true
+
+func enable_button():
+	$CenterContainer/Panel/Button.disabled = false

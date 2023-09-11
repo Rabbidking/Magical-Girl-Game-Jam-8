@@ -30,7 +30,11 @@ func _ready():
 	cursor.cursor_enabled()
 	update()
 	$Timer.start()
-	
+	boss_update()
+	$NinePatchRect/GridContainer/Boss_Slot5.resize_slot()
+	$NinePatchRect/GridContainer/Boss_Slot6.resize_slot()
+	$NinePatchRect/GridContainer/Boss_Slot7.resize_slot()
+	$NinePatchRect/GridContainer/Boss_Slot8.resize_slot()
 	
 func update():
 	for i in range(min(boss_menu.boss_options.size(), slots.size())):
@@ -60,13 +64,17 @@ func _on_timer_timeout():
 	
 	
 func _on_boss_slot_cursor_selected():
-	cockatrice_select.emit()
+	if State.boss_1_def == false:
+		cockatrice_select.emit()
 func _on_boss_slot_2_cursor_selected():
-	lizardwoman_select.emit()
+	if State.boss_2_def == false:
+		lizardwoman_select.emit()
 func _on_boss_slot_3_cursor_selected():
-	lamia_select.emit()
+	if State.boss_3_def == false:
+		harpy_select.emit()
 func _on_boss_slot_4_cursor_selected():
-	harpy_select.emit()
+	if State.boss_4_def == false:
+		lamia_select.emit()
 func _on_boss_slot_5_cursor_selected():
 	open_shop.emit()
 	cursor.cursor_disabled()
@@ -81,13 +89,17 @@ func _on_boss_slot_8_cursor_selected():
 
 
 func _on_boss_slot_button_pressed():
-	_on_boss_slot_cursor_selected()
+	if State.boss_1_def == false:
+		_on_boss_slot_cursor_selected()
 func _on_boss_slot_2_button_pressed():
-	_on_boss_slot_2_cursor_selected()
+	if State.boss_2_def == false:
+		_on_boss_slot_2_cursor_selected()
 func _on_boss_slot_3_button_pressed():
-	_on_boss_slot_3_cursor_selected()
+	if State.boss_3_def == false:
+		_on_boss_slot_3_cursor_selected()
 func _on_boss_slot_4_button_pressed():
-	_on_boss_slot_4_cursor_selected()
+	if State.boss_4_def == false:
+		_on_boss_slot_4_cursor_selected()
 func _on_boss_slot_5_button_pressed():
 	_on_boss_slot_5_cursor_selected()
 func _on_boss_slot_6_button_pressed():
@@ -102,3 +114,40 @@ func _on_shop_gui_closed():
 	$Timer.start()
 func _on_save_gui_closed():
 	$Timer.start()
+
+func boss_update():
+	print("fade")
+	if State.boss_1_def == true:
+		$NinePatchRect/GridContainer/Boss_Slot/Cockatrice_Fade.visible = true
+		$NinePatchRect/GridContainer/Boss_Slot.disable_button()
+	elif State.boss_1_def == false:
+		$NinePatchRect/GridContainer/Boss_Slot/Cockatrice_Fade.visible = false
+		$NinePatchRect/GridContainer/Boss_Slot.enable_button()
+	if State.boss_2_def == true:
+		$NinePatchRect/GridContainer/Boss_Slot2/LizardWoman_Fade.visible = true
+		$NinePatchRect/GridContainer/Boss_Slot2.disable_button()
+	elif State.boss_2_def == false:
+		$NinePatchRect/GridContainer/Boss_Slot2/LizardWoman_Fade.visible = false
+		$NinePatchRect/GridContainer/Boss_Slot2.enable_button()
+	if State.boss_3_def == true:
+		$NinePatchRect/GridContainer/Boss_Slot3/Harpy_Fade.visible = true
+		$NinePatchRect/GridContainer/Boss_Slot3.disable_button()
+	elif State.boss_3_def == false:
+		$NinePatchRect/GridContainer/Boss_Slot3/Harpy_Fade.visible = false
+		$NinePatchRect/GridContainer/Boss_Slot3.enable_button()
+	if State.boss_4_def == true:
+		$NinePatchRect/GridContainer/Boss_Slot4/Lamia_Fade.visible = true
+		$NinePatchRect/GridContainer/Boss_Slot4.disable_button()
+	elif State.boss_4_def == false:
+		$NinePatchRect/GridContainer/Boss_Slot4/Lamia_Fade.visible = false
+		$NinePatchRect/GridContainer/Boss_Slot4.enable_button()
+
+
+func _on_save_gui_load_slot_1():
+	boss_update()
+func _on_save_gui_load_slot_2():
+	boss_update()
+func _on_save_gui_load_slot_3():
+	boss_update()
+func _on_save_gui_load_slot_4():
+	boss_update()

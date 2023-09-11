@@ -1,8 +1,10 @@
 extends Node
 
-var cur_health = 35
-var max_health = 35
+var cur_health = 100
+var max_health = 100
 var damage = 5
+var money = 100
+var inv_count = 0
 
 #bosses defeated
 var boss_1_def = false

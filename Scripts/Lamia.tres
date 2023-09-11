@@ -7,5 +7,10 @@
 script = ExtResource("1_dlo82")
 name = "Lamia"
 texture = ExtResource("2_awju8")
-health = 100
-damage = 40
+health = 130
+damage1 = 25
+damage2 = 30
+damage3 = 40
+damage4 = 0
+accuracy = 100
+magic = 100

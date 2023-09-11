@@ -7,8 +7,10 @@
 script = ExtResource("1_3kmgv")
 name = "Lizardwoman"
 texture = ExtResource("2_cv1k8")
-health = 45
-damage1 = 20
-damage2 = 30
-damage3 = 40
-damage4 = 50
+health = 150
+damage1 = 15
+damage2 = 25
+damage3 = 35
+damage4 = 0
+accuracy = 100
+magic = 0

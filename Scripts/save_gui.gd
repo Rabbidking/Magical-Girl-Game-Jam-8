@@ -27,6 +27,18 @@ var is_open: bool = false
 func open():
 	visible = true
 	is_open = true
+	if save_mode == true:
+		$NinePatchRect/Label.text = "SAVE"
+		$NinePatchRect/GridContainer/Save_Slot.change_to_save()
+		$NinePatchRect/GridContainer/Save_Slot2.change_to_save()
+		$NinePatchRect/GridContainer/Save_Slot3.change_to_save()
+		$NinePatchRect/GridContainer/Save_Slot4.change_to_save()
+	elif load_mode == true:
+		$NinePatchRect/Label.text = "LOAD"
+		$NinePatchRect/GridContainer/Save_Slot.change_to_load()
+		$NinePatchRect/GridContainer/Save_Slot2.change_to_load()
+		$NinePatchRect/GridContainer/Save_Slot3.change_to_load()
+		$NinePatchRect/GridContainer/Save_Slot4.change_to_load()
 	$Timer.start()
 	opened.emit()
 
@@ -64,6 +76,7 @@ func _on_save_slot_4_cursor_selected():
 func _on_boss_gui_save_select():
 	save_mode = true
 	open()
+
 func _on_boss_gui_load_select():
 	load_mode = true
 	open()

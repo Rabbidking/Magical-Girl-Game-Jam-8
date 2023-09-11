@@ -7,8 +7,10 @@
 script = ExtResource("1_utw50")
 name = "Harpy"
 texture = ExtResource("2_gv2iw")
-health = 50
-damage1 = 20
-damage2 = 20
-damage3 = 20
-damage4 = 20
+health = 120
+damage1 = 25
+damage2 = 30
+damage3 = 35
+damage4 = 0
+accuracy = 100
+magic = 0

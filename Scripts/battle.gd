@@ -9,6 +9,10 @@ signal textbox_closed
 
 var cur_player_health = 0
 var cur_enemy_health = 0
+var player_is_poisoned = false
+var player_poisoned_counter = 0
+var player_immunity = false
+var player_immunity_counter = 0
 var is_defending = false
 var wearing_apron = false
 var apron_counter = 0
@@ -20,6 +24,7 @@ var is_poisoned = false
 var poison_count = 0
 var is_blinded = false
 var blind_count = 0
+var buffed = false
 
 func _ready():
 	randomize()
@@ -57,13 +62,14 @@ func display_text(text):
 	
 func enemy_turn():
 	#display some text
-	
 	if is_burning == true:
 		burn_count -= 1
 		cur_enemy_health = max(0, cur_enemy_health - 10)
 		set_health($EnemyContainer/ProgressBar, cur_enemy_health, enemy.health)
 		display_text("%s takes burn damage" % enemy.name)
 		await textbox_closed
+		if cur_enemy_health <= 0:
+			enemy_die()
 		if burn_count <= 0:
 			is_burning = false
 			display_text("%s is no longer burning" % enemy.name)
@@ -75,6 +81,9 @@ func enemy_turn():
 		set_health($EnemyContainer/ProgressBar, cur_enemy_health, enemy.health)
 		display_text("%s takes poison damage" % enemy.name)
 		await textbox_closed
+		if cur_enemy_health <= 0:
+			enemy_die()
+
 		if poison_count <= 0:
 			is_poisoned = false
 			display_text("%s is no longer poisoned" % enemy.name)
@@ -91,9 +100,12 @@ func enemy_turn():
 			enemy.accuracy = 100
 			
 	if is_paralyzed == false:
-		if randi() % 99 < enemy.accuracy:
-			var enemy_attack = randi() % 4
-			
+		var enemy_attack = randi() % 4
+		if randi() % 99 < enemy.accuracy or enemy_attack == 4:
+			if enemy.name == "Lamia":
+				if enemy.magic < 25:
+					enemy_attack = 3
+					
 			match enemy_attack:
 				0:
 					#Light Damage Attacks
@@ -131,14 +143,34 @@ func enemy_turn():
 						
 					else:
 						#player health decreases
-						cur_player_health = max(0, cur_player_health - enemy.damage1)
-						set_health($PlayerPanel/PlayerData/ProgressBar, cur_player_health, State.max_health)
+						if enemy.name == "Lizardwoman":
+							cur_player_health = max(0, cur_player_health - enemy.damage1)
+							set_health($PlayerPanel/PlayerData/ProgressBar, cur_player_health, State.max_health)
 						
-						$AnimationPlayer.play("shake")
-						await $AnimationPlayer.animation_finished
+							$AnimationPlayer.play("shake")
+							await $AnimationPlayer.animation_finished
 					
-						display_text("%s dealt %d damage!" % [enemy.name.to_upper(), enemy.damage1])
-						await textbox_closed
+							display_text("%s dealt %d damage!" % [enemy.name.to_upper(), enemy.damage1])
+							await textbox_closed
+							
+							cur_player_health = max(0, cur_player_health - enemy.damage1)
+							set_health($PlayerPanel/PlayerData/ProgressBar, cur_player_health, State.max_health)
+						
+							$AnimationPlayer.play("shake")
+							await $AnimationPlayer.animation_finished
+					
+							display_text("%s dealt %d damage!" % [enemy.name.to_upper(), enemy.damage1])
+							await textbox_closed
+						
+						else:
+							cur_player_health = max(0, cur_player_health - enemy.damage1)
+							set_health($PlayerPanel/PlayerData/ProgressBar, cur_player_health, State.max_health)
+						
+							$AnimationPlayer.play("shake")
+							await $AnimationPlayer.animation_finished
+					
+							display_text("%s dealt %d damage!" % [enemy.name.to_upper(), enemy.damage1])
+							await textbox_closed
 						
 				1:
 					#Medium Damage
@@ -150,10 +182,10 @@ func enemy_turn():
 						display_text("%s Bites Tia!" % enemy.name)
 						await textbox_closed
 					elif enemy.name == "Harpy":
-						display_text("%s drops bricks on Tia!" % enemy.name)
+						display_text("%s drops something on Tia!" % enemy.name)
 						await textbox_closed
 					elif enemy.name == "Lamia":
-						display_text("%s bites Tia with her venom fangs!" % enemy.name)
+						display_text("%s bites Tia with her Venom Fangs!" % enemy.name)
 						await textbox_closed
 					
 					if is_defending:
@@ -175,14 +207,91 @@ func enemy_turn():
 						
 					else:
 						#player health decreases
-						cur_player_health = max(0, cur_player_health - enemy.damage2)
-						set_health($PlayerPanel/PlayerData/ProgressBar, cur_player_health, State.max_health)
+						if enemy.name == "Harpy":
+							var drop_attack = randi() % 4
+							match drop_attack:
+								0:
+									display_text("%s dropped a pillow on Tia's head" % enemy.name)
+									await textbox_closed
+									
+								1:
+									display_text("%s dropped a pebbles on Tia's head" % enemy.name)
+									await textbox_closed
+									
+									cur_player_health = max(0, cur_player_health - enemy.damage1)
+									set_health($PlayerPanel/PlayerData/ProgressBar, cur_player_health, State.max_health)
 						
-						$AnimationPlayer.play("shake")
-						await $AnimationPlayer.animation_finished
+									$AnimationPlayer.play("shake")
+									await $AnimationPlayer.animation_finished
 					
-						display_text("%s dealt %d damage!" % [enemy.name.to_upper(), enemy.damage2])
-						await textbox_closed
+									display_text("%s dealt %d damage!" % [enemy.name.to_upper(), enemy.damage1])
+									await textbox_closed
+									
+								2:
+									display_text("%s dropped a brick on Tia's head" % enemy.name)
+									await textbox_closed
+									
+									cur_player_health = max(0, cur_player_health - enemy.damage2)
+									set_health($PlayerPanel/PlayerData/ProgressBar, cur_player_health, State.max_health)
+						
+									$AnimationPlayer.play("shake")
+									await $AnimationPlayer.animation_finished
+					
+									display_text("%s dealt %d damage!" % [enemy.name.to_upper(), enemy.damage2])
+									await textbox_closed
+									
+								3:
+									display_text("%s dropped a cupcake on Tia's head" % enemy.name)
+									await textbox_closed
+									
+									cur_player_health = max(0, cur_player_health + (State.max_health * .75))
+									if cur_player_health > State.max_health:
+										cur_player_health = State.max_health
+									set_health($PlayerPanel/PlayerData/ProgressBar, cur_player_health, State.max_health)
+									display_text("You ate a cupcake and it healed %d points" % int(State.max_health * .75))
+									await textbox_closed
+									
+						elif enemy.name == "Lamia":
+							if player_is_poisoned == false:
+								player_is_poisoned = true
+								player_poisoned_counter = 5
+								cur_player_health = max(0, cur_player_health - enemy.damage2)
+								set_health($PlayerPanel/PlayerData/ProgressBar, cur_player_health, State.max_health)
+							
+								$AnimationPlayer.play("shake")
+								await $AnimationPlayer.animation_finished
+						
+								display_text("%s dealt %d damage!" % [enemy.name.to_upper(), enemy.damage2])
+								await textbox_closed
+								
+								display_text("%s injected Tia with Venom!" % enemy.name)
+								await textbox_closed
+							else:
+								cur_player_health = max(0, cur_player_health - enemy.damage2)
+								set_health($PlayerPanel/PlayerData/ProgressBar, cur_player_health, State.max_health)
+							
+								$AnimationPlayer.play("shake")
+								await $AnimationPlayer.animation_finished
+						
+								display_text("%s dealt %d damage!" % [enemy.name.to_upper(), enemy.damage2])
+								await textbox_closed
+								
+								if player_is_poisoned == true:
+									display_text("%s already injected Tia with Venom!" % enemy.name)
+									await textbox_closed
+									
+								elif player_immunity == true:
+									display_text("Tia is temporarily immune to venom!" )
+									await textbox_closed
+						else:
+							cur_player_health = max(0, cur_player_health - enemy.damage2)
+							set_health($PlayerPanel/PlayerData/ProgressBar, cur_player_health, State.max_health)
+							
+							$AnimationPlayer.play("shake")
+							await $AnimationPlayer.animation_finished
+						
+							display_text("%s dealt %d damage!" % [enemy.name.to_upper(), enemy.damage2])
+							await textbox_closed
 						
 				2:
 					#Heavy Attack
@@ -199,6 +308,7 @@ func enemy_turn():
 					elif enemy.name == "Lamia":
 						display_text("%s hurls a Fire Ball at Tia!" % enemy.name)
 						await textbox_closed
+						enemy.magic -= 25
 					
 					if is_defending:
 						#is_defending = false
@@ -235,14 +345,37 @@ func enemy_turn():
 						await textbox_closed
 						$"EnemyContainer/Attack SFX/Special".play()
 					if enemy.name == "Lizardwoman":
-						display_text("%s does a set of Push-Ups!" % enemy.name)
-						await textbox_closed
+						if buffed == false:
+							display_text("%s does a set of Push-Ups!" % enemy.name)
+							await textbox_closed
+						
+							display_text("%s attack power increases!" % enemy.name)
+							await textbox_closed
+							enemy.damage1 += 5
+							enemy.damage2 += 5
+							enemy.damage3 += 5
+							buffed = true
+							
+						else:
+							display_text("%s flexes her muscles!" % enemy.name)
+							await textbox_closed
+							
 					elif enemy.name == "Harpy":
 						display_text("%s steals from Tia!" % enemy.name)
 						await textbox_closed
+						
+						display_text("%s stole $10!" % enemy.name)
+						await textbox_closed
+						State.money -= 15
 					elif enemy.name == "Lamia":
 						display_text("%s gives Tia a Evil Grin!" % enemy.name)
 						await textbox_closed
+						
+						display_text("%s regains some magic!" % enemy.name)
+						await textbox_closed
+						enemy.magic += 25
+						if enemy.magic > 100:
+							enemy.magic = 100
 					
 		
 		else:
@@ -257,6 +390,24 @@ func enemy_turn():
 			is_paralyzed = false
 			display_text("%s is no longer paralyzed" % enemy.name)
 			await textbox_closed
+			
+	if player_is_poisoned == true:
+		player_poisoned_counter -= 1
+		cur_player_health = max(0, cur_player_health - 5)
+		set_health($PlayerPanel/PlayerData/ProgressBar, cur_player_health, State.max_health)
+		$AnimationPlayer.play("shake")
+		await $AnimationPlayer.animation_finished
+		display_text("Tia is hurt from the venom" )
+		await textbox_closed
+		
+	if player_immunity == true:
+		player_immunity_counter -= 1
+		if player_immunity_counter <= 0:
+			player_immunity = false
+			display_text("Tia is no loner immune to venom" )
+			await textbox_closed
+		
+		
 	#display_text("%s launches at you fiercely!" % enemy.name)
 	#await textbox_closed
 	
@@ -303,18 +454,19 @@ func _on_run_pressed():
 
 func _on_attack_pressed():
 	#display some text
-	display_text("You swing your sword!")
+	display_text("You strike with your frying pan!")
 	await textbox_closed
 	
 	#enemy health decreases
 	$MagicalGirl/player_attack.play()
 	cur_enemy_health = max(0, cur_enemy_health - State.damage)
 	set_health($EnemyContainer/ProgressBar, cur_enemy_health, enemy.health)
+	State.money += 10
 	
 	$AnimationPlayer.play("enemy_damaged")
 	await $AnimationPlayer.animation_finished
 	
-	display_text("You dealt %d damage!" % State.damage)
+	display_text("You dealt %d damage and gained $10!" % State.damage)
 	await textbox_closed
 	
 	if cur_enemy_health == 0:
@@ -354,10 +506,17 @@ func _on_shop_gui_closed():
 func _on_inventory_gui_item_used(item):
 	$ItemsPanel.visible = false
 	if item == "cupcake":
-		display_text("You ate a cupcake and it healed %d points" % int(State.max_health * .75))
-		cur_player_health = max(0, cur_player_health + (State.max_health * .75))
 		if cur_player_health > State.max_health:
 			cur_player_health = State.max_health
+		if player_is_poisoned == true:
+			display_text("Cupcake cured venom poisoning!")
+			await textbox_closed
+			player_is_poisoned = false
+			player_poisoned_counter = 0
+			player_immunity = true
+			player_immunity_counter = 5
+		display_text("You ate a cupcake and it healed %d points" % int(State.max_health * .75))
+		cur_player_health = max(0, cur_player_health + (State.max_health * .75))
 		set_health($PlayerPanel/PlayerData/ProgressBar, cur_player_health, State.max_health)
 		await textbox_closed
 		await get_tree().create_timer(0.25).timeout
@@ -374,20 +533,20 @@ func _on_inventory_gui_item_used(item):
 		display_text("You dealt %d damage!" % (State.damage *2))
 		await textbox_closed
 	
-		if cur_enemy_health == 0:
+		if cur_enemy_health <= 0:
 			enemy_die()
 		else:
 			enemy_turn()
 		
 	elif item == "toaster":
 		display_text("You threw a unstable toaster")
-		cur_enemy_health = max(0, cur_enemy_health - State.damage)
+		cur_enemy_health = max(0, cur_enemy_health - (State.damage * 1.5))
 		set_health($EnemyContainer/ProgressBar, cur_enemy_health, enemy.health)
 	
 		$AnimationPlayer.play("enemy_damaged")
 		await $AnimationPlayer.animation_finished
 	
-		display_text("You dealt %d damage!" % State.damage)
+		display_text("You dealt %d damage!" % (State.damage * 1.5))
 		await textbox_closed
 		
 		if is_paralyzed == false:
@@ -399,20 +558,20 @@ func _on_inventory_gui_item_used(item):
 			display_text("%s is already paralzyed" % enemy.name)
 			await textbox_closed
 	
-		if cur_enemy_health == 0:
+		if cur_enemy_health <= 0:
 			enemy_die()
 		else:	
 			enemy_turn()
 		
 	elif item == "molotov":
 		display_text("You threw a lit molotov")
-		cur_enemy_health = max(0, cur_enemy_health - State.damage)
+		cur_enemy_health = max(0, cur_enemy_health - (State.damage * 1.5))
 		set_health($EnemyContainer/ProgressBar, cur_enemy_health, enemy.health)
 	
 		$AnimationPlayer.play("enemy_damaged")
 		await $AnimationPlayer.animation_finished
 	
-		display_text("You dealt %d damage!" % State.damage)
+		display_text("You dealt %d damage!" % (State.damage * 1.5))
 		await textbox_closed
 		
 		if is_burning == false:
@@ -424,7 +583,7 @@ func _on_inventory_gui_item_used(item):
 			display_text("%s is already burning" % enemy.name)
 			await textbox_closed
 		
-		if cur_enemy_health == 0:
+		if cur_enemy_health <= 0:
 			enemy_die()
 		else:
 			enemy_turn()
@@ -449,7 +608,7 @@ func _on_inventory_gui_item_used(item):
 			display_text("%s has already been poisoned" % enemy.name)
 			await textbox_closed
 		
-		if cur_enemy_health == 0:
+		if cur_enemy_health <= 0:
 			enemy_die()
 		else:
 			enemy_turn()
@@ -473,7 +632,7 @@ func _on_inventory_gui_item_used(item):
 			display_text("%s has already been blinded" % enemy.name)
 			await textbox_closed
 	
-		if cur_enemy_health == 0:
+		if cur_enemy_health <= 0:
 			enemy_die()
 		else:
 			enemy_turn()
@@ -487,26 +646,26 @@ func _on_inventory_gui_item_used(item):
 		display_text("You unleashed a barrage of punches")
 		
 		for i in range(0, 2):
-			cur_enemy_health = max(0, cur_enemy_health - State.damage)
+			cur_enemy_health = max(0, cur_enemy_health - (State.damage * 1.2))
 			set_health($EnemyContainer/ProgressBar, cur_enemy_health, enemy.health)
 	
 			$AnimationPlayer.play("enemy_damaged")
 			await $AnimationPlayer.animation_finished
 	
-			display_text("You dealt %d damage!" % State.damage)
+			display_text("You dealt %d damage!" % (State.damage * 1.2))
 			await textbox_closed
 		
 		while barrage == true:
 			print("barrage mode")
 			print(barrage_attack)
 			if barrage_attack == 0:
-				cur_enemy_health = max(0, cur_enemy_health - State.damage)
+				cur_enemy_health = max(0, cur_enemy_health - (State.damage * 1.2))
 				set_health($EnemyContainer/ProgressBar, cur_enemy_health, enemy.health)
 	
 				$AnimationPlayer.play("enemy_damaged")
 				await $AnimationPlayer.animation_finished
 	
-				display_text("You dealt %d damage!" % State.damage)
+				display_text("You dealt %d damage!" % (State.damage * 1.2))
 				await textbox_closed
 				cur_attack += 1
 				barrage_attack = randi() % 4
@@ -519,7 +678,7 @@ func _on_inventory_gui_item_used(item):
 				barrage = false
 				break
 		
-		if cur_enemy_health == 0:
+		if cur_enemy_health <= 0:
 			enemy_die()
 		else:
 			enemy_turn()
@@ -541,6 +700,7 @@ func _on_inventory_gui_item_used(item):
 
 func enemy_die():
 	#set flags for boss defeats
+	State.money += 100
 	match enemy.name:
 		"Cockatrice":
 			State.boss_1_def = true
@@ -551,7 +711,7 @@ func enemy_die():
 		"Lamia":
 			State.boss_4_def = true
 	
-	display_text("%s has been defeated!" % enemy.name.to_upper())
+	display_text("%s has been defeated and you gain $100!" % enemy.name.to_upper())
 	await textbox_closed
 
 	$AnimationPlayer.play("enemy_die")

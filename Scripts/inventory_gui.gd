@@ -8,13 +8,15 @@ signal save_items2
 signal save_items3
 signal save_items4
 signal loaded_items
+signal is_full
+signal not_full
 
 var save1 = false
 var save2 = false
 var save3 = false
 var save4 = false
 var is_open: bool = false
-var num = 0
+#var num = 0
 var item
 
 @onready var inventory: Inventory = preload("res://Inventory/player_inventory.tres")
@@ -31,19 +33,45 @@ var item
 @onready var cursor = $Cursor
 
 func _ready():
+	print(State.inv_count)
 	update()
 
 func update():
 	for i in range(min(inventory.items.size(), slots.size())):
 		slots[i].update(inventory.items[i])
+	if State.inv_count <= 8:
+		not_full.emit()
+	if State.inv_count >= 8:
+		is_full.emit()
 	
 func open():
 	visible = true
 	is_open = true
+	$Cursor.visible = true
+	$NinePatchRect/GridContainer/Slot.enable_button()
+	$NinePatchRect/GridContainer/Slot2.enable_button()
+	$NinePatchRect/GridContainer/Slot3.enable_button()
+	$NinePatchRect/GridContainer/Slot4.enable_button()
+	$NinePatchRect/GridContainer/Slot5.enable_button()
+	$NinePatchRect/GridContainer/Slot6.enable_button()
+	$NinePatchRect/GridContainer/Slot7.enable_button()
+	$NinePatchRect/GridContainer/Slot8.enable_button()
 	$Timer.start()
 	item = null
 	opened.emit()
 	
+func open_noninteractive():
+	visible = true
+	is_open = true
+	$Cursor.visible = false
+	$NinePatchRect/GridContainer/Slot.disable_button()
+	$NinePatchRect/GridContainer/Slot2.disable_button()
+	$NinePatchRect/GridContainer/Slot3.disable_button()
+	$NinePatchRect/GridContainer/Slot4.disable_button()
+	$NinePatchRect/GridContainer/Slot5.disable_button()
+	$NinePatchRect/GridContainer/Slot6.disable_button()
+	$NinePatchRect/GridContainer/Slot7.disable_button()
+	$NinePatchRect/GridContainer/Slot8.disable_button()
 	
 func close():
 	visible = false
@@ -84,8 +112,10 @@ func _on_slot_cursor_selected():
 		elif inventory.items[0] == apron:
 			item = "apron"
 		inventory.items[0] = empty
+		State.inv_count -= 1
 		update()
 		use_item(item)
+
 	else:
 		print("nothing")
 
@@ -110,6 +140,7 @@ func _on_slot_2_cursor_selected():
 		elif inventory.items[1] == apron:
 			item = "apron"
 		inventory.items[1] = empty
+		State.inv_count -= 1
 		update()
 		use_item(item)
 	else:
@@ -136,6 +167,7 @@ func _on_slot_3_cursor_selected():
 		elif inventory.items[2] == apron:
 			item = "apron"
 		inventory.items[2] = empty
+		State.inv_count -= 1
 		update()
 		use_item(item)
 			
@@ -163,6 +195,7 @@ func _on_slot_4_cursor_selected():
 		elif inventory.items[3] == apron:
 			item = "apron"
 		inventory.items[3] = empty
+		State.inv_count -= 1
 		update()
 		use_item(item)
 		
@@ -191,6 +224,7 @@ func _on_slot_5_cursor_selected():
 		elif inventory.items[4] == apron:
 			item = "apron"
 		inventory.items[4] = empty
+		State.inv_count -= 1
 		update()
 		use_item(item)
 		
@@ -218,6 +252,7 @@ func _on_slot_6_cursor_selected():
 		elif inventory.items[5] == apron:
 			item = "apron"
 		inventory.items[5] = empty
+		State.inv_count -= 1
 		update()
 		use_item(item)
 	
@@ -244,6 +279,7 @@ func _on_slot_7_cursor_selected():
 		elif inventory.items[6] == apron:
 			item = "apron"
 		inventory.items[6] = empty
+		State.inv_count -= 1
 		update()
 		use_item(item)
 		
@@ -270,6 +306,7 @@ func _on_slot_8_cursor_selected():
 		elif inventory.items[7] == apron:
 			item = "apron"
 		inventory.items[7] = empty
+		State.inv_count -= 1
 		update()
 		use_item(item)
 		
@@ -290,139 +327,92 @@ func _on_timer_timeout():
 	
 func _on_shop_gui_add_cupcake():
 	for i in range(min(inventory.items.size(), slots.size())):
-		if inventory.items[i] == empty:
+		if inventory.items[i] == empty and State.inv_count <=8:
 			inventory.items[i] = cupcake
 			update()
-			num = 0
+			State.inv_count += 1
+			if State.inv_count >= 8:
+				is_full.emit()
+				break
 			break
+			
 		
-		elif num >= 8:
-			print("full")
-			num = 0
-			break
-			
-		else:
-			num += 1
-			print(num)
-			
 func _on_shop_gui_add_knife():
 	for i in range(min(inventory.items.size(), slots.size())):
-		if inventory.items[i] == empty:
+		if inventory.items[i] == empty and State.inv_count <=8:
 			inventory.items[i] = knife
 			update()
-			num = 0
+			State.inv_count += 1
+			if State.inv_count >= 8:
+				is_full.emit()
+				break
 			break
-			
-		elif num >= 8:
-			print("full")
-			num = 0
-			break
-			
-		else:
-			num += 1
-			print(num)
 			
 func _on_shop_gui_add_toaster():
 	for i in range(min(inventory.items.size(), slots.size())):
-		if inventory.items[i] == empty:
+		if inventory.items[i] == empty and State.inv_count <=8:
 			inventory.items[i] = toaster
 			update()
-			num = 0
+			State.inv_count += 1
+			if State.inv_count >= 8:
+				is_full.emit()
+				break
 			break
-			
-		elif num >= 8:
-			print("full")
-			num = 0
-			break
-			
-		else:
-			num += 1
-			print(num)
 			
 func _on_shop_gui_add_molotov():
 	for i in range(min(inventory.items.size(), slots.size())):
-		if inventory.items[i] == empty:
+		if inventory.items[i] == empty and State.inv_count <=8:
 			inventory.items[i] = molotov
 			update()
-			num = 0
+			State.inv_count += 1
+			if State.inv_count >= 8:
+				is_full.emit()
+				break
 			break
-			
-		elif num >= 8:
-			print("full")
-			num = 0
-			break
-			
-		else:
-			num += 1
-			print(num)
 			
 func _on_shop_gui_add_poison():
 	for i in range(min(inventory.items.size(), slots.size())):
-		if inventory.items[i] == empty:
+		if inventory.items[i] == empty and State.inv_count <=8:
 			inventory.items[i] = poison
 			update()
-			num = 0
+			State.inv_count += 1
+			if State.inv_count >= 8:
+				is_full.emit()
+				break
 			break
-			
-		elif num >= 8:
-			print("full")
-			num = 0
-			break
-			
-		else:
-			num += 1
-			print(num)
 			
 func _on_shop_gui_add_spice():
 	for i in range(min(inventory.items.size(), slots.size())):
-		if inventory.items[i] == empty:
+		if inventory.items[i] == empty and State.inv_count <=8:
 			inventory.items[i] = spice
 			update()
-			num = 0
+			State.inv_count += 1
+			if State.inv_count >= 8:
+				is_full.emit()
+				break
 			break
-			
-		elif num >= 8:
-			print("full")
-			num = 0
-			break
-			
-		else:
-			num += 1
-			print(num)
 			
 func _on_shop_gui_add_mitts():
 	for i in range(min(inventory.items.size(), slots.size())):
-		if inventory.items[i] == empty:
+		if inventory.items[i] == empty and State.inv_count <=8:
 			inventory.items[i] = mitts
 			update()
-			num = 0
+			State.inv_count += 1
+			if State.inv_count >= 8:
+				is_full.emit()
+				break
 			break
-			
-		elif num >= 8:
-			print("full")
-			num = 0
-			break
-			
-		else:
-			num += 1
-			print(num)
 			
 func _on_shop_gui_add_apron():
 	for i in range(min(inventory.items.size(), slots.size())):
-		if inventory.items[i] == empty:
+		if inventory.items[i] == empty and State.inv_count <=8:
 			inventory.items[i] = apron
 			update()
-			num = 0
+			State.inv_count += 1
+			if State.inv_count >= 8:
+				is_full.emit()
+				break
 			break
-			
-		elif num >= 8:
-			print("full")
-			num = 0
-			break
-			
-		else:
-			num += 1
-			print(num)
 			
 			
 func _on_item_pressed():
@@ -537,3 +527,12 @@ func _on_boss_select_load_file_3():
 	load_select()
 func _on_boss_select_load_file_4():
 	load_select()
+
+func _on_boss_gui_open_shop():
+	open_noninteractive()
+
+func _on_shop_gui_closed():
+	close()
+
+func _on_shop_gui_opened():
+	open_noninteractive()

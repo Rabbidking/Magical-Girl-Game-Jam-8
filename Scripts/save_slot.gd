@@ -22,3 +22,9 @@ func cursor_select() -> void:
 func _on_button_pressed():
 	print(name)
 	emit_signal("button_pressed")
+
+func change_to_save():
+	$CenterContainer/Panel/Item.texture = load("res://Assets/Sprites/UI/Save_Icon.png")
+
+func change_to_load():
+	$CenterContainer/Panel/Item.texture = load("res://Assets/Sprites/UI/Load_Icon.png")
