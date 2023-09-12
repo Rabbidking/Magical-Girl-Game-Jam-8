@@ -27,7 +27,7 @@ var is_open: bool = false
 @onready var cursor = $Cursor
 
 func _ready():
-	cursor.cursor_enabled()
+	cursor.boss_offset()
 	update()
 	$Timer.start()
 	boss_update()
@@ -35,6 +35,7 @@ func _ready():
 	$NinePatchRect/GridContainer/Boss_Slot6.resize_slot()
 	$NinePatchRect/GridContainer/Boss_Slot7.resize_slot()
 	$NinePatchRect/GridContainer/Boss_Slot8.resize_slot()
+	$NinePatchRect/GridContainer/Boss_Slot9.resize_slot()
 	
 func update():
 	for i in range(min(boss_menu.boss_options.size(), slots.size())):
@@ -60,7 +61,7 @@ func _on_battle_slot_2_cursor_selected():
 	
 func _on_timer_timeout():
 	cursor.cursor_enabled()
-	cursor.boss_offset()
+
 	
 	
 func _on_boss_slot_cursor_selected():
@@ -79,13 +80,15 @@ func _on_boss_slot_5_cursor_selected():
 	open_shop.emit()
 	cursor.cursor_disabled()
 func _on_boss_slot_6_cursor_selected():
-	option_select.emit()
+	get_tree().change_scene_to_file("res://Scenes/options.tscn")
 func _on_boss_slot_7_cursor_selected():
 	save_select.emit()
 	cursor.cursor_disabled()
 func _on_boss_slot_8_cursor_selected():
 	load_select.emit()
 	cursor.cursor_disabled()
+func _on_boss_slot_9_cursor_selected():
+	get_tree().change_scene_to_file("res://Scenes/help.tscn")
 
 
 func _on_boss_slot_button_pressed():
@@ -108,7 +111,8 @@ func _on_boss_slot_7_button_pressed():
 	_on_boss_slot_7_cursor_selected()
 func _on_boss_slot_8_button_pressed():
 	_on_boss_slot_8_cursor_selected()
-
+func _on_boss_slot_9_button_pressed():
+	get_tree().change_scene_to_file("res://Scenes/help.tscn")
 
 func _on_shop_gui_closed():
 	$Timer.start()
@@ -151,3 +155,9 @@ func _on_save_gui_load_slot_3():
 	boss_update()
 func _on_save_gui_load_slot_4():
 	boss_update()
+
+
+
+
+
+

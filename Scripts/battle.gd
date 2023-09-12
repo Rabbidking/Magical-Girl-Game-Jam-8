@@ -25,9 +25,12 @@ var poison_count = 0
 var is_blinded = false
 var blind_count = 0
 var buffed = false
+var enemy_dead = false
+var shock_resist = 0
 
 func _ready():
 	randomize()
+	set_health($PlayerPanel/PlayerData/ProgressBar, State.cur_health, State.max_health)
 	set_health($PlayerPanel/PlayerData/ProgressBar, State.cur_health, State.max_health)
 	set_health($EnemyContainer/ProgressBar, enemy.health, enemy.health)
 	$EnemyContainer/Enemy.texture = enemy.texture
@@ -62,34 +65,36 @@ func display_text(text):
 	
 func enemy_turn():
 	#display some text
-	if is_burning == true:
+	if is_burning == true and enemy_dead == false:
 		burn_count -= 1
-		cur_enemy_health = max(0, cur_enemy_health - 10)
+		cur_enemy_health = max(0, cur_enemy_health - 15)
 		set_health($EnemyContainer/ProgressBar, cur_enemy_health, enemy.health)
 		display_text("%s takes burn damage" % enemy.name)
 		await textbox_closed
 		if cur_enemy_health <= 0:
 			enemy_die()
+			enemy_dead = true
 		if burn_count <= 0:
 			is_burning = false
 			display_text("%s is no longer burning" % enemy.name)
 			await textbox_closed
 	
-	if is_poisoned == true:
+	if is_poisoned == true and enemy_dead == false:
 		poison_count -= 1
-		cur_enemy_health = max(0, cur_enemy_health - 5)
+		cur_enemy_health = max(0, cur_enemy_health - 15)
 		set_health($EnemyContainer/ProgressBar, cur_enemy_health, enemy.health)
 		display_text("%s takes poison damage" % enemy.name)
 		await textbox_closed
 		if cur_enemy_health <= 0:
 			enemy_die()
+			enemy_dead = true
 
 		if poison_count <= 0:
 			is_poisoned = false
 			display_text("%s is no longer poisoned" % enemy.name)
 			await textbox_closed
 			
-	if is_blinded == true:
+	if is_blinded == true and enemy_dead == false:
 		display_text("%s can't see very well" % enemy.name)
 		await textbox_closed
 		enemy.accuracy = 20
@@ -99,7 +104,7 @@ func enemy_turn():
 			await textbox_closed
 			enemy.accuracy = 100
 			
-	if is_paralyzed == false:
+	if is_paralyzed == false and enemy_dead == false:
 		var enemy_attack = randi() % 4
 		if randi() % 99 < enemy.accuracy or enemy_attack == 4:
 			if enemy.name == "Lamia":
@@ -133,10 +138,10 @@ func enemy_turn():
 						if apron_counter <= 0:
 							wearing_apron = false
 							is_defending = false
-							display_text("Apron is destroyed")
+							display_text("Tia's Apron is destroyed")
 							await textbox_closed
 						else:
-							display_text("Apron is still holding")
+							display_text("Tia's Apron is still holding")
 							await textbox_closed
 							
 						
@@ -201,10 +206,10 @@ func enemy_turn():
 						if apron_counter <= 0:
 							wearing_apron = false
 							is_defending = false
-							display_text("Apron is destroyed")
+							display_text("Tia's Apron is destroyed")
 							await textbox_closed
 						else:
-							display_text("Apron is still holding")
+							display_text("Tia's Apron is still holding")
 							await textbox_closed
 							
 						
@@ -284,7 +289,7 @@ func enemy_turn():
 									await textbox_closed
 									
 								elif player_immunity == true:
-									display_text("Tia is temporarily immune to venom!" )
+									display_text("Tia is temporarily immune to venom!")
 									await textbox_closed
 						else:
 							cur_player_health = max(0, cur_player_health - enemy.damage2)
@@ -326,10 +331,10 @@ func enemy_turn():
 						if apron_counter <= 0:
 							wearing_apron = false
 							is_defending = false
-							display_text("Apron is destroyed")
+							display_text("Tia's Apron is destroyed")
 							await textbox_closed
 						else:
-							display_text("Apron is still holding")
+							display_text("Tia's Apron is still holding")
 							await textbox_closed
 							
 						
@@ -371,7 +376,7 @@ func enemy_turn():
 						display_text("%s steals from Tia!" % enemy.name)
 						await textbox_closed
 						$"EnemyContainer/Attack SFX/Special".play()
-						display_text("%s stole $10!" % enemy.name)
+						display_text("%s stole $10 from Tia!" % enemy.name)
 						await textbox_closed
 						State.money -= 10
 					elif enemy.name == "Lamia":
@@ -390,7 +395,7 @@ func enemy_turn():
 			display_text("%s attack missed" % enemy.name)
 			await textbox_closed
 			
-	if is_paralyzed == true:
+	if is_paralyzed == true and enemy_dead == false:
 		display_text("%s is paralyzed" % enemy.name)
 		await textbox_closed
 		paralysis_count -= 1
@@ -399,7 +404,7 @@ func enemy_turn():
 			display_text("%s is no longer paralyzed" % enemy.name)
 			await textbox_closed
 			
-	if player_is_poisoned == true:
+	if player_is_poisoned == true and enemy_dead == false:
 		player_poisoned_counter -= 1
 		cur_player_health = max(0, cur_player_health - 5)
 		set_health($PlayerPanel/PlayerData/ProgressBar, cur_player_health, State.max_health)
@@ -408,11 +413,11 @@ func enemy_turn():
 		display_text("Tia is hurt from the venom" )
 		await textbox_closed
 		
-	if player_immunity == true:
+	if player_immunity == true and enemy_dead == false:
 		player_immunity_counter -= 1
 		if player_immunity_counter <= 0:
 			player_immunity = false
-			display_text("Tia is no loner immune to venom" )
+			display_text("Tia is no loner immune to venom")
 			await textbox_closed
 		
 		
@@ -440,12 +445,19 @@ func enemy_turn():
 #		await textbox_closed
 		
 	if cur_player_health == 0:
-		display_text("You have been defeated!")
+		display_text("Tia has been defeated!")
 		await textbox_closed
 
 		$AnimationPlayer.play("player_die")
 		$MagicalGirl/player_die.play()
 		await $AnimationPlayer.animation_finished
+		if State.money < 100:
+			display_text("Tia received health insurance money!")
+			await textbox_closed
+			var payout = 100 - State.money 
+			State.money += payout
+		
+		
 		await get_tree().create_timer(0.25).timeout
 		get_tree().change_scene_to_file("res://Scenes/boss_select.tscn")
 		
@@ -462,23 +474,25 @@ func _on_run_pressed():
 
 func _on_attack_pressed():
 	#display some text
-	display_text("You strike with your frying pan!")
+	display_text("Tia strikes with her frying pan!")
 	await textbox_closed
 	
 	#enemy health decreases
 	$MagicalGirl/player_attack.play()
 	cur_enemy_health = max(0, cur_enemy_health - State.damage)
+	#cur_enemy_health = max(0, cur_enemy_health - (State.damage * 1000))
 	set_health($EnemyContainer/ProgressBar, cur_enemy_health, enemy.health)
-	State.money += 10
+	State.money += 20
 	
 	$AnimationPlayer.play("enemy_damaged")
 	await $AnimationPlayer.animation_finished
 	
-	display_text("You dealt %d damage and gained $10!" % State.damage)
+	display_text("Tia dealt %d damage and gained $20!" % State.damage)
 	await textbox_closed
 	
-	if cur_enemy_health == 0:
+	if cur_enemy_health <= 0:
 		enemy_die()
+		enemy_dead = true
 	else:
 		enemy_turn()
 	
@@ -498,24 +512,42 @@ func _on_item_pressed():
 	
 func _on_inventory_gui_opened():
 	$ItemsPanel.visible = true
+	$ActionsPanel/Actions/Attack.disabled = true
+	$ActionsPanel/Actions/Item.disabled = true
+	$ActionsPanel/Actions/Shop.disabled = true
+	$ActionsPanel/Actions/Run.disabled = true
 	
 func _on_inventory_gui_closed():
 	$ItemsPanel.visible = false
 	$CursorBuffer.start()
+	$ActionsPanel/Actions/Attack.disabled = false
+	$ActionsPanel/Actions/Item.disabled = false
+	$ActionsPanel/Actions/Shop.disabled = false
+	$ActionsPanel/Actions/Run.disabled = false
 	
 func _on_shop_gui_opened():
 	$ItemsPanel.visible = true
+	$ActionsPanel/Actions/Attack.disabled = true
+	$ActionsPanel/Actions/Item.disabled = true
+	$ActionsPanel/Actions/Shop.disabled = true
+	$ActionsPanel/Actions/Run.disabled = true
 	
 func _on_shop_gui_closed():
 	$ItemsPanel.visible = false
 	$CursorBuffer.start()
+	$ActionsPanel/Actions/Attack.disabled = false
+	$ActionsPanel/Actions/Item.disabled = false
+	$ActionsPanel/Actions/Shop.disabled = false
+	$ActionsPanel/Actions/Run.disabled = false
 	
 	
 func _on_inventory_gui_item_used(item):
+	$ActionsPanel/Actions/Attack.disabled = false
+	$ActionsPanel/Actions/Item.disabled = false
+	$ActionsPanel/Actions/Shop.disabled = false
+	$ActionsPanel/Actions/Run.disabled = false
 	$ItemsPanel.visible = false
 	if item == "cupcake":
-		if cur_player_health > State.max_health:
-			cur_player_health = State.max_health
 		if player_is_poisoned == true:
 			display_text("Cupcake cured venom poisoning!")
 			await textbox_closed
@@ -524,63 +556,74 @@ func _on_inventory_gui_item_used(item):
 			player_immunity = true
 			player_immunity_counter = 5
 		$MagicalGirl/player_heal.play()
-		display_text("You ate a cupcake and it healed %d points" % int(State.max_health * .75))
+		display_text("Tia ate a cupcake and it healed %d points" % int(State.max_health * .75))
 		cur_player_health = max(0, cur_player_health + (State.max_health * .75))
+		if cur_player_health > State.max_health:
+			cur_player_health = State.max_health
 		set_health($PlayerPanel/PlayerData/ProgressBar, cur_player_health, State.max_health)
 		await textbox_closed
 		await get_tree().create_timer(0.25).timeout
 		enemy_turn()
 		
 	elif item == "knife":
-		display_text("You threw a knife")
-		cur_enemy_health = max(0, cur_enemy_health - (State.damage * 2))
+		display_text("Tia threw a knife")
+		cur_enemy_health = max(0, cur_enemy_health - (State.damage * 2.5))
 		set_health($EnemyContainer/ProgressBar, cur_enemy_health, enemy.health)
 	
 		$AnimationPlayer.play("enemy_damaged")
 		await $AnimationPlayer.animation_finished
 	
-		display_text("You dealt %d damage!" % (State.damage *2))
+		display_text("Tia dealt %d damage!" % (State.damage *2))
 		await textbox_closed
 	
 		if cur_enemy_health <= 0:
 			enemy_die()
+			enemy_dead = true
 		else:
 			enemy_turn()
 		
 	elif item == "toaster":
-		display_text("You threw a unstable toaster")
+		display_text("Tia threw a unstable toaster")
 		cur_enemy_health = max(0, cur_enemy_health - (State.damage * 1.5))
 		set_health($EnemyContainer/ProgressBar, cur_enemy_health, enemy.health)
 		$MagicalGirl/player_toaster.play()
+
 		$AnimationPlayer.play("enemy_damaged")
 		await $AnimationPlayer.animation_finished
 	
-		display_text("You dealt %d damage!" % (State.damage * 1.5))
+		display_text("Tia dealt %d damage!" % (State.damage * 1.5))
 		await textbox_closed
 		
-		if is_paralyzed == false:
+		#resist paralysis to prevent cheesing
+		var shock_chance = randi() % 101
+		if is_paralyzed == false and shock_resist <= shock_chance:
 			is_paralyzed = true
 			paralysis_count = 4
-			display_text("%s is paralzyed" % enemy.name)
+			shock_resist += 25
+			display_text("%s is paralzyed!" % enemy.name)
+			await textbox_closed
+		elif is_paralyzed == true:
+			display_text("%s is already paralzyed!" % enemy.name)
 			await textbox_closed
 		else:
-			display_text("%s is already paralzyed" % enemy.name)
+			display_text("%s resisted paralysis!" % enemy.name)
 			await textbox_closed
 	
 		if cur_enemy_health <= 0:
 			enemy_die()
+			enemy_dead = true
 		else:	
 			enemy_turn()
 		
 	elif item == "molotov":
-		display_text("You threw a lit molotov")
+		display_text("Tia threw a lit molotov")
 		cur_enemy_health = max(0, cur_enemy_health - (State.damage * 1.5))
 		set_health($EnemyContainer/ProgressBar, cur_enemy_health, enemy.health)
 	
 		$AnimationPlayer.play("enemy_damaged")
 		await $AnimationPlayer.animation_finished
 	
-		display_text("You dealt %d damage!" % (State.damage * 1.5))
+		display_text("Tia dealt %d damage!" % (State.damage * 1.5))
 		await textbox_closed
 		
 		if is_burning == false:
@@ -594,18 +637,19 @@ func _on_inventory_gui_item_used(item):
 		
 		if cur_enemy_health <= 0:
 			enemy_die()
+			enemy_dead = true
 		else:
 			enemy_turn()
 		
 	elif item == "poison":
-		display_text("You splashed the enemy with extra strong rat poison")
+		display_text("Tia splashed the enemy with extra strong rat poison")
 		cur_enemy_health = max(0, cur_enemy_health - State.damage)
 		set_health($EnemyContainer/ProgressBar, cur_enemy_health, enemy.health)
 	
 		$AnimationPlayer.play("enemy_damaged")
 		await $AnimationPlayer.animation_finished
 	
-		display_text("You dealt %d damage!" % State.damage)
+		display_text("Tia dealt %d damage!" % State.damage)
 		await textbox_closed
 		
 		if is_poisoned == false:
@@ -619,11 +663,12 @@ func _on_inventory_gui_item_used(item):
 		
 		if cur_enemy_health <= 0:
 			enemy_die()
+			enemy_dead = true
 		else:
 			enemy_turn()
 		
 	elif item == "spice":
-		display_text("You threw spice powder at %s eyes" % enemy.name)
+		display_text("Tia threw spice powder at %s eyes" % enemy.name)
 #		cur_enemy_health = max(0, cur_enemy_health - State.damage)
 #		set_health($EnemyContainer/ProgressBar, cur_enemy_health, enemy.health)
 #
@@ -643,6 +688,7 @@ func _on_inventory_gui_item_used(item):
 	
 		if cur_enemy_health <= 0:
 			enemy_die()
+			enemy_dead = true
 		else:
 			enemy_turn()
 		
@@ -652,7 +698,7 @@ func _on_inventory_gui_item_used(item):
 		var cur_attack = 0
 		var max_attack = 3
 		
-		display_text("You unleashed a barrage of punches")
+		display_text("Tia unleashed a barrage of punches")
 		
 		for i in range(0, 2):
 			cur_enemy_health = max(0, cur_enemy_health - (State.damage * 1.2))
@@ -661,7 +707,7 @@ func _on_inventory_gui_item_used(item):
 			$AnimationPlayer.play("enemy_damaged")
 			await $AnimationPlayer.animation_finished
 	
-			display_text("You dealt %d damage!" % (State.damage * 1.2))
+			display_text("Tia dealt %d damage!" % (State.damage * 1.2))
 			await textbox_closed
 		
 		while barrage == true:
@@ -674,7 +720,7 @@ func _on_inventory_gui_item_used(item):
 				$AnimationPlayer.play("enemy_damaged")
 				await $AnimationPlayer.animation_finished
 	
-				display_text("You dealt %d damage!" % (State.damage * 1.2))
+				display_text("Tia dealt %d damage!" % (State.damage * 1.2))
 				await textbox_closed
 				cur_attack += 1
 				barrage_attack = randi() % 4
@@ -689,18 +735,19 @@ func _on_inventory_gui_item_used(item):
 		
 		if cur_enemy_health <= 0:
 			enemy_die()
+			enemy_dead = true
 		else:
 			enemy_turn()
 		
 	elif item == "apron":
 		if wearing_apron == false:
 			wearing_apron = true
-			apron_counter = 4
+			apron_counter = 5
 			is_defending = true
-			display_text("You put on a protective apron")
+			display_text("Tia puts on a protective apron!")
 			await textbox_closed
 		else:
-			display_text("You're already wearing an apron")
+			display_text("Tia tears off her apron to put on the other apron!")
 			await textbox_closed
 			
 		await get_tree().create_timer(0.25).timeout
@@ -710,6 +757,10 @@ func _on_inventory_gui_item_used(item):
 func enemy_die():
 	#set flags for boss defeats
 	State.money += 100
+	State.max_health += 25
+	State.cur_health = State.max_health
+	set_health($PlayerPanel/PlayerData/ProgressBar, State.cur_health, State.max_health)
+	set_health($PlayerPanel/PlayerData/ProgressBar, State.cur_health, State.max_health)
 	match enemy.name:
 		"Cockatrice":
 			State.boss_1_def = true
@@ -720,14 +771,20 @@ func enemy_die():
 		"Lamia":
 			State.boss_4_def = true
 	
-	display_text("%s has been defeated and you gain $100!" % enemy.name.to_upper())
+	display_text("%s has been defeated and Tia gain $100!" % enemy.name.to_upper())
+	await textbox_closed
+	
+	display_text("Tia gain a boost to her health!")
 	await textbox_closed
 
 	$AnimationPlayer.play("enemy_die")
 	$EnemyContainer/enemy_die.play()
 	await $AnimationPlayer.animation_finished
 	await get_tree().create_timer(0.25).timeout
-	get_tree().change_scene_to_file("res://Scenes/boss_select.tscn")
+	if State.boss_1_def == true and State.boss_2_def == true and State.boss_3_def == true and State.boss_4_def == true:
+		get_tree().change_scene_to_file("res://Scenes/end_game.tscn")
+	else:
+		get_tree().change_scene_to_file("res://Scenes/boss_select.tscn")
 
 func _on_attack_cursor_selected():
 	cursor.cursor_disabled()

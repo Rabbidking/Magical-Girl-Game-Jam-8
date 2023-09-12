@@ -112,3 +112,4 @@ func _on_save_slot_4_button_pressed():
 
 func _on_timer_timeout():
 	cursor.cursor_enabled()
+	cursor.save_offset()

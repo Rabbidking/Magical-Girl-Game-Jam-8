@@ -72,11 +72,13 @@ func cursor_disabled():
 	enabled = false
 	
 func shop_and_inventory_offset():
-	cursor_offset.x = -30
+	cursor_offset.x += -32
 	
 func battle_offset():
 	cursor_offset.x = -136
 	
 func boss_offset():
-	cursor_offset.x = -125
+	cursor_offset.x += -128
 	
+func save_offset():
+	cursor_offset.x = -40
