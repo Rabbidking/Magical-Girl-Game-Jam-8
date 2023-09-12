@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bv2l2sim1wevf"]
 
 [ext_resource type="Script" path="res://Scripts/shop_gui.gd" id="1_nja2r"]
-[ext_resource type="Texture2D" uid="uid://w0rulu25f2me" path="res://Assets/Sprites/UI/Shop_Background.png" id="2_yai3k"]
+[ext_resource type="Texture2D" uid="uid://w0rulu25f2me" path="res://Assets/UI/Shop_Background.png" id="2_yai3k"]
 [ext_resource type="PackedScene" uid="uid://j1eleppaqkfr" path="res://Scenes/shop_slot.tscn" id="3_o0dkt"]
 [ext_resource type="PackedScene" uid="uid://7pbpaipl6xhg" path="res://Scenes/cursor.tscn" id="4_h0o8q"]
 [ext_resource type="FontVariation" uid="uid://cehwtw2yg7pdc" path="res://NES.tres" id="4_jo4p2"]
@@ -26,10 +26,10 @@ patch_margin_bottom = 6
 
 [node name="GridContainer" type="GridContainer" parent="NinePatchRect"]
 layout_mode = 0
-offset_left = 48.0
+offset_left = 32.5
 offset_top = 42.0
-offset_right = 304.665
-offset_bottom = 170.405
+offset_right = 296.5
+offset_bottom = 178.0
 scale = Vector2(4.01, 2.48)
 columns = 4
 
@@ -195,9 +195,9 @@ vertical_alignment = 1
 
 [node name="Cursor" parent="." instance=ExtResource("4_h0o8q")]
 layout_mode = 0
-offset_left = 48.0
+offset_left = 33.0
 offset_top = 42.0
-offset_right = 176.0
+offset_right = 161.0
 offset_bottom = 170.0
 menu_parent_path = NodePath("../NinePatchRect/GridContainer")
 

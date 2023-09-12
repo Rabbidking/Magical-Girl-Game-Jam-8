@@ -87,8 +87,12 @@ layout_mode = 2
 [node name="Boss_Slot8" parent="NinePatchRect/GridContainer" instance=ExtResource("3_1ux8d")]
 layout_mode = 2
 
+[node name="Boss_Slot9" parent="NinePatchRect/GridContainer" instance=ExtResource("3_1ux8d")]
+layout_mode = 2
+
 [node name="Cursor" parent="." instance=ExtResource("3_yvks7")]
 layout_mode = 0
+scale = Vector2(0.4, 0.4)
 menu_parent_path = NodePath("../NinePatchRect/GridContainer")
 
 [node name="Timer" type="Timer" parent="."]
@@ -111,4 +115,6 @@ one_shot = true
 [connection signal="cursor_selected" from="NinePatchRect/GridContainer/Boss_Slot7" to="." method="_on_boss_slot_7_cursor_selected"]
 [connection signal="button_pressed" from="NinePatchRect/GridContainer/Boss_Slot8" to="." method="_on_boss_slot_8_button_pressed"]
 [connection signal="cursor_selected" from="NinePatchRect/GridContainer/Boss_Slot8" to="." method="_on_boss_slot_8_cursor_selected"]
+[connection signal="button_pressed" from="NinePatchRect/GridContainer/Boss_Slot9" to="." method="_on_boss_slot_9_button_pressed"]
+[connection signal="cursor_selected" from="NinePatchRect/GridContainer/Boss_Slot9" to="." method="_on_boss_slot_9_cursor_selected"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

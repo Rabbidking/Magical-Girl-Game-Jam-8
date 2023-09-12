@@ -1,0 +1,247 @@
+[gd_scene load_steps=12 format=3 uid="uid://drbe7ny4e7n3w"]
+
+[ext_resource type="Texture2D" uid="uid://gxu3y84ffdq" path="res://Assets/UI/Blank_Background.png" id="1_2w2ps"]
+[ext_resource type="Script" path="res://Scripts/help.gd" id="1_yrk0g"]
+[ext_resource type="Texture2D" uid="uid://ooxd73hews6p" path="res://Assets/Sprites/Items/Cupcake.png" id="2_vm6pi"]
+[ext_resource type="FontVariation" uid="uid://cehwtw2yg7pdc" path="res://NES.tres" id="3_4b0pd"]
+[ext_resource type="Texture2D" uid="uid://cir4oodcaxrup" path="res://Assets/Sprites/Items/Knife.png" id="3_wyds8"]
+[ext_resource type="Texture2D" uid="uid://brtnyij3roxja" path="res://Assets/Sprites/Items/Toaster.png" id="4_i5f7v"]
+[ext_resource type="Texture2D" uid="uid://dv3dmjbsgajua" path="res://Assets/Sprites/Items/Molotov.png" id="5_kbf1q"]
+[ext_resource type="Texture2D" uid="uid://ba8emub6fymmh" path="res://Assets/Sprites/Items/Rat Poison.png" id="6_iksde"]
+[ext_resource type="Texture2D" uid="uid://cp211m3d0eb4y" path="res://Assets/Sprites/Items/Spice.png" id="7_o4cfn"]
+[ext_resource type="Texture2D" uid="uid://5o4b8jigmxwe" path="res://Assets/Sprites/Items/Mitts.png" id="8_2g1ph"]
+[ext_resource type="Texture2D" uid="uid://ck2o6pqfq511o" path="res://Assets/Sprites/Items/Apron.png" id="9_hcbo7"]
+
+[node name="Help" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yrk0g")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(1.97, 1.99)
+texture = ExtResource("1_2w2ps")
+
+[node name="Tip" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 2
+offset_left = 200.0
+offset_top = 565.0
+offset_right = 732.0
+offset_bottom = 593.0
+scale = Vector2(1.2, 1.8)
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_4b0pd")
+theme_override_font_sizes/font_size = 32
+text = "Pro Tip: Normal Attacks gives tia $20"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="How_To_Exit" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 2
+offset_left = 200.0
+offset_top = -3.0
+offset_right = 732.0
+offset_bottom = 25.0
+scale = Vector2(1.2, 1.8)
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_4b0pd")
+theme_override_font_sizes/font_size = 32
+text = "Press Z or Left Click to Continue"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 63.0
+offset_top = 48.0
+offset_right = 103.0
+offset_bottom = 88.0
+scale = Vector2(25.263, 13)
+
+[node name="Cupcake" type="Sprite2D" parent="VBoxContainer"]
+position = Vector2(2, 4)
+scale = Vector2(0.01, 0.02)
+texture = ExtResource("2_vm6pi")
+
+[node name="Cupcake_Info" type="Label" parent="VBoxContainer/Cupcake"]
+texture_filter = 1
+offset_left = 255.0
+offset_top = -20.0
+offset_right = 597.0
+offset_bottom = 36.0
+scale = Vector2(3.646, 3.5)
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_4b0pd")
+theme_override_font_sizes/font_size = 32
+text = "Heals 75% of Max Health
+Cures Venom"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Knife" type="Sprite2D" parent="VBoxContainer"]
+position = Vector2(2, 15)
+scale = Vector2(0.01, 0.02)
+texture = ExtResource("3_wyds8")
+
+[node name="Knife_Info" type="Label" parent="VBoxContainer/Knife"]
+texture_filter = 1
+offset_left = 245.0
+offset_top = -120.0
+offset_right = 587.0
+offset_bottom = -64.0
+scale = Vector2(3.646, 3.5)
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_4b0pd")
+theme_override_font_sizes/font_size = 32
+text = "Deals the x2.5 damage
+than Normal Attack"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Toaster" type="Sprite2D" parent="VBoxContainer"]
+position = Vector2(2, 25)
+scale = Vector2(0.01, 0.02)
+texture = ExtResource("4_i5f7v")
+
+[node name="Toaster_Info" type="Label" parent="VBoxContainer/Toaster"]
+texture_filter = 1
+offset_left = 245.0
+offset_top = -100.0
+offset_right = 587.0
+offset_bottom = -44.0
+scale = Vector2(3.646, 3.5)
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_4b0pd")
+theme_override_font_sizes/font_size = 32
+text = "Stuns enemy
+for 4 rounds
+Warning! - each use
+ builds resist to shock"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Molotov" type="Sprite2D" parent="VBoxContainer"]
+position = Vector2(2, 35)
+scale = Vector2(0.01, 0.02)
+texture = ExtResource("5_kbf1q")
+
+[node name="Molotov_Info" type="Label" parent="VBoxContainer/Molotov"]
+texture_filter = 1
+offset_left = 245.0
+offset_top = -90.0
+offset_right = 587.0
+offset_bottom = -34.0
+scale = Vector2(3.646, 3.5)
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_4b0pd")
+theme_override_font_sizes/font_size = 32
+text = "Burns enemy
+for 4 rounds"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Poison" type="Sprite2D" parent="VBoxContainer"]
+position = Vector2(23, 4)
+scale = Vector2(0.01, 0.02)
+texture = ExtResource("6_iksde")
+
+[node name="Poison_Info" type="Label" parent="VBoxContainer/Poison"]
+texture_filter = 1
+offset_left = 235.0
+offset_top = -20.0
+offset_right = 577.0
+offset_bottom = 36.0
+scale = Vector2(3.646, 3.5)
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_4b0pd")
+theme_override_font_sizes/font_size = 32
+text = "Poisons enemy
+for 7 rounds"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Spice" type="Sprite2D" parent="VBoxContainer"]
+position = Vector2(23, 15)
+scale = Vector2(0.01, 0.02)
+texture = ExtResource("7_o4cfn")
+
+[node name="Spice_Info" type="Label" parent="VBoxContainer/Spice"]
+texture_filter = 1
+offset_left = 235.0
+offset_top = -120.0
+offset_right = 577.0
+offset_bottom = -64.0
+scale = Vector2(3.646, 3.5)
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_4b0pd")
+theme_override_font_sizes/font_size = 32
+text = "Blinds enemy
+for 6 rounds"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Mitts" type="Sprite2D" parent="VBoxContainer"]
+position = Vector2(23, 25)
+scale = Vector2(0.01, 0.02)
+texture = ExtResource("8_2g1ph")
+
+[node name="Mitts_Info" type="Label" parent="VBoxContainer/Mitts"]
+texture_filter = 1
+offset_left = 235.0
+offset_top = -100.0
+offset_right = 577.0
+offset_bottom = -44.0
+scale = Vector2(3.646, 3.5)
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_4b0pd")
+theme_override_font_sizes/font_size = 32
+text = "Mitts perfect for boxing
+Guaranteed to deal at 
+least 2 blows"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Apron" type="Sprite2D" parent="VBoxContainer"]
+position = Vector2(23, 35)
+scale = Vector2(0.01, 0.02)
+texture = ExtResource("9_hcbo7")
+
+[node name="Apron_Info" type="Label" parent="VBoxContainer/Apron"]
+texture_filter = 1
+offset_left = 233.349
+offset_top = -88.4615
+offset_right = 575.349
+offset_bottom = -4.46155
+scale = Vector2(3.646, 3.5)
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_4b0pd")
+theme_override_font_sizes/font_size = 32
+text = "Protects against
+all damage
+for 5 attacks"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Exit_Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+scale = Vector2(143.791, 80.8105)
+focus_mode = 0
+flat = true
+
+[connection signal="pressed" from="Exit_Button" to="." method="_on_exit_button_pressed"]

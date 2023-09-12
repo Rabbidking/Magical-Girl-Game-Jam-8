@@ -1,6 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://cmynyiv6l3ne8"]
+[gd_scene load_steps=8 format=3 uid="uid://cmynyiv6l3ne8"]
 
 [ext_resource type="Texture2D" uid="uid://gxu3y84ffdq" path="res://Assets/UI/Blank_Background.png" id="1_7u736"]
+[ext_resource type="Script" path="res://Scripts/options.gd" id="1_a8urr"]
+[ext_resource type="Texture2D" uid="uid://d2qxrjhvbddr6" path="res://Assets/UI/Item_Slot.png" id="2_486fp"]
+[ext_resource type="Texture2D" uid="uid://c0aydop1oxc4h" path="res://Assets/Sprites/UI/Options_Icon.png" id="5_b5aw7"]
+[ext_resource type="FontVariation" uid="uid://cehwtw2yg7pdc" path="res://NES.tres" id="5_x8ack"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bm0lv"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x85su"]
+bg_color = Color(0, 0, 0, 0.392157)
 
 [node name="Options" type="Node"]
 
@@ -15,6 +25,51 @@ expand_mode = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="Option" type="Label" parent="CanvasLayer"]
+texture_filter = 1
+offset_left = 260.0
+offset_top = 3.0
+offset_right = 368.0
+offset_bottom = 43.0
+scale = Vector2(5.26947, 3.18275)
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("5_x8ack")
+theme_override_font_sizes/font_size = 32
+text = "Options"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Return" type="Label" parent="CanvasLayer"]
+texture_filter = 1
+offset_left = 190.0
+offset_top = 285.0
+offset_right = 298.0
+offset_bottom = 325.0
+scale = Vector2(1.9, 1.9)
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("5_x8ack")
+theme_override_font_sizes/font_size = 32
+text = "Return"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Quit" type="Label" parent="CanvasLayer"]
+texture_filter = 1
+offset_left = 190.0
+offset_top = 425.0
+offset_right = 298.0
+offset_bottom = 465.0
+scale = Vector2(1.9, 1.9)
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("5_x8ack")
+theme_override_font_sizes/font_size = 32
+text = "Quit"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
 [node name="Control" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 15
@@ -22,67 +77,79 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_a8urr")
 
-[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Control"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Return" type="Panel" parent="CanvasLayer/Control"]
+layout_mode = 2
+offset_left = 95.0
+offset_top = 275.0
+offset_right = 95.0
+offset_bottom = 275.0
+scale = Vector2(1.5, 1.5)
 
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control/CenterContainer"]
-custom_minimum_size = Vector2(512, 256)
+[node name="Background" type="Sprite2D" parent="CanvasLayer/Control/Return"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_486fp")
+centered = false
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Control/Return"]
+custom_minimum_size = Vector2(65, 65)
+offset_right = 65.0
+offset_bottom = 65.0
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Control/Return/CenterContainer"]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/CenterContainer/PanelContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
+[node name="Item" type="Sprite2D" parent="CanvasLayer/Control/Return/CenterContainer/Panel"]
+position = Vector2(-2.86102e-06, 0.499997)
+scale = Vector2(0.39, 0.39)
+texture = ExtResource("5_b5aw7")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/Control/CenterContainer/PanelContainer/MarginContainer"]
+[node name="Return_Button" type="Button" parent="CanvasLayer/Control/Return/CenterContainer/Panel"]
+layout_mode = 0
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_bm0lv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_x85su")
+
+[node name="Quit" type="Panel" parent="CanvasLayer/Control"]
+layout_mode = 2
+offset_left = 95.0
+offset_top = 415.0
+offset_right = 95.0
+offset_bottom = 415.0
+scale = Vector2(1.5, 1.5)
+
+[node name="Background" type="Sprite2D" parent="CanvasLayer/Control/Quit"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_486fp")
+centered = false
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Control/Quit"]
+custom_minimum_size = Vector2(65, 65)
+offset_right = 65.0
+offset_bottom = 65.0
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Control/Quit/CenterContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/CenterContainer/PanelContainer/MarginContainer/ScrollContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/separation = 8
+[node name="Item" type="Sprite2D" parent="CanvasLayer/Control/Quit/CenterContainer/Panel"]
+position = Vector2(-2.86102e-06, 0.499997)
+scale = Vector2(0.39, 0.39)
+texture = ExtResource("5_b5aw7")
 
-[node name="Options" type="Label" parent="CanvasLayer/Control/CenterContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_font_sizes/font_size = 32
-text = "Options"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="Quit_Button" type="Button" parent="CanvasLayer/Control/Quit/CenterContainer/Panel"]
+layout_mode = 0
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_bm0lv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_x85su")
 
-[node name="Options2" type="Label" parent="CanvasLayer/Control/CenterContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_font_sizes/font_size = 32
-text = "Add options here"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Options3" type="Label" parent="CanvasLayer/Control/CenterContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_font_sizes/font_size = 32
-text = "Add options here"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Options4" type="Label" parent="CanvasLayer/Control/CenterContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_font_sizes/font_size = 32
-text = "Add options here"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="BackButton" type="Button" parent="CanvasLayer/Control/CenterContainer/PanelContainer/MarginContainer/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-text = "Back to Menu"
+[connection signal="pressed" from="CanvasLayer/Control/Return/CenterContainer/Panel/Return_Button" to="CanvasLayer/Control" method="_on_return_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Quit/CenterContainer/Panel/Quit_Button" to="CanvasLayer/Control" method="_on_quit_button_pressed"]

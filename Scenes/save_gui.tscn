@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/save_gui.gd" id="1_2jqh5"]
 [ext_resource type="PackedScene" uid="uid://boi3mrc2om1ea" path="res://Scenes/save_slot.tscn" id="2_cvech"]
-[ext_resource type="Texture2D" uid="uid://gxu3y84ffdq" path="res://Assets/Sprites/UI/Blank_Background.png" id="2_hftwn"]
+[ext_resource type="Texture2D" uid="uid://gxu3y84ffdq" path="res://Assets/UI/Blank_Background.png" id="2_hftwn"]
 [ext_resource type="PackedScene" uid="uid://7pbpaipl6xhg" path="res://Scenes/cursor.tscn" id="4_mmg8m"]
 [ext_resource type="FontVariation" uid="uid://cehwtw2yg7pdc" path="res://NES.tres" id="4_ubpg8"]
 
@@ -126,10 +126,11 @@ vertical_alignment = 1
 
 [node name="Cursor" parent="." instance=ExtResource("4_mmg8m")]
 layout_mode = 0
-offset_left = 71.0
-offset_top = 71.0
-offset_right = 199.0
-offset_bottom = 199.0
+offset_left = 70.0
+offset_top = 70.0
+offset_right = 198.0
+offset_bottom = 198.0
+scale = Vector2(0.3, 0.3)
 menu_parent_path = NodePath("../NinePatchRect/GridContainer")
 
 [node name="Timer" type="Timer" parent="."]

@@ -1,13 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://dqxuxpapmko30"]
+[gd_scene load_steps=5 format=3 uid="uid://dqxuxpapmko30"]
 
 [ext_resource type="Script" path="res://Scripts/boss_slot.gd" id="1_6qhuj"]
-[ext_resource type="Texture2D" uid="uid://d2qxrjhvbddr6" path="res://Assets/Sprites/UI/Item_Slot.png" id="2_utqg5"]
+[ext_resource type="Texture2D" uid="uid://d2qxrjhvbddr6" path="res://Assets/UI/Item_Slot.png" id="2_utqg5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_onkeh"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k3o3a"]
+bg_color = Color(0, 0, 0, 0.392157)
 
 [node name="Boss_Slot" type="Panel"]
 self_modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2(256, 256)
-offset_right = 64.0
-offset_bottom = 64.0
+custom_minimum_size = Vector2(256, 160)
+offset_right = 256.0
+offset_bottom = 160.0
 script = ExtResource("1_6qhuj")
 
 [node name="Background" type="Sprite2D" parent="."]
@@ -35,6 +41,7 @@ offset_top = -32.0
 offset_right = 96.0
 offset_bottom = 95.0
 focus_mode = 0
-flat = true
+theme_override_styles/normal = SubResource("StyleBoxFlat_onkeh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_k3o3a")
 
 [connection signal="pressed" from="CenterContainer/Panel/Button" to="." method="_on_button_pressed"]

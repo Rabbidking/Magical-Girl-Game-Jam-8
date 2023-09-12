@@ -1,0 +1,60 @@
+[gd_scene load_steps=5 format=3 uid="uid://wnditm2ojv7x"]
+
+[ext_resource type="Script" path="res://Scripts/End_Game.gd" id="1_rq0f2"]
+[ext_resource type="Texture2D" uid="uid://c352eht5jyat1" path="res://Assets/Sprites/Art/End_Screen.jpg" id="2_fsku5"]
+[ext_resource type="FontVariation" uid="uid://cehwtw2yg7pdc" path="res://NES.tres" id="3_grnyi"]
+[ext_resource type="Texture2D" uid="uid://cqxsrkjaibjb8" path="res://Assets/Sprites/Art/Dark_Title.png" id="4_7bnm6"]
+
+[node name="End_Game" type="Node2D"]
+script = ExtResource("1_rq0f2")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_fsku5")
+
+[node name="How_To_Exit" type="Label" parent="Background"]
+texture_filter = 1
+offset_left = -795.0
+offset_top = 460.0
+offset_right = -263.0
+offset_bottom = 488.0
+scale = Vector2(1.2, 1.8)
+size_flags_horizontal = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("3_grnyi")
+theme_override_font_sizes/font_size = 32
+text = "Press Z or Left Click to Exit"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Congratulations" type="Label" parent="Background"]
+texture_filter = 1
+offset_left = -895.0
+offset_top = -478.333
+offset_right = -360.0
+offset_bottom = -448.333
+scale = Vector2(2, 2)
+size_flags_horizontal = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("3_grnyi")
+theme_override_font_sizes/font_size = 32
+text = "Thank you so much for playing!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Title" type="Sprite2D" parent="."]
+position = Vector2(345, 315)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_7bnm6")
+
+[node name="Button" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+scale = Vector2(144.041, 81.0334)
+focus_mode = 0
+flat = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

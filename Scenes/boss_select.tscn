@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b44b106gxpswt"]
+[gd_scene load_steps=9 format=3 uid="uid://b44b106gxpswt"]
 
 [ext_resource type="Script" path="res://Scripts/boss_select.gd" id="1_gnblr"]
 [ext_resource type="Texture2D" uid="uid://gxu3y84ffdq" path="res://Assets/UI/Blank_Background.png" id="2_rxme2"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bv2l2sim1wevf" path="res://Scenes/shop_gui.tscn" id="4_85lwt"]
 [ext_resource type="Script" path="res://Scripts/Render_select.gd" id="4_ew4ff"]
 [ext_resource type="PackedScene" uid="uid://cvqc1efxaaj6u" path="res://Scenes/save_gui.tscn" id="7_g6k7e"]
+[ext_resource type="FontVariation" uid="uid://cehwtw2yg7pdc" path="res://NES.tres" id="8_rm7lm"]
 
 [node name="BossSelect" type="Control"]
 layout_mode = 3
@@ -21,6 +22,157 @@ script = ExtResource("1_gnblr")
 position = Vector2(576, 324)
 scale = Vector2(1.97, 1.99)
 texture = ExtResource("2_rxme2")
+
+[node name="Select Boss" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 270.0
+offset_top = 25.0
+offset_right = 438.0
+offset_bottom = 53.0
+scale = Vector2(3.646, 3.5)
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("8_rm7lm")
+theme_override_font_sizes/font_size = 32
+text = "Select Boss"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Cockatrice" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 112.0
+offset_top = 235.0
+offset_right = 268.0
+offset_bottom = 263.0
+scale = Vector2(1, 2)
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("8_rm7lm")
+theme_override_font_sizes/font_size = 32
+text = "Cockatrice"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Liazrdwoman" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 363.0
+offset_top = 235.0
+offset_right = 537.0
+offset_bottom = 263.0
+scale = Vector2(1, 2)
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("8_rm7lm")
+theme_override_font_sizes/font_size = 32
+text = "Lizardwoman"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Harpy" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 675.0
+offset_top = 235.0
+offset_right = 753.0
+offset_bottom = 263.0
+scale = Vector2(1, 2)
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("8_rm7lm")
+theme_override_font_sizes/font_size = 32
+text = "Harpy"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Lamia" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 935.0
+offset_top = 235.0
+offset_right = 1013.0
+offset_bottom = 263.0
+scale = Vector2(1, 2)
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("8_rm7lm")
+theme_override_font_sizes/font_size = 32
+text = "Lamia"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Shop" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 135.0
+offset_top = 399.0
+offset_right = 243.0
+offset_bottom = 427.0
+scale = Vector2(1, 2)
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("8_rm7lm")
+theme_override_font_sizes/font_size = 32
+text = "Shop"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Options" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 395.0
+offset_top = 399.0
+offset_right = 503.0
+offset_bottom = 427.0
+scale = Vector2(1, 2)
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("8_rm7lm")
+theme_override_font_sizes/font_size = 32
+text = "Options
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Save" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 680.0
+offset_top = 399.0
+offset_right = 744.0
+offset_bottom = 427.0
+scale = Vector2(1, 2)
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("8_rm7lm")
+theme_override_font_sizes/font_size = 32
+text = "Save"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Load" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 940.0
+offset_top = 399.0
+offset_right = 1004.0
+offset_bottom = 427.0
+scale = Vector2(1, 2)
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("8_rm7lm")
+theme_override_font_sizes/font_size = 32
+text = "Load"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Help" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 135.0
+offset_top = 561.0
+offset_right = 243.0
+offset_bottom = 589.0
+scale = Vector2(1, 2)
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("8_rm7lm")
+theme_override_font_sizes/font_size = 32
+text = "Help"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Boss_GUI" parent="." instance=ExtResource("3_0e7l5")]
 layout_mode = 1
@@ -50,79 +202,6 @@ scale = Vector2(1, 0.8)
 [node name="Save_GUI" parent="." instance=ExtResource("7_g6k7e")]
 visible = false
 layout_mode = 1
-
-[node name="MarginContainer" type="MarginContainer" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -56.5
-offset_top = -68.0
-offset_right = 56.5
-offset_bottom = 68.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-layout_mode = 2
-
-[node name="Boss 1" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Cockatrice"
-
-[node name="Boss 2" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Lizardwoman"
-
-[node name="Boss 3" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Harpy"
-
-[node name="Boss 4" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Lamia"
-
-[node name="MarginContainer2" type="MarginContainer" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -133.0
-offset_top = -55.0
-offset_right = 133.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="Options" type="Button" parent="MarginContainer2/HBoxContainer"]
-layout_mode = 2
-text = "Options
-"
-
-[node name="Save" type="Button" parent="MarginContainer2/HBoxContainer"]
-layout_mode = 2
-text = "Save
-"
-
-[node name="Load" type="Button" parent="MarginContainer2/HBoxContainer"]
-layout_mode = 2
-text = "Load
-"
-
-[node name="Quit" type="Button" parent="MarginContainer2/HBoxContainer"]
-layout_mode = 2
-text = "Quit
-"
 
 [node name="Cursor_Buffer" type="Timer" parent="."]
 
@@ -174,11 +253,3 @@ text = "Quit
 [connection signal="save_slot2" from="Save_GUI" to="Inventory_GUI" method="_on_save_gui_save_slot_2"]
 [connection signal="save_slot3" from="Save_GUI" to="Inventory_GUI" method="_on_save_gui_save_slot_3"]
 [connection signal="save_slot4" from="Save_GUI" to="Inventory_GUI" method="_on_save_gui_save_slot_4"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Boss 1" to="." method="_on_boss_1_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Boss 2" to="." method="_on_boss_2_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Boss 3" to="." method="_on_boss_3_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Boss 4" to="." method="_on_boss_4_pressed"]
-[connection signal="pressed" from="MarginContainer2/HBoxContainer/Options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="MarginContainer2/HBoxContainer/Save" to="." method="_on_save_pressed"]
-[connection signal="pressed" from="MarginContainer2/HBoxContainer/Load" to="." method="_on_load_pressed"]
-[connection signal="pressed" from="MarginContainer2/HBoxContainer/Quit" to="." method="_on_quit_pressed"]

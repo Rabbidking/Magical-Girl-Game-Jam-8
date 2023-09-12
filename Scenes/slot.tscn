@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://c7hpouycgm41p"]
+[gd_scene load_steps=5 format=3 uid="uid://c7hpouycgm41p"]
 
 [ext_resource type="Script" path="res://Scripts/slot.gd" id="1_5qx2g"]
-[ext_resource type="Texture2D" uid="uid://d2qxrjhvbddr6" path="res://Assets/Sprites/UI/Item_Slot.png" id="2_eqoxw"]
+[ext_resource type="Texture2D" uid="uid://d2qxrjhvbddr6" path="res://Assets/UI/Item_Slot.png" id="2_eqoxw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0n60a"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f0myt"]
+bg_color = Color(0, 0, 0, 0.392157)
 
 [node name="Slot" type="Panel"]
 self_modulate = Color(1, 1, 1, 0)
@@ -33,6 +39,7 @@ offset_top = -246.0
 offset_right = 246.0
 offset_bottom = 246.0
 focus_mode = 0
-flat = true
+theme_override_styles/normal = SubResource("StyleBoxFlat_0n60a")
+theme_override_styles/hover = SubResource("StyleBoxFlat_f0myt")
 
 [connection signal="pressed" from="CenterContainer/Panel/Item/Button" to="." method="_on_button_pressed"]
