@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Boss_Options" load_steps=3 format=3 uid="uid://bq3lk5priivic"]
 
 [ext_resource type="Script" path="res://Scripts/boss_options.gd" id="1_sy45c"]
-[ext_resource type="Texture2D" uid="uid://btotkngaj6boe" path="res://Assets/Sprites/UI/Lizardwoman_Face.png" id="2_k0mwc"]
+[ext_resource type="Texture2D" uid="uid://btotkngaj6boe" path="res://Assets/UI/Lizardwoman_Face.png" id="2_k0mwc"]
 
 [resource]
 script = ExtResource("1_sy45c")

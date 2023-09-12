@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Boss_Options" load_steps=3 format=3 uid="uid://dny0brceyjrhd"]
 
 [ext_resource type="Script" path="res://Scripts/boss_options.gd" id="1_wqeob"]
-[ext_resource type="Texture2D" uid="uid://c0aydop1oxc4h" path="res://Assets/Sprites/UI/Options_Icon.png" id="2_q4p04"]
+[ext_resource type="Texture2D" uid="uid://c0aydop1oxc4h" path="res://Assets/UI/Options_Icon.png" id="2_q4p04"]
 
 [resource]
 script = ExtResource("1_wqeob")
