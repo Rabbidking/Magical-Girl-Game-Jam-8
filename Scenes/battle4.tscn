@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://cumg22fw68jp7"]
+[gd_scene load_steps=38 format=3 uid="uid://cumg22fw68jp7"]
 
 [ext_resource type="Script" path="res://Scripts/battle.gd" id="1_8ohry"]
 [ext_resource type="Resource" uid="uid://mpmu52v5pq6b" path="res://Scripts/Lamia.tres" id="2_0wnyv"]
@@ -7,14 +7,20 @@
 [ext_resource type="Texture2D" uid="uid://cy61d0ahcwq6b" path="res://Assets/Sprites/Enemy/Lizardwoman.png" id="5_xqk3p"]
 [ext_resource type="AudioStream" uid="uid://t8v3qxurlkcx" path="res://Audio/SFX/noisy effect (4).wav" id="6_kraau"]
 [ext_resource type="FontFile" uid="uid://bhnyl4v1ydf0o" path="res://NESCyrillic.ttf" id="6_vs83n"]
+[ext_resource type="AudioStream" uid="uid://n5o2648vatsc" path="res://Audio/SFX/Lamia/Whoosh 13.wav" id="7_0rcms"]
 [ext_resource type="Script" path="res://Scripts/Actions.gd" id="7_m31wq"]
 [ext_resource type="PackedScene" uid="uid://7pbpaipl6xhg" path="res://Scenes/cursor.tscn" id="8_dnj32"]
+[ext_resource type="AudioStream" uid="uid://7k5w621yianp" path="res://Audio/SFX/Lamia/BiteCreakBloodJuicy_002.wav" id="8_h14sd"]
 [ext_resource type="FontFile" uid="uid://cw8ksqql47ayn" path="res://Adventurer.ttf" id="9_m5js5"]
+[ext_resource type="AudioStream" uid="uid://bu2ive12gu5x0" path="res://Audio/SFX/Lamia/FireExplosion9.wav" id="9_xc7ya"]
 [ext_resource type="Script" path="res://Scripts/Render.gd" id="10_qv4r2"]
+[ext_resource type="AudioStream" uid="uid://gj6bl3ux5xmt" path="res://Audio/SFX/Lamia/Magic Positive 5.wav" id="10_qvkra"]
 [ext_resource type="PackedScene" uid="uid://cs2k4tas2m42" path="res://Scenes/inventory_gui.tscn" id="11_2wyt6"]
+[ext_resource type="AudioStream" uid="uid://ctm6xge4wgudd" path="res://Audio/SFX/Items/Healing 19.wav" id="11_ag4a4"]
 [ext_resource type="PackedScene" uid="uid://bv2l2sim1wevf" path="res://Scenes/shop_gui.tscn" id="12_l751s"]
 [ext_resource type="Texture2D" uid="uid://cl8spd50ab23v" path="res://Assets/Sprites/Magical_Girl.png" id="13_ss31g"]
 [ext_resource type="AudioStream" uid="uid://dcdi851i1yok3" path="res://Audio/SFX/Shield Metal 3_1.wav" id="15_rypqe"]
+[ext_resource type="AudioStream" uid="uid://uy5co8i0u31m" path="res://Audio/Music/Battlefield(loop)(130).wav" id="18_xvj1a"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1gc8j"]
 bg_color = Color(1, 0, 0, 1)
@@ -279,6 +285,21 @@ stretch_mode = 3
 [node name="enemy_die" type="AudioStreamPlayer" parent="EnemyContainer"]
 stream = ExtResource("6_kraau")
 
+[node name="Attack SFX" type="Control" parent="EnemyContainer"]
+layout_mode = 2
+
+[node name="Light_Attack" type="AudioStreamPlayer" parent="EnemyContainer/Attack SFX"]
+stream = ExtResource("7_0rcms")
+
+[node name="Medium Attack" type="AudioStreamPlayer" parent="EnemyContainer/Attack SFX"]
+stream = ExtResource("8_h14sd")
+
+[node name="Heavy Attack" type="AudioStreamPlayer" parent="EnemyContainer/Attack SFX"]
+stream = ExtResource("9_xc7ya")
+
+[node name="Special" type="AudioStreamPlayer" parent="EnemyContainer/Attack SFX"]
+stream = ExtResource("10_qvkra")
+
 [node name="MagicalGirl" type="TextureRect" parent="."]
 texture_filter = 2
 layout_mode = 0
@@ -295,6 +316,9 @@ stream = ExtResource("6_kraau")
 
 [node name="player_attack" type="AudioStreamPlayer" parent="MagicalGirl"]
 stream = ExtResource("15_rypqe")
+
+[node name="player_heal" type="AudioStreamPlayer" parent="MagicalGirl"]
+stream = ExtResource("11_ag4a4")
 
 [node name="PlayerPanel" type="Panel" parent="."]
 texture_filter = 1
@@ -534,6 +558,11 @@ anchor_mode = 0
 [node name="CursorBuffer" type="Timer" parent="."]
 wait_time = 0.1
 one_shot = true
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_xvj1a")
+volume_db = -10.0
+autoplay = true
 
 [connection signal="cursor_selected" from="ActionsPanel/Actions/Attack" to="." method="_on_attack_cursor_selected"]
 [connection signal="pressed" from="ActionsPanel/Actions/Attack" to="." method="_on_attack_pressed"]

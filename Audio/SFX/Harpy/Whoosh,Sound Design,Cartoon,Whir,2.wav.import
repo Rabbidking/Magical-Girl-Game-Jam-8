@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://2ytxfg0re5mm"
+path="res://.godot/imported/Whoosh,Sound Design,Cartoon,Whir,2.wav-107751e6f6a1f73140ff022d2011c24b.sample"
+
+[deps]
+
+source_file="res://Audio/SFX/Harpy/Whoosh,Sound Design,Cartoon,Whir,2.wav"
+dest_files=["res://.godot/imported/Whoosh,Sound Design,Cartoon,Whir,2.wav-107751e6f6a1f73140ff022d2011c24b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

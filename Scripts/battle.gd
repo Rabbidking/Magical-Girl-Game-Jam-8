@@ -111,18 +111,17 @@ func enemy_turn():
 					#Light Damage Attacks
 					if enemy.name == "Cockatrice":
 						display_text("%s Pecks Tia!" % enemy.name)
-						await textbox_closed
-						
 					elif enemy.name == "Lizardwoman":
 						display_text("%s Claws Tia twice!" % enemy.name)
-						await textbox_closed
+						#await textbox_closed
 						#$"EnemyContainer/Attack SFX/Light_Attack".play()
 					elif enemy.name == "Harpy":
 						display_text("%s strikes Tia with her Talons!" % enemy.name)
-						await textbox_closed
 					elif enemy.name == "Lamia":
 						display_text("%s whips Tia with her Tail!" % enemy.name)
-						await textbox_closed
+						
+					await textbox_closed
+					$"EnemyContainer/Attack SFX/Light_Attack".play()
 					
 					if is_defending:
 						#is_defending = false
@@ -152,6 +151,7 @@ func enemy_turn():
 					
 							display_text("%s dealt %d damage!" % [enemy.name.to_upper(), enemy.damage1])
 							await textbox_closed
+							$"EnemyContainer/Attack SFX/Light_Attack".play()
 							
 							cur_player_health = max(0, cur_player_health - enemy.damage1)
 							set_health($PlayerPanel/PlayerData/ProgressBar, cur_player_health, State.max_health)
@@ -176,17 +176,20 @@ func enemy_turn():
 					#Medium Damage
 					if enemy.name == "Cockatrice":
 						display_text("%s gives out a Shrill Crow!" % enemy.name)
-						await textbox_closed
-						$"EnemyContainer/Attack SFX/Medium Attack".play()
+						#await textbox_closed
+						#$"EnemyContainer/Attack SFX/Medium Attack".play()
 					elif enemy.name == "Lizardwoman":
 						display_text("%s Bites Tia!" % enemy.name)
-						await textbox_closed
+						#await textbox_closed
 					elif enemy.name == "Harpy":
 						display_text("%s drops something on Tia!" % enemy.name)
-						await textbox_closed
+						#await textbox_closed
 					elif enemy.name == "Lamia":
 						display_text("%s bites Tia with her Venom Fangs!" % enemy.name)
-						await textbox_closed
+						#await textbox_closed
+						
+					await textbox_closed
+					$"EnemyContainer/Attack SFX/Medium Attack".play()
 					
 					if is_defending:
 						#is_defending = false
@@ -215,9 +218,9 @@ func enemy_turn():
 									await textbox_closed
 									
 								1:
-									display_text("%s dropped a pebbles on Tia's head" % enemy.name)
+									display_text("%s dropped pebbles on Tia's head" % enemy.name)
 									await textbox_closed
-									
+									$"EnemyContainer/Attack SFX/Drop Trash SFX/Pebbles".play()
 									cur_player_health = max(0, cur_player_health - enemy.damage1)
 									set_health($PlayerPanel/PlayerData/ProgressBar, cur_player_health, State.max_health)
 						
@@ -230,7 +233,7 @@ func enemy_turn():
 								2:
 									display_text("%s dropped a brick on Tia's head" % enemy.name)
 									await textbox_closed
-									
+									$"EnemyContainer/Attack SFX/Drop Trash SFX/Brick".play()
 									cur_player_health = max(0, cur_player_health - enemy.damage2)
 									set_health($PlayerPanel/PlayerData/ProgressBar, cur_player_health, State.max_health)
 						
@@ -243,7 +246,7 @@ func enemy_turn():
 								3:
 									display_text("%s dropped a cupcake on Tia's head" % enemy.name)
 									await textbox_closed
-									
+									$MagicalGirl/player_heal.play()
 									cur_player_health = max(0, cur_player_health + (State.max_health * .75))
 									if cur_player_health > State.max_health:
 										cur_player_health = State.max_health
@@ -297,18 +300,21 @@ func enemy_turn():
 					#Heavy Attack
 					if enemy.name == "Cockatrice":
 						display_text("%s gives Tia a Death Stare!" % enemy.name)
-						await textbox_closed
-						$"EnemyContainer/Attack SFX/Heavy Attack".play()
+						#await textbox_closed
+						#$"EnemyContainer/Attack SFX/Heavy Attack".play()
 					if enemy.name == "Lizardwoman":
 						display_text("%s hits Tia with a Lariat!" % enemy.name)
-						await textbox_closed
+						#await textbox_closed
 					elif enemy.name == "Harpy":
 						display_text("%s Dive Strikes Tia!" % enemy.name)
-						await textbox_closed
+						#await textbox_closed
 					elif enemy.name == "Lamia":
 						display_text("%s hurls a Fire Ball at Tia!" % enemy.name)
-						await textbox_closed
+						#await textbox_closed
 						enemy.magic -= 25
+						
+					await textbox_closed
+					$"EnemyContainer/Attack SFX/Heavy Attack".play()
 					
 					if is_defending:
 						#is_defending = false
@@ -342,13 +348,13 @@ func enemy_turn():
 					#Harmless or Special attack
 					if enemy.name == "Cockatrice":
 						display_text("%s glares at Tia!" % enemy.name)
-						await textbox_closed
 						$"EnemyContainer/Attack SFX/Special".play()
+						await textbox_closed
 					if enemy.name == "Lizardwoman":
 						if buffed == false:
 							display_text("%s does a set of Push-Ups!" % enemy.name)
 							await textbox_closed
-						
+							$"EnemyContainer/Attack SFX/Special".play()
 							display_text("%s attack power increases!" % enemy.name)
 							await textbox_closed
 							enemy.damage1 += 5
@@ -359,24 +365,26 @@ func enemy_turn():
 						else:
 							display_text("%s flexes her muscles!" % enemy.name)
 							await textbox_closed
+							$"EnemyContainer/Attack SFX/Special".play()
 							
 					elif enemy.name == "Harpy":
 						display_text("%s steals from Tia!" % enemy.name)
 						await textbox_closed
-						
+						$"EnemyContainer/Attack SFX/Special".play()
 						display_text("%s stole $10!" % enemy.name)
 						await textbox_closed
-						State.money -= 15
+						State.money -= 10
 					elif enemy.name == "Lamia":
 						display_text("%s gives Tia a Evil Grin!" % enemy.name)
 						await textbox_closed
+						$"EnemyContainer/Attack SFX/Special".play()
 						
 						display_text("%s regains some magic!" % enemy.name)
 						await textbox_closed
 						enemy.magic += 25
 						if enemy.magic > 100:
 							enemy.magic = 100
-					
+							
 		
 		else:
 			display_text("%s attack missed" % enemy.name)
@@ -515,6 +523,7 @@ func _on_inventory_gui_item_used(item):
 			player_poisoned_counter = 0
 			player_immunity = true
 			player_immunity_counter = 5
+		$MagicalGirl/player_heal.play()
 		display_text("You ate a cupcake and it healed %d points" % int(State.max_health * .75))
 		cur_player_health = max(0, cur_player_health + (State.max_health * .75))
 		set_health($PlayerPanel/PlayerData/ProgressBar, cur_player_health, State.max_health)
@@ -542,7 +551,7 @@ func _on_inventory_gui_item_used(item):
 		display_text("You threw a unstable toaster")
 		cur_enemy_health = max(0, cur_enemy_health - (State.damage * 1.5))
 		set_health($EnemyContainer/ProgressBar, cur_enemy_health, enemy.health)
-	
+		$MagicalGirl/player_toaster.play()
 		$AnimationPlayer.play("enemy_damaged")
 		await $AnimationPlayer.animation_finished
 	
