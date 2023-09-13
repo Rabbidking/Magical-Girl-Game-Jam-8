@@ -574,13 +574,13 @@ func _on_inventory_gui_item_used(item):
 	elif item == "knife":
 		display_text("Tia threw a knife!")
 		$MagicalGirl/player_knife.play()
-		cur_enemy_health = max(0, cur_enemy_health - (State.damage * 2.5))
+		cur_enemy_health = max(0, cur_enemy_health - (State.damage * 3.5))
 		set_health($EnemyContainer/ProgressBar, cur_enemy_health, enemy.health)
 	
 		$AnimationPlayer.play("enemy_damaged")
 		await $AnimationPlayer.animation_finished
 	
-		display_text("Tia dealt %d damage!" % (State.damage *2.5))
+		display_text("Tia dealt %d damage!" % (State.damage * 3.5))
 		await textbox_closed
 	
 		if cur_enemy_health <= 0:
@@ -708,38 +708,38 @@ func _on_inventory_gui_item_used(item):
 		
 	elif item == "mitts":
 		var barrage = true
-		var barrage_attack = randi() % 4
+		var barrage_attack = randi() % 8
 		var cur_attack = 0
-		var max_attack = 5
+		var max_attack = 6
 		
 		display_text("Tia unleashed a barrage of punches!")
 		
 		for i in range(0, 2):
 			$MagicalGirl/player_mitts.play()
-			cur_enemy_health = max(0, cur_enemy_health - (State.damage * 1.4))
+			cur_enemy_health = max(0, cur_enemy_health - (State.damage * 1.3))
 			set_health($EnemyContainer/ProgressBar, cur_enemy_health, enemy.health)
 	
 			$AnimationPlayer.play("enemy_damaged")
 			await $AnimationPlayer.animation_finished
 	
-			display_text("Tia dealt %d damage!" % (State.damage * 1.4))
+			display_text("Tia dealt %d damage!" % (State.damage * 1.3))
 			await textbox_closed
 		
 		while barrage == true:
 			print("barrage mode")
 			print(barrage_attack)
-			if barrage_attack <= 1:
+			if barrage_attack in range(0, 3):
 				$MagicalGirl/player_mitts.play()
-				cur_enemy_health = max(0, cur_enemy_health - (State.damage * 1.5))
+				cur_enemy_health = max(0, cur_enemy_health - (State.damage * 1.4))
 				set_health($EnemyContainer/ProgressBar, cur_enemy_health, enemy.health)
 	
 				$AnimationPlayer.play("enemy_damaged")
 				await $AnimationPlayer.animation_finished
 	
-				display_text("Tia dealt %d damage!" % (State.damage * 1.5))
+				display_text("Tia dealt %d damage!" % (State.damage * 1.4))
 				await textbox_closed
 				cur_attack += 1
-				barrage_attack = randi() % 5
+				barrage_attack = randi() % 8
 			
 			elif cur_attack >= max_attack:
 				barrage = false
