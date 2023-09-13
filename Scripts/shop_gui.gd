@@ -91,49 +91,49 @@ func _on_timer_timeout():
 	
 func buy_cupcake():
 	if State.money >= cupcake_price and inv_full == false:
-		$"../../MagicalGirl/item_purchase".play()
+		$item_purchase.play()
 		State.money -= cupcake_price
 		update_money()
 		add_cupcake.emit()
 func buy_knife():
 	if State.money >= knife_price and inv_full == false:
-		$"../../MagicalGirl/item_purchase".play()
+		$item_purchase.play()
 		State.money -= knife_price
 		update_money()
 		add_knife.emit()
 func buy_toaster():
 	if State.money >= toaster_price and inv_full == false:
-		$"../../MagicalGirl/item_purchase".play()
+		$item_purchase.play()
 		State.money -= toaster_price
 		update_money()
 		add_toaster.emit()
 func buy_molotov():
 	if State.money >= molotov_price and inv_full == false:
-		$"../../MagicalGirl/item_purchase".play()
+		$item_purchase.play()
 		State.money -= molotov_price
 		update_money()
 		add_molotov.emit()
 func buy_poison():
 	if State.money >= poison_price and inv_full == false:
-		$"../../MagicalGirl/item_purchase".play()
+		$item_purchase.play()
 		State.money -= poison_price
 		update_money()
 		add_poison.emit()
 func buy_spice():
 	if State.money >= spice_price and inv_full == false:
-		$"../../MagicalGirl/item_purchase".play()
+		$item_purchase.play()
 		State.money -= spice_price
 		update_money()
 		add_spice.emit()
 func buy_mitts():
 	if State.money >= mitts_price and inv_full == false:
-		$"../../MagicalGirl/item_purchase".play()
+		$item_purchase.play()
 		State.money -= mitts_price
 		update_money()
 		add_mitts.emit()
 func buy_apron():
 	if State.money >= apron_price and inv_full == false:
-		$"../../MagicalGirl/item_purchase".play()
+		$item_purchase.play()
 		State.money -= apron_price
 		update_money()
 		add_apron.emit()

@@ -7,10 +7,16 @@
 script = ExtResource("1_u4qxq")
 name = "Cockatrice"
 texture = ExtResource("2_wetr0")
-health = 30
+health = 100
 damage1 = 15
 damage2 = 25
 damage3 = 35
 damage4 = 0
 accuracy = 100
 magic = 0
+shock_resist = 20
+blind_resist = 15
+is_poisoned = false
+is_burning = false
+is_paralyzed = false
+is_blinded = false
