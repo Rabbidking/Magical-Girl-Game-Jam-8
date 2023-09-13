@@ -79,7 +79,7 @@ scale = Vector2(3.646, 3.5)
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("3_4b0pd")
 theme_override_font_sizes/font_size = 32
-text = "Heals 75% of Max Health
+text = "Heals 50% of Max Health
 Cures Venom"
 horizontal_alignment = 1
 vertical_alignment = 1
