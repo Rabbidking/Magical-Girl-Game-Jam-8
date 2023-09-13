@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://wnditm2ojv7x"]
+[gd_scene load_steps=6 format=3 uid="uid://wnditm2ojv7x"]
 
 [ext_resource type="Script" path="res://Scripts/End_Game.gd" id="1_rq0f2"]
 [ext_resource type="Texture2D" uid="uid://c352eht5jyat1" path="res://Assets/Sprites/Art/End_Screen.jpg" id="2_fsku5"]
 [ext_resource type="FontVariation" uid="uid://cehwtw2yg7pdc" path="res://NES.tres" id="3_grnyi"]
 [ext_resource type="Texture2D" uid="uid://cqxsrkjaibjb8" path="res://Assets/Sprites/Art/Dark_Title.png" id="4_7bnm6"]
+[ext_resource type="AudioStream" uid="uid://bjn5juyyw1xoe" path="res://Audio/Music/AnotherVictoryAnotherEnding.wav" id="5_d72h2"]
 
 [node name="End_Game" type="Node2D"]
 script = ExtResource("1_rq0f2")
@@ -56,5 +57,10 @@ offset_bottom = 8.0
 scale = Vector2(144.041, 81.0334)
 focus_mode = 0
 flat = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_d72h2")
+volume_db = -15.0
+autoplay = true
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

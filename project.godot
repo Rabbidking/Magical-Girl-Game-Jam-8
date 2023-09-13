@@ -21,6 +21,10 @@ config/icon="res://icon.svg"
 
 State="*res://Scripts/state.gd"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [input]
 
 toggle_inventory={

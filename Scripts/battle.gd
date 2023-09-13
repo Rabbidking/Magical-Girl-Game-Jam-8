@@ -66,6 +66,7 @@ func display_text(text):
 func enemy_turn():
 	#display some text
 	if is_burning == true and enemy_dead == false:
+		$MagicalGirl/player_molotov.play()
 		burn_count -= 1
 		cur_enemy_health = max(0, cur_enemy_health - 15)
 		set_health($EnemyContainer/ProgressBar, cur_enemy_health, enemy.health)
@@ -80,6 +81,7 @@ func enemy_turn():
 			await textbox_closed
 	
 	if is_poisoned == true and enemy_dead == false:
+		$MagicalGirl/player_poison.play()
 		poison_count -= 1
 		cur_enemy_health = max(0, cur_enemy_health - 15)
 		set_health($EnemyContainer/ProgressBar, cur_enemy_health, enemy.health)
@@ -118,8 +120,6 @@ func enemy_turn():
 						display_text("%s Pecks Tia!" % enemy.name)
 					elif enemy.name == "Lizardwoman":
 						display_text("%s Claws Tia twice!" % enemy.name)
-						#await textbox_closed
-						#$"EnemyContainer/Attack SFX/Light_Attack".play()
 					elif enemy.name == "Harpy":
 						display_text("%s strikes Tia with her Talons!" % enemy.name)
 					elif enemy.name == "Lamia":
@@ -138,6 +138,7 @@ func enemy_turn():
 						if apron_counter <= 0:
 							wearing_apron = false
 							is_defending = false
+							$"EnemyContainer/Attack SFX/apron_destroy".play()
 							display_text("Tia's Apron is destroyed")
 							await textbox_closed
 						else:
@@ -567,6 +568,7 @@ func _on_inventory_gui_item_used(item):
 		
 	elif item == "knife":
 		display_text("Tia threw a knife")
+		$MagicalGirl/player_knife.play()
 		cur_enemy_health = max(0, cur_enemy_health - (State.damage * 2.5))
 		set_health($EnemyContainer/ProgressBar, cur_enemy_health, enemy.health)
 	
@@ -617,6 +619,7 @@ func _on_inventory_gui_item_used(item):
 		
 	elif item == "molotov":
 		display_text("Tia threw a lit molotov")
+		$MagicalGirl/player_molotov.play()
 		cur_enemy_health = max(0, cur_enemy_health - (State.damage * 1.5))
 		set_health($EnemyContainer/ProgressBar, cur_enemy_health, enemy.health)
 	
@@ -701,6 +704,7 @@ func _on_inventory_gui_item_used(item):
 		display_text("Tia unleashed a barrage of punches")
 		
 		for i in range(0, 2):
+			$MagicalGirl/player_mitts.play()
 			cur_enemy_health = max(0, cur_enemy_health - (State.damage * 1.2))
 			set_health($EnemyContainer/ProgressBar, cur_enemy_health, enemy.health)
 	
@@ -744,9 +748,11 @@ func _on_inventory_gui_item_used(item):
 			wearing_apron = true
 			apron_counter = 5
 			is_defending = true
+			$MagicalGirl/player_apron.play()
 			display_text("Tia puts on a protective apron!")
 			await textbox_closed
 		else:
+			$MagicalGirl/player_apron.play()
 			display_text("Tia tears off her apron to put on the other apron!")
 			await textbox_closed
 			
