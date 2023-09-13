@@ -256,11 +256,11 @@ func enemy_turn():
 							display_text("%s dropped a cupcake on Tia's head!" % enemy.name)
 							await textbox_closed
 							$MagicalGirl/player_heal.play()
-							cur_player_health = max(0, cur_player_health + (State.max_health * .75))
+							cur_player_health = max(0, cur_player_health + (State.max_health * .5))
 							if cur_player_health > State.max_health:
 								cur_player_health = State.max_health
 							set_health($PlayerPanel/PlayerData/ProgressBar, cur_player_health, State.max_health)
-							display_text("You ate a cupcake and it healed %d points!" % int(State.max_health * .75))
+							display_text("You ate a cupcake and it healed %d points!" % int(State.max_health * .5))
 							await textbox_closed
 							
 				elif enemy.name == "Lamia":
@@ -562,8 +562,8 @@ func _on_inventory_gui_item_used(item):
 			player_immunity = true
 			player_immunity_counter = 5
 		$MagicalGirl/player_heal.play()
-		display_text("Tia ate a cupcake and it healed %d points!" % int(State.max_health * .75))
-		cur_player_health = max(0, cur_player_health + (State.max_health * .75))
+		display_text("Tia ate a cupcake and it healed %d points!" % int(State.max_health * .5))
+		cur_player_health = max(0, cur_player_health + (State.max_health * .5))
 		if cur_player_health > State.max_health:
 			cur_player_health = State.max_health
 		set_health($PlayerPanel/PlayerData/ProgressBar, cur_player_health, State.max_health)
@@ -580,7 +580,7 @@ func _on_inventory_gui_item_used(item):
 		$AnimationPlayer.play("enemy_damaged")
 		await $AnimationPlayer.animation_finished
 	
-		display_text("Tia dealt %d damage!" % (State.damage *2))
+		display_text("Tia dealt %d damage!" % (State.damage *2.5))
 		await textbox_closed
 	
 		if cur_enemy_health <= 0:
@@ -790,7 +790,7 @@ func enemy_die():
 		"Lamia":
 			State.boss_4_def = true
 	
-	display_text("%s has been defeated and Tia gain $50!" % enemy.name.to_upper())
+	display_text("%s has been defeated and Tia gained $50!" % enemy.name.to_upper())
 	await textbox_closed
 	
 	display_text("Tia gain a boost to her health!")
@@ -827,5 +827,6 @@ func _on_cursor_buffer_timeout():
 
 
 func _on_shop_pressed():
+	print("this here")
 	$ItemsPanel/Inventory_GUI.position.x = -1
 	$ItemsPanel/Inventory_GUI.position.y = 167
