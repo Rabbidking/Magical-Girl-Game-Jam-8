@@ -812,10 +812,14 @@ func _on_attack_cursor_selected():
 func _on_item_cursor_selected():
 	cursor.cursor_disabled()
 	_on_inventory_gui_opened()
+	$ItemsPanel/Inventory_GUI.position.x = -1
+	$ItemsPanel/Inventory_GUI.position.y = 42
 
 func _on_shop_cursor_selected():
 	cursor.cursor_disabled()
 	_on_shop_gui_opened()
+	$ItemsPanel/Inventory_GUI.position.x = -1
+	$ItemsPanel/Inventory_GUI.position.y = 167
 
 func _on_run_cursor_selected():
 	cursor.cursor_disabled()
