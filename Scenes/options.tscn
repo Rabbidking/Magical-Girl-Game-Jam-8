@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://gxu3y84ffdq" path="res://Assets/UI/Blank_Background.png" id="1_7u736"]
 [ext_resource type="Script" path="res://Scripts/options.gd" id="1_a8urr"]
 [ext_resource type="Texture2D" uid="uid://d2qxrjhvbddr6" path="res://Assets/UI/Item_Slot.png" id="2_486fp"]
-[ext_resource type="Texture2D" uid="uid://c0aydop1oxc4h" path="res://Assets/Sprites/UI/Options_Icon.png" id="5_b5aw7"]
+[ext_resource type="Texture2D" uid="uid://c0aydop1oxc4h" path="res://Assets/UI/Options_Icon.png" id="5_b5aw7"]
 [ext_resource type="FontVariation" uid="uid://cehwtw2yg7pdc" path="res://NES.tres" id="5_x8ack"]
 [ext_resource type="PackedScene" uid="uid://djbnisihqtcug" path="res://Scenes/volume_slider.tscn" id="6_xbaq3"]
 
@@ -157,46 +157,22 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_x85su")
 
 [node name="VolumeContainer" type="VBoxContainer" parent="CanvasLayer/Control"]
 layout_mode = 0
-offset_left = 602.0
-offset_top = 309.0
-offset_right = 853.0
-offset_bottom = 470.0
+offset_left = 98.0
+offset_top = 168.0
+offset_right = 349.0
+offset_bottom = 263.0
 
 [node name="master_label" type="Label" parent="CanvasLayer/Control/VolumeContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("5_x8ack")
 theme_override_font_sizes/font_size = 48
-text = "Master Volume"
+text = "Volume"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Master" parent="CanvasLayer/Control/VolumeContainer" instance=ExtResource("6_xbaq3")]
 layout_mode = 2
 bus_name = "Master"
-
-[node name="music_label" type="Label" parent="CanvasLayer/Control/VolumeContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("5_x8ack")
-theme_override_font_sizes/font_size = 48
-text = "Music Volume"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="music" parent="CanvasLayer/Control/VolumeContainer" instance=ExtResource("6_xbaq3")]
-layout_mode = 2
-bus_name = "music"
-
-[node name="sfx_label" type="Label" parent="CanvasLayer/Control/VolumeContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("5_x8ack")
-theme_override_font_sizes/font_size = 48
-text = "SFX Volume"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="sfx" parent="CanvasLayer/Control/VolumeContainer" instance=ExtResource("6_xbaq3")]
-layout_mode = 2
-bus_name = "sfx"
 
 [connection signal="pressed" from="CanvasLayer/Control/Return/CenterContainer/Panel/Return_Button" to="CanvasLayer/Control" method="_on_return_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/Quit/CenterContainer/Panel/Quit_Button" to="CanvasLayer/Control" method="_on_quit_button_pressed"]

@@ -8,17 +8,17 @@
 [ext_resource type="FontFile" uid="uid://bhnyl4v1ydf0o" path="res://NESCyrillic.ttf" id="6_iwqvp"]
 [ext_resource type="AudioStream" uid="uid://t8v3qxurlkcx" path="res://Audio/SFX/noisy effect (4).wav" id="6_lv4rd"]
 [ext_resource type="Script" path="res://Scripts/Actions.gd" id="7_5nmeq"]
-[ext_resource type="AudioStream" uid="uid://bhlby1mje4ijq" path="res://Audio/SFX/Harpy/Whoosh,Sound Design,Airy,Full,Forceful,Soft.wav" id="7_bb3yi"]
+[ext_resource type="AudioStream" uid="uid://bhlby1mje4ijq" path="res://Audio/SFX/Whoosh,Sound Design,Airy,Full,Forceful,Soft.wav" id="7_bb3yi"]
 [ext_resource type="AudioStream" uid="uid://bpvq1l1rpfc3k" path="res://Audio/SFX/Harpy/Arrow Fly 2_1.wav" id="7_svis8"]
-[ext_resource type="AudioStream" uid="uid://2ytxfg0re5mm" path="res://Audio/SFX/Harpy/Whoosh,Sound Design,Cartoon,Whir,2.wav" id="8_2g7kv"]
-[ext_resource type="AudioStream" uid="uid://dlb35fl5qge32" path="res://Audio/SFX/Harpy/Fly By 01_1.wav" id="8_5is3c"]
+[ext_resource type="AudioStream" uid="uid://2ytxfg0re5mm" path="res://Audio/SFX/Whoosh,Sound Design,Cartoon,Whir,2.wav" id="8_2g7kv"]
+[ext_resource type="AudioStream" uid="uid://dlb35fl5qge32" path="res://Audio/SFX/Fly By 01_1.wav" id="8_5is3c"]
 [ext_resource type="PackedScene" uid="uid://7pbpaipl6xhg" path="res://Scenes/cursor.tscn" id="8_jcmo8"]
 [ext_resource type="FontFile" uid="uid://cw8ksqql47ayn" path="res://Adventurer.ttf" id="9_q3t3e"]
 [ext_resource type="AudioStream" uid="uid://cug8u611b05m8" path="res://Audio/SFX/Harpy/brick_impact_debris_02.wav" id="9_yoj6h"]
 [ext_resource type="AudioStream" uid="uid://cy6dn50ipsb1c" path="res://Audio/SFX/Harpy/Rock Impact Small 01.wav" id="10_fgxed"]
 [ext_resource type="Script" path="res://Scripts/Render.gd" id="10_i0koc"]
 [ext_resource type="PackedScene" uid="uid://cs2k4tas2m42" path="res://Scenes/inventory_gui.tscn" id="11_d71vj"]
-[ext_resource type="AudioStream" uid="uid://ctm6xge4wgudd" path="res://Audio/SFX/Items/Healing 19.wav" id="11_silsk"]
+[ext_resource type="AudioStream" uid="uid://ctm6xge4wgudd" path="res://Audio/SFX/Healing 19.wav" id="11_silsk"]
 [ext_resource type="PackedScene" uid="uid://bv2l2sim1wevf" path="res://Scenes/shop_gui.tscn" id="12_d31kn"]
 [ext_resource type="AudioStream" uid="uid://b85qmshuh0hj8" path="res://Audio/SFX/Ripping Clothes 1.wav" id="13_hvnbt"]
 [ext_resource type="Texture2D" uid="uid://cl8spd50ab23v" path="res://Assets/Sprites/Magical_Girl.png" id="13_ptpd6"]
@@ -294,26 +294,21 @@ stretch_mode = 3
 
 [node name="enemy_die" type="AudioStreamPlayer" parent="EnemyContainer"]
 stream = ExtResource("6_lv4rd")
-bus = &"sfx"
 
 [node name="Attack SFX" type="Control" parent="EnemyContainer"]
 layout_mode = 2
 
 [node name="Light_Attack" type="AudioStreamPlayer" parent="EnemyContainer/Attack SFX"]
 stream = ExtResource("7_svis8")
-bus = &"sfx"
 
 [node name="Medium Attack" type="AudioStreamPlayer" parent="EnemyContainer/Attack SFX"]
 stream = ExtResource("8_5is3c")
-bus = &"sfx"
 
 [node name="Heavy Attack" type="AudioStreamPlayer" parent="EnemyContainer/Attack SFX"]
 stream = ExtResource("7_bb3yi")
-bus = &"sfx"
 
 [node name="Special" type="AudioStreamPlayer" parent="EnemyContainer/Attack SFX"]
 stream = ExtResource("8_2g7kv")
-bus = &"sfx"
 
 [node name="Drop Trash SFX" type="Control" parent="EnemyContainer/Attack SFX"]
 anchors_preset = 0
@@ -322,15 +317,12 @@ offset_bottom = 40.0
 
 [node name="Brick" type="AudioStreamPlayer" parent="EnemyContainer/Attack SFX/Drop Trash SFX"]
 stream = ExtResource("9_yoj6h")
-bus = &"sfx"
 
 [node name="Pebbles" type="AudioStreamPlayer" parent="EnemyContainer/Attack SFX/Drop Trash SFX"]
 stream = ExtResource("10_fgxed")
-bus = &"sfx"
 
 [node name="apron_destroy" type="AudioStreamPlayer" parent="EnemyContainer/Attack SFX"]
 stream = ExtResource("13_hvnbt")
-bus = &"sfx"
 
 [node name="MagicalGirl" type="TextureRect" parent="."]
 texture_filter = 2
@@ -345,43 +337,33 @@ stretch_mode = 3
 
 [node name="player_die" type="AudioStreamPlayer" parent="MagicalGirl"]
 stream = ExtResource("6_lv4rd")
-bus = &"sfx"
 
 [node name="player_heal" type="AudioStreamPlayer" parent="MagicalGirl"]
 stream = ExtResource("11_silsk")
-bus = &"sfx"
 
 [node name="player_attack" type="AudioStreamPlayer" parent="MagicalGirl"]
 stream = ExtResource("15_43wea")
-bus = &"sfx"
 
 [node name="player_toaster" type="AudioStreamPlayer" parent="MagicalGirl"]
 stream = ExtResource("16_7xjcg")
-bus = &"sfx"
 
 [node name="player_knife" type="AudioStreamPlayer" parent="MagicalGirl"]
 stream = ExtResource("18_m1w22")
-bus = &"sfx"
 
 [node name="player_molotov" type="AudioStreamPlayer" parent="MagicalGirl"]
 stream = ExtResource("19_ldvko")
-bus = &"sfx"
 
 [node name="player_poison" type="AudioStreamPlayer" parent="MagicalGirl"]
 stream = ExtResource("20_dtlpl")
-bus = &"sfx"
 
 [node name="player_mitts" type="AudioStreamPlayer" parent="MagicalGirl"]
 stream = ExtResource("21_ebjug")
-bus = &"sfx"
 
 [node name="player_apron" type="AudioStreamPlayer" parent="MagicalGirl"]
 stream = ExtResource("22_56pl1")
-bus = &"sfx"
 
 [node name="item_purchase" type="AudioStreamPlayer" parent="MagicalGirl"]
 stream = ExtResource("23_6kk1i")
-bus = &"sfx"
 
 [node name="PlayerPanel" type="Panel" parent="."]
 texture_filter = 1
@@ -626,7 +608,6 @@ one_shot = true
 stream = ExtResource("18_01xc4")
 volume_db = -10.0
 autoplay = true
-bus = &"music"
 
 [connection signal="cursor_selected" from="ActionsPanel/Actions/Attack" to="." method="_on_attack_cursor_selected"]
 [connection signal="pressed" from="ActionsPanel/Actions/Attack" to="." method="_on_attack_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bv2l2sim1wevf"]
+[gd_scene load_steps=8 format=3 uid="uid://bv2l2sim1wevf"]
 
 [ext_resource type="Script" path="res://Scripts/shop_gui.gd" id="1_nja2r"]
 [ext_resource type="Texture2D" uid="uid://w0rulu25f2me" path="res://Assets/UI/Shop_Background.png" id="2_yai3k"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://7pbpaipl6xhg" path="res://Scenes/cursor.tscn" id="4_h0o8q"]
 [ext_resource type="FontVariation" uid="uid://cehwtw2yg7pdc" path="res://NES.tres" id="4_jo4p2"]
 [ext_resource type="AudioStream" uid="uid://b8xhnrymyim4e" path="res://Audio/SFX/UI/Click Back (1).wav" id="6_mhyst"]
+[ext_resource type="AudioStream" uid="uid://bo66iqf5nwpr3" path="res://Audio/SFX/Item Purchase (3).wav" id="7_1ajo4"]
 
 [node name="Shop_GUI" type="Control"]
 custom_minimum_size = Vector2(1152, 648)
@@ -208,6 +209,9 @@ one_shot = true
 
 [node name="close_shop" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_mhyst")
+
+[node name="item_purchase" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_1ajo4")
 
 [connection signal="button_pressed" from="NinePatchRect/GridContainer/Shop_Slot" to="." method="_on_shop_slot_button_pressed"]
 [connection signal="cursor_selected" from="NinePatchRect/GridContainer/Shop_Slot" to="." method="_on_shop_slot_cursor_selected"]
