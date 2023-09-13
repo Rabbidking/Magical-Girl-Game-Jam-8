@@ -12,3 +12,5 @@ res://Scenes/volume_slider.tscn
 res://Scripts/state.gd
 res://Scripts/options.gd
 res://Scenes/end_game.tscn
+res://Scripts/shop_gui.gd
+res://Scenes/shop_gui.tscn

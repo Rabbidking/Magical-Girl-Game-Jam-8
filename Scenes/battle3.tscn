@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://bm2evocdv3c08"]
+[gd_scene load_steps=48 format=3 uid="uid://bm2evocdv3c08"]
 
 [ext_resource type="Script" path="res://Scripts/battle.gd" id="1_bw0pc"]
 [ext_resource type="Resource" uid="uid://3plebjvth4f" path="res://Scripts/Harpy.tres" id="2_1ige5"]
@@ -30,6 +30,7 @@
 [ext_resource type="AudioStream" uid="uid://cwgfeh7ihkncv" path="res://Audio/SFX/Bubbles 11.wav" id="20_dtlpl"]
 [ext_resource type="AudioStream" uid="uid://4syuc0d6o0ub" path="res://Audio/SFX/Simple Punch 20.wav" id="21_ebjug"]
 [ext_resource type="AudioStream" uid="uid://d2jxj5tkwthf6" path="res://Audio/SFX/CLOTHING_MATERIAL_MOVEMENT_08.wav" id="22_56pl1"]
+[ext_resource type="AudioStream" uid="uid://bo66iqf5nwpr3" path="res://Audio/SFX/Item Purchase (3).wav" id="23_6kk1i"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1gc8j"]
 bg_color = Color(1, 0, 0, 1)
@@ -376,6 +377,10 @@ bus = &"sfx"
 
 [node name="player_apron" type="AudioStreamPlayer" parent="MagicalGirl"]
 stream = ExtResource("22_56pl1")
+bus = &"sfx"
+
+[node name="item_purchase" type="AudioStreamPlayer" parent="MagicalGirl"]
+stream = ExtResource("23_6kk1i")
 bus = &"sfx"
 
 [node name="PlayerPanel" type="Panel" parent="."]

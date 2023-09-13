@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://cumg22fw68jp7"]
+[gd_scene load_steps=46 format=3 uid="uid://cumg22fw68jp7"]
 
 [ext_resource type="Script" path="res://Scripts/battle.gd" id="1_8ohry"]
 [ext_resource type="Resource" uid="uid://mpmu52v5pq6b" path="res://Scripts/Lamia.tres" id="2_0wnyv"]
@@ -28,6 +28,7 @@
 [ext_resource type="AudioStream" uid="uid://uy5co8i0u31m" path="res://Audio/Music/Battlefield(loop)(130).wav" id="18_xvj1a"]
 [ext_resource type="AudioStream" uid="uid://4syuc0d6o0ub" path="res://Audio/SFX/Simple Punch 20.wav" id="19_na6lo"]
 [ext_resource type="AudioStream" uid="uid://d2jxj5tkwthf6" path="res://Audio/SFX/CLOTHING_MATERIAL_MOVEMENT_08.wav" id="20_vhh61"]
+[ext_resource type="AudioStream" uid="uid://bo66iqf5nwpr3" path="res://Audio/SFX/Item Purchase (3).wav" id="21_ejpo1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1gc8j"]
 bg_color = Color(1, 0, 0, 1)
@@ -361,6 +362,10 @@ bus = &"sfx"
 
 [node name="player_apron" type="AudioStreamPlayer" parent="MagicalGirl"]
 stream = ExtResource("20_vhh61")
+bus = &"sfx"
+
+[node name="item_purchase" type="AudioStreamPlayer" parent="MagicalGirl"]
+stream = ExtResource("21_ejpo1")
 bus = &"sfx"
 
 [node name="PlayerPanel" type="Panel" parent="."]
