@@ -100,8 +100,8 @@ scale = Vector2(3.646, 3.5)
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("3_4b0pd")
 theme_override_font_sizes/font_size = 32
-text = "Deals the x2.5 damage
-than Normal Attack"
+text = "Deals the biggest damage
+"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
@@ -187,7 +187,9 @@ size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("3_4b0pd")
 theme_override_font_sizes/font_size = 32
 text = "Blinds enemy
-for 6 rounds"
+for 6 rounds
+Warning! - each use
+ builds resist to blind"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
@@ -208,8 +210,8 @@ size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("3_4b0pd")
 theme_override_font_sizes/font_size = 32
 text = "Mitts perfect for boxing
-Guaranteed to deal at 
-least 2 blows"
+Guaranteed to 
+last at least 2 blows"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
@@ -229,9 +231,9 @@ scale = Vector2(3.646, 3.5)
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("3_4b0pd")
 theme_override_font_sizes/font_size = 32
-text = "Protects against
-all damage
-for 5 attacks"
+text = "Reduces damage
+by 75%
+for 5 enemy attacks"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
